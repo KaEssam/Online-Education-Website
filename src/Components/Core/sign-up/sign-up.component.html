@@ -1,1 +1,70 @@
-<p>sign-up works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3>Create Your Account</h3>
+          <p>
+            Hey there! Ready to join the party? We just need a few details from
+            you to get started. Let's do this!
+          </p>
+        </div>
+        <div class="card-body">
+          <form formGroup="signupForm" (ngsubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                formControlName="firstName"
+                placeholder="Enter First Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                placeholder="Enter Last Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                formControlName="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
