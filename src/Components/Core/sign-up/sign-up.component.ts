@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,12 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-  signupForm!: FormGroup;
+[x: string]: any;
+  createUserForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
-    this.signupForm = this.formBuilder.group({
+  ngOnInit(): void {
+    this.createUserForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -23,15 +25,15 @@ export class SignUpComponent {
     });
   }
 
-  confirmPasswordValidator(control: FormGroup): { [s: string]: boolean } | undefined {
-    if (control.value !== this.signupForm?.get('password')?.value) {
-      return { 'passwordMismatch': true };
+  confirmPasswordValidator(control: FormGroup): { [s: string]: boolean } {
+    const passwordControl = this.createUserForm.get('password');
+    if (control.value !== passwordControl?.value) {
+      return { 'noMatch': true };
     }
-    return undefined;
+    return {};
   }
 
-  onSubmit() {
-    // Handle form submission logic here
-    console.log(this.signupForm?.value);
-  }
+    onSubmit() {
+  // Your code here
+}
 }
