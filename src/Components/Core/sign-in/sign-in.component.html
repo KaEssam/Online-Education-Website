@@ -1,50 +1,70 @@
-<div class="container">
-  <h1 class="title">Welcome back!</h1>
-  <p class="description">
-    Hey there! Ready to log in? Just enter your username and password below and
-    you'll be back in action in no time. Let's go!
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Welcome back!</h1>
+      <p class="description">
+        Hey there! Ready to log in? Just enter your username and password below
+        and you'll be back in action in no time. Let's go!
+      </p>
 
-  <form formGroup="loginForm" (ngsubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        formControlName="email"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        formControlName="password"
-        required
-      />
-      <div class="form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="rememberMe"
-          formControlName="rememberMe"
-        />
-        <label class="form-check-label" for="rememberMe">Remember me</label>
+      <div class="social-container">
+        <a href="#" class="social-btn btn-google"
+          ><i class="bi bi-google"></i> Continue with Google
+        </a>
+        <hr />
       </div>
-      <a routerlink="/forgot-password">Forgot Password?</a>
+
+      <form formGroup="loginForm" (ngsubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="rememberMe"
+              formControlName="rememberMe"
+            />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+            <a routerlink="/forgot-password" style="margin-left: 10px"
+              >Forgot Password?</a
+            >
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a routerlink="/signup">Sign Up</a>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign In →</button>
-  </form>
-
-  <div class="social-container">
-    <p class="or">or</p>
-    <a href="#" class="social-btn btn-google">Continue with Google</a>
-  </div>
-
-  <div class="signup-link">
-    Don't have an account? <a routerlink="/signup">Sign Up</a>
-  </div>
-</div>
+  </body>
+</html>

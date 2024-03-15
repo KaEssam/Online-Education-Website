@@ -12,23 +12,32 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       password: ['', Validators.required],
-      rememberMe: [false],
+      rememberMe: [false]
     });
   }
 
   onSubmit() {
-    // Handle login form submission logic here
-    // This would typically involve making an API call to your backend to authenticate the user
-    // and storing relevant user information (if successful)
-    console.log(this.loginForm.value);
+    if (this.loginForm.valid) {
+      // Form is valid, handle submission logic here
+      console.log(this.loginForm.value);
+    } else {
+      // Form is invalid, mark all fields as touched to display validation messages
+      this.markFormGroupTouched(this.loginForm);
+    }
+  }
 
-    // After successful login, redirect to the intended route
-    this.router.navigate(['/']);
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 }
