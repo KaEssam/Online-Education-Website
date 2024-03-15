@@ -33,4 +33,19 @@ isDropdownOpen = false;
   toggleAvatarDropdown(): void {
     this.isAvatarDropdownOpen = !this.isAvatarDropdownOpen;
   }
+
+  isDashboardDropdownOpen: boolean = false;
+  isSubmenuTwoOpen: string = '';
+
+  constructor() {}
+
+  toggleDashboardDropdown(event: MouseEvent): void {
+    event.preventDefault();
+    this.isDashboardDropdownOpen = !this.isDashboardDropdownOpen;
+  }
+
+  toggleSubmenuTwo(event: MouseEvent, submenu: string): void {
+    event.preventDefault();
+    this.isSubmenuTwoOpen = this.isSubmenuTwoOpen === submenu ? '' : submenu;
+  }
 }
