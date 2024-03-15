@@ -1,0 +1,66 @@
+form {
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px;
+  border: none;
+  border-radius: 4px;
+  /* Add subtle border radius */
+  background-color: #f8f9fa;
+  /* Set light background color */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 600px;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  /* Add line-height for better readability */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: normal;
+  /* Change to normal weight for a more casual look */
+  color: #3c4858;
+  /* Adjust label text color for better contrast */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  /* Blue background color */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  /* Increase padding to match button size in image */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
+  /* Slightly darker blue on hover */
+}
+
+a {
+  color: #007bff;
+  /* Blue color for the link */
+  text-decoration: none;
+  /* Remove underline */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005cbf;
+  /* Darker blue on hover */
+}
