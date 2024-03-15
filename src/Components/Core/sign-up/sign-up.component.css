@@ -1,66 +1,125 @@
-form {
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  background-color: var(--tg-common-color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.container {
+  background-color: var(--tg-common-color-gray-2);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 90%;
-  margin: 0 auto;
-  padding: 40px;
-  border: none;
-  border-radius: 4px;
-  /* Add subtle border radius */
-  background-color: #f8f9fa;
-  /* Set light background color */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  width: 600px;
-}
-
-h2 {
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
+  max-width: 600px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 1.5;
-  /* Add line-height for better readability */
+.social-container {
+  margin-bottom: 30px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.social-btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: calc(100% - 22px);
+  transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+  background-color: #f0f0f0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--tg-common-color-gray-3);
+  margin: 20px 0;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.FullName{
+  display: flex;
+  justify-content: space-between;
+}
+
+.FullName input{
+
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  font-weight: var(--tg-fw-light);
 }
 
 label {
-  display: block;
   margin-bottom: 5px;
-  font-weight: normal;
-  /* Change to normal weight for a more casual look */
-  color: #3c4858;
-  /* Adjust label text color for better contrast */
+  margin-left: 15px;
+  display: block;
+  text-align: left;
+  font-weight: var(--tg-fw-medium)
+}
+  .input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-weight: var(--tg-fw-regular);
+  }
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: calc(100%);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    font-weight: var(--tg-fw-light);
 }
 
-.btn-primary {
-  background-color: #007bff;
-  /* Blue background color */
-  color: white;
+button {
+  background-color: var(--tg-theme-secondary);
+  color: var(--tg-common-color-black-3);
+  font-weight: var(--tg-fw-medium);
   border: none;
-  padding: 15px 30px;
-  /* Increase padding to match button size in image */
-  border-radius: 4px;
+  border-radius: 50px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: calc(100% - 22px);
+  transition: background-color 0.5s;
+  box-shadow: 4px 4px 0px 0px #3d3d3d;
 }
 
-.btn-primary:hover {
-  background-color: #0062cc;
-  /* Slightly darker blue on hover */
+button:hover {
+  background-color: var(--tg-theme-primary);
+  box-shadow: 4px 4px 0px 0px var(--tg-theme-primary);
 }
 
-a {
-  color: #007bff;
-  /* Blue color for the link */
-  text-decoration: none;
-  /* Remove underline */
-  transition: color 0.3s ease;
-}
+  .signin-link {
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: var(--tg-fw-light);
+  }
 
-a:hover {
-  color: #005cbf;
-  /* Darker blue on hover */
-}
+  .signin-link a {
+    margin-left: 5px;
+  }
