@@ -1,11 +1,10 @@
-<div class="container-fluid p-5">
+<div class="container p-5">
   <!-- Contact Information Section -->
   <div class="row mb-3 justify-content-center">
-
-    <div class="contact-item col-md-4 col-sm-6 mb-3 me-md-3 d-flex align-items-center">
+    <div class="contact-item col-lg-4 col-md-6 col-sm-10 mb-3">
       <div class="row align-items-center">
         <div class="col-auto">
-          <i class="fa fa-phone mx-lg-4  mx-sm-0 icon"></i>
+          <i class="fa fa-phone mx-lg-3 mx-sm-0 icon"></i>
         </div>
         <div class="col">
           <h4><strong>Phone</strong></h4>
@@ -13,11 +12,10 @@
         </div>
       </div>
     </div>
-
-    <div class="contact-item col-md-4 col-sm-6 mb-3 ms-md-3 d-flex align-items-center">
+    <div class="contact-item col-lg-4 col-md-6 col-sm-10 mb-3">
       <div class="row align-items-center">
-        <div class="col-auto ">
-          <i class="fa fa-envelope mx-lg-4 mx-md-0 mx-sm-0 icon"></i>
+        <div class="col-auto">
+          <i class="fa fa-envelope mx-lg-3 mx-sm-0 icon"></i>
         </div>
         <div class="col">
           <h4><strong>Email</strong></h4>
@@ -25,13 +23,11 @@
         </div>
       </div>
     </div>
-
   </div>
-
   <!-- Contact Input Section -->
   <div class="row justify-content-center">
-    <div class="col-md-8 col-sm-8 contact-input p-5">
-      <h2>Send Us Message</h2>
+    <div class="col-lg-8 col-md-12 col-sm-10 contact-input pt-4 pb-5 px-5">
+      <h2 class="mt-2">Send Us Message</h2>
       <p>Your email address will not be published.</p>
       <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
         <div class="mb-3">
