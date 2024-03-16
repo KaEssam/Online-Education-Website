@@ -1,16 +1,52 @@
-/* .dropdown-menu li {
+
+
+/* Center the search bar */
+.navbar .input-group {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Style the search input */
+.navbar .form-control {
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+/* Style the search button */
+.navbar .input-group-btn {
+    margin-left: -40px;
+}
+
+/* Style the search icon */
+.navbar .btn-outline-dark {
+    border-radius: 50px;
+    padding: 10px;
+}
+
+/* Style the instructor link */
+.navbar .instructor {
+    margin-left: 20px;
+}
+
+/* Style the input group */
+.input-group {
     position: relative;
-    }
-    .dropdown-menu .dropdown-submenu {
-    display: none;
+}
+
+/* Style the search input */
+.form-control {
+    padding-right: 40px;
+}
+
+/* Style the search button */
+.input-group-append {
     position: absolute;
-    left: 100%;
-    top: -7px;
-    }
-    .dropdown-menu .dropdown-submenu-left {
-    right: 100%;
-    left: auto;
-    }
-    .dropdown-menu > li:hover > .dropdown-submenu {
-    display: block;
-    } */
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.btn-outline-dark {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
