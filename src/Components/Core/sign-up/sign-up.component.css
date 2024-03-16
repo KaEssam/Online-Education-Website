@@ -105,13 +105,13 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   width: calc(100% - 22px);
-  transition: background-color 0.5s;
+  transition: all 0.3s ease-out 0s;
   box-shadow: 4px 4px 0px 0px #3d3d3d;
 }
 
 button:hover {
-  background-color: var(--tg-theme-primary);
-  box-shadow: 4px 4px 0px 0px var(--tg-theme-primary);
+  background-color: var(--tg-theme-primary);    box-shadow: 0 0 0 0 var(--tg-common-color-blue);
+
 }
 
   .signin-link {

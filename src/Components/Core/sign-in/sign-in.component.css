@@ -94,13 +94,13 @@ body {
       padding: 10px 20px;
       cursor: pointer;
       width: 100%;
-      transition: background-color 0.5s;
+      transition: all 0.3s ease-out 0s;
       box-shadow: 4px 4px 0px 0px #3D3D3D ;
     }
 
     button:hover {
       background-color: var(--tg-theme-primary);
-      box-shadow: 4px 4px 0px 0px var(--tg-theme-primary);
+      box-shadow: 0 0 0 0 var(--tg-common-color-blue);
     }
 
     .signup-link {
