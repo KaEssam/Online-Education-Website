@@ -1,52 +1,114 @@
+/* Header styles */
 
-
-/* Center the search bar */
-.navbar .input-group {
-    flex: 1;
-    justify-content: center;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: var(--tg-common-color-white);
 }
 
-/* Style the search input */
-.navbar .form-control {
-    border-radius: 20px;
-    padding: 10px 20px;
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 15px 60px;
+    background-color: var(--tg-common-color-white);
+    font-weight: var(--tg-fw-medium);
 }
 
-/* Style the search button */
-.navbar .input-group-btn {
-    margin-left: -40px;
+
+.nav-link:hover {
+    color:var(--tg-theme-primary);
 }
 
-/* Style the search icon */
-.navbar .btn-outline-dark {
-    border-radius: 50px;
-    padding: 10px;
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    
 }
 
-/* Style the instructor link */
-.navbar .instructor {
-    margin-left: 20px;
-}
-
-/* Style the input group */
-.input-group {
+.navbar-icons i {
+    font-size: var(--tg-fw-semi-bold);
+    padding: 30px;
+    border: 2px solid var(--tg-border-3);
+    border-radius: 50%;
+    margin-right: 10px;
     position: relative;
+    transition: all 0.3s ease;
+
 }
 
-/* Style the search input */
-.form-control {
-    padding-right: 40px;
-}
-
-/* Style the search button */
-.input-group-append {
+.badge {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: -6px;
+    right: -6px;
+    background-color: var(--tg-common-color-yellow);
+    color: var(--tg-common-color-black-3);
+    padding: 5px 5px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: var(--tg-fw-medium);
 }
 
-.btn-outline-dark {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+.dropdown-menu {
+    min-width: auto;
+}
+
+.dropdown-menu button:hover {
+    transform: scale(1.05);
+    color: var(--tg-theme-primary);
+}
+
+.dropdown-menu .dropdown-item {
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    transform: scale(1.05);
+    color: var(--tg-theme-primary);
+}
+
+
+
+.input-group-text {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: var(--tg-theme-primary);
+    color: var(--tg-common-color-white);
+}
+
+.input-group-text:hover {
+    background-color:var(--tg-common-color-yellow);
+    color: var(--tg-common-color-black-3);
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.instructor-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link i {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    border-color: var(--tg-common-color-gray-3);
+    padding: 8px 10px;
+    transition: all 0.3s ease;
+    color:var(--tg-common-color-gray-3); ;
+    font-size: var(--tg-fw-semi-bold);
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.nav-link i:hover {
+    background-color: var(--tg-theme-primary);
+    color: var(--tg-common-color-white);
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
 }

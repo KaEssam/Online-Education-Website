@@ -9,45 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-isDropdownOpen = false;
-  isSubmenuOpen: string | null = null;
 
-  toggleDropdown(event: Event): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    event.preventDefault();
-  }
-
-  toggleSubmenu(event: Event, submenu: string): void {
-    this.isSubmenuOpen = this.isSubmenuOpen === submenu ? null : submenu;
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  areNotificationsOpen = false;
-  isAvatarDropdownOpen = false;
-
-  toggleNotifications(): void {
-    this.areNotificationsOpen = !this.areNotificationsOpen;
-  }
-
-  toggleAvatarDropdown(): void {
-    this.isAvatarDropdownOpen = !this.isAvatarDropdownOpen;
-  }
-
-  isDashboardDropdownOpen: boolean = false;
-  isSubmenuTwoOpen: string = '';
-
-  constructor() {}
-
-  toggleDashboardDropdown(event: MouseEvent): void {
-    event.preventDefault();
-    this.isDashboardDropdownOpen = !this.isDashboardDropdownOpen;
-  }
-
-  toggleSubmenuTwo(event: MouseEvent, submenu: string): void {
-    event.preventDefault();
-    this.isSubmenuTwoOpen = this.isSubmenuTwoOpen === submenu ? '' : submenu;
-  }
 
   
 }
