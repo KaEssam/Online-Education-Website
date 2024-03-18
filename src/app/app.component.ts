@@ -10,12 +10,13 @@ import { ContactUsComponent } from '../Components/Core/contact-us/contact-us.com
 import { AboutUsComponent } from '../Components/Core/about-us/about-us.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,FooterComponent,SignInComponent,SignUpComponent,ErrorPageComponent,ContactUsComponent,AboutUsComponent,CommonModule,CarouselModule],
+  imports: [RouterOutlet,HeaderComponent,FooterComponent,SignInComponent,SignUpComponent,ErrorPageComponent,ContactUsComponent,AboutUsComponent,CommonModule,CourseItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
