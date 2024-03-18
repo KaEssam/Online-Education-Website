@@ -8,8 +8,6 @@ import { SignUpComponent } from '../Components/Core/sign-up/sign-up.component';
 import { ErrorPageComponent } from '../Components/Core/error-page/error-page.component';
 import { ContactUsComponent } from '../Components/Core/contact-us/contact-us.component';
 import { AboutUsComponent } from '../Components/Core/about-us/about-us.component';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
 import { EventItemComponent } from '../Components/Shared/event-item/event-item.component';
 
@@ -17,7 +15,16 @@ import { EventItemComponent } from '../Components/Shared/event-item/event-item.c
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,FooterComponent,SignInComponent,SignUpComponent,ErrorPageComponent,ContactUsComponent,AboutUsComponent,CommonModule,CourseItemComponent,EventItemComponent],
+  imports: [RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    SignInComponent,
+    SignUpComponent,
+    ErrorPageComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    CourseItemComponent,
+    EventItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

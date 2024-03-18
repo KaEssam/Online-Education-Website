@@ -46,6 +46,29 @@
   opacity: 0;
 }
 
+.position-absolute i{
+  color: var(--tg-common-color-primary);
+  transition: all 0.3s ease-in-out;
+}
+
+.position-absolute i:hover{
+  color: var(--tg-common-color-white);
+  transition: all 0.3s ease-in-out;
+}
+
+.position-absolute button{
+  background-color: var(--tg-common-color-white);
+  margin: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.position-absolute button:hover{
+  background-color: var(--tg-theme-primary) ;
+  color: var(--tg-theme-white);
+  transition: all 0.3s ease-in-out;
+}
+
 .card:hover .position-absolute {
   opacity: 1;
 }
