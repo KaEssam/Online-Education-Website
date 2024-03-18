@@ -6,6 +6,7 @@
   transition: box-shadow 0.3s ease-in-out;
   padding: 15 0 15 0;
   position: relative;
+  width: 90%;
 }
 
 .card img {
@@ -54,9 +55,6 @@
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-body {
-  padding: 1.5rem;
-}
 
 .author-name {
   color: var(--tg-common-color-black-3);

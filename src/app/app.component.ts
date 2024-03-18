@@ -11,12 +11,13 @@ import { AboutUsComponent } from '../Components/Core/about-us/about-us.component
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
+import { EventItemComponent } from '../Components/Shared/event-item/event-item.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,FooterComponent,SignInComponent,SignUpComponent,ErrorPageComponent,ContactUsComponent,AboutUsComponent,CommonModule,CourseItemComponent],
+  imports: [RouterOutlet,HeaderComponent,FooterComponent,SignInComponent,SignUpComponent,ErrorPageComponent,ContactUsComponent,AboutUsComponent,CommonModule,CourseItemComponent,EventItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
