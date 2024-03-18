@@ -10,6 +10,9 @@ import { ContactUsComponent } from '../Components/Core/contact-us/contact-us.com
 import { AboutUsComponent } from '../Components/Core/about-us/about-us.component';
 import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
 import { EventItemComponent } from '../Components/Shared/event-item/event-item.component';
+import { CartComponent } from '../Components/Core/cart/cart.component';
+import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
+import { WishlistComponent } from '../Components/Core/wishlist/wishlist.component';
 
 
 @Component({
@@ -24,7 +27,10 @@ import { EventItemComponent } from '../Components/Shared/event-item/event-item.c
     ContactUsComponent,
     AboutUsComponent,
     CourseItemComponent,
-    EventItemComponent],
+    EventItemComponent,
+  CartComponent,
+CheckOutComponent,
+WishlistComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
