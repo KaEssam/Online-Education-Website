@@ -1,1 +1,61 @@
-<p>cart works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table cart-table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Repeat this block for each item in the cart -->
+              <tr>
+                <td>
+                  <img
+                    src="assets/Test img/course_thumb01.jpg"
+                    class="img-fluid"
+                    alt="Item Image"
+                  />
+                </td>
+                <td>Item Title</td>
+                <td>Author Name</td>
+                <td>$50</td>
+                <td>
+                  <div class="action">
+                    <button class="btn btn-danger">
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- End of item block -->
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <div class="cart-summary">
+            <h4>Total: $50</h4>
+            <button class="btn btn-primary btn-lg">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
