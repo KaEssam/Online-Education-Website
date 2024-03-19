@@ -13,6 +13,8 @@ import { EventItemComponent } from '../Components/Shared/event-item/event-item.c
 import { CartComponent } from '../Components/Core/cart/cart.component';
 import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
 import { WishlistComponent } from '../Components/Core/wishlist/wishlist.component';
+import { ProductCartComponent } from '../Components/Core/product-cart/product-cart.component';
+import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
 
 
 @Component({
@@ -28,9 +30,12 @@ import { WishlistComponent } from '../Components/Core/wishlist/wishlist.componen
     AboutUsComponent,
     CourseItemComponent,
     EventItemComponent,
-  CartComponent,
-CheckOutComponent,
-WishlistComponent],
+    CartComponent,
+    CheckOutComponent,
+    WishlistComponent,
+    EventItemComponent,
+    ProductCartComponent,
+    ProductItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
