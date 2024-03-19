@@ -1,1 +1,56 @@
-<p>wishlist works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="table-responsive">
+            <table class="table cart-table">
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Repeat this block for each item in the cart -->
+                <tr>
+                  <td>
+                    <img
+                      src="assets/Test img/course_thumb01.jpg"
+                      class="img-fluid"
+                      alt="Item Image"
+                    />
+                  </td>
+                  <td>Item Title</td>
+                  <td>Author Name</td>
+                  <td>$50</td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="remove-action me-2">
+                        <button class="btn btn-danger">
+                          <i class="bi bi-x"></i>
+                        </button>
+                      </div>
+                      <div class="cart-action">
+                        <button class="btn"><i class="bi bi-cart"></i></button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
