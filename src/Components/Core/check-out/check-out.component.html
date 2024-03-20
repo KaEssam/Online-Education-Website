@@ -19,43 +19,49 @@
   <body>
     <!-- Checkout Container -->
     <div class="container py-5">
-      <div class="total-price text-center py-3">Total Price: $100</div>
-      <div class="row mb-4"></div>
-      <!-- End -->
       <div class="row">
         <div class="col-lg-6 mx-auto">
           <div class="card">
             <div class="card-header">
-              <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+              <div class="pt-4 pl-2 pr-2 pb-2">
                 <!-- Credit card form tabs -->
                 <ul
                   role="tablist"
-                  class="nav bg-light nav-pills rounded nav-fill mb-3"
+                  class="nav bg-light nav-tabs rounded nav-fill mb-3"
                   id="payment-tabs"
                 >
-                  <li class="nav-item">
+                  <li class="nav-item" role="presentation">
                     <a
                       (click)="switchTab('credit-card')"
                       [class.active]="activeTab === 'credit-card'"
                       class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#credit-card"
+                      aria-selected="true"
                     >
                       <i class="fas fa-credit-card mr-2"></i> Credit Card
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item" role="presentation">
                     <a
                       (click)="switchTab('paypal')"
                       [class.active]="activeTab === 'paypal'"
                       class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#paypal"
+                      aria-selected="true"
                     >
                       <i class="fab fa-paypal mr-2"></i> Paypal
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item" role="presentation">
                     <a
                       (click)="switchTab('net-banking')"
                       [class.active]="activeTab === 'net-banking'"
                       class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#net-banking"
+                      aria-selected="true"
                     >
                       <i class="fas fa-mobile-alt mr-2"></i> Net Banking
                     </a>
@@ -70,7 +76,10 @@
                 <!-- credit card info-->
                 <div
                   id="credit-card"
-                  class="fade show active"
+                  class="tab-pane show active"
+                  role="tabpanel"
+                  aria-labelledby="credit-card-tab"
+                  tabindex="0"
                   [class.show]="activeTab === 'credit-card'"
                 >
                   <form role="form" onsubmit="event.preventDefault()">
@@ -160,7 +169,10 @@
                 <!-- Paypal info -->
                 <div
                   id="paypal"
-                  class="fade show active"
+                  class="tab-pane show active"
+                  role="tabpanel"
+                  aria-labelledby="paypal"
+                  tabindex="1"
                   [class.show]="activeTab === 'paypal'"
                 >
                   <p>
@@ -178,13 +190,15 @@
                 <!-- bank transfer info -->
                 <div
                   id="net-banking"
-                  class="tab-pane fade show active"
+                  class="tab-pane show active"
+                  role="tabpanel"
+                  aria-labelledby="net-banking"
+                  tabindex="2"
                   [class.show]="activeTab === 'net-banking'"
                 >
                   <div class="form-group">
                     <label for="Select Your Bank"><h6>Wallet Number</h6></label>
                     <div class="input-group">
-                      <label for="Select Your Bank"></label>
                       <input type="text" class="form-control" required />
                     </div>
                     <div class="form-group">
