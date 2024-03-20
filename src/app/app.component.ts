@@ -11,11 +11,10 @@ import { AboutUsComponent } from '../Components/Core/about-us/about-us.component
 import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
 import { EventItemComponent } from '../Components/Shared/event-item/event-item.component';
 import { CartComponent } from '../Components/Core/cart/cart.component';
-import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
 import { WishlistComponent } from '../Components/Core/wishlist/wishlist.component';
 import { ProductCartComponent } from '../Components/Core/product-cart/product-cart.component';
-import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
-
+import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -31,11 +30,11 @@ import { ProductItemComponent } from '../Components/Shared/product-item/product-
     CourseItemComponent,
     EventItemComponent,
     CartComponent,
-    CheckOutComponent,
     WishlistComponent,
     EventItemComponent,
     ProductCartComponent,
-    ProductItemComponent],
+    FormsModule,
+  CheckOutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
