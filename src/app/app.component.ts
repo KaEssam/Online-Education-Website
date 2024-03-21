@@ -11,9 +11,10 @@ import { AboutUsComponent } from '../Components/Core/about-us/about-us.component
 import { CourseItemComponent } from '../Components/Shared/course-item/course-item.component';
 import { EventItemComponent } from '../Components/Shared/event-item/event-item.component';
 import { CartComponent } from '../Components/Core/cart/cart.component';
-import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
 import { WishlistComponent } from '../Components/Core/wishlist/wishlist.component';
 import { ProductCartComponent } from '../Components/Core/product-cart/product-cart.component';
+import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
+import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
 import { HomeComponent } from '../Components/Shared/home/home.component';
 import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
@@ -33,13 +34,13 @@ import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-ban
     CourseItemComponent,
     EventItemComponent,
     CartComponent,
-    CheckOutComponent,
     WishlistComponent,
     EventItemComponent,
     ProductCartComponent,
+    FormsModule,
+    CheckOutComponent,
     ProductItemComponent,
-    HomeComponent,
-    TopBannerComponent],
+    HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
