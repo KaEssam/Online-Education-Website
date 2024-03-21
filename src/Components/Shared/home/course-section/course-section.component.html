@@ -1,0 +1,84 @@
+<section class="courses-area section-py-120 py-5">
+    <div class="container">
+        <div class="section__title-wrap">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 mb-3">
+                    <div class="section__title text-center mb-40 w-100">
+                        <span class="sub-title">Top Class Courses</span>
+                        <!-- <h2 class="title">Explore Our World's Best Courses</h2> -->
+                        <h2 class="title">
+                            Explore Our World's Best
+                            <span class="position-relative">
+                                <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
+                                        fill="currentcolor"></path>
+                                </svg>
+                                Courses
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="courses__nav">
+                        <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
+                                    data-bs-target="#all-tab-pane" type="button" role="tab" aria-controls="all-tab-pane"
+                                    aria-selected="true">
+                                    All Courses
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="design-tab" data-bs-toggle="tab"
+                                    data-bs-target="#design-tab-pane" type="button" role="tab"
+                                    aria-controls="design-tab-pane" aria-selected="false" tabindex="-1">
+                                    Design
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="business-tab" data-bs-toggle="tab"
+                                    data-bs-target="#business-tab-pane" type="button" role="tab"
+                                    aria-controls="business-tab-pane" aria-selected="false" tabindex="-1">
+                                    Business
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="development-tab" data-bs-toggle="tab"
+                                    data-bs-target="#development-tab-pane" type="button" role="tab"
+                                    aria-controls="development-tab-pane" aria-selected="false" tabindex="-1">
+                                    Development
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content mb-5" id="courseTabContent">
+            <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
+                tabindex="0">
+                <div class="p-2">
+                    <app-course-item></app-course-item>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                <app-course-item></app-course-item>
+            </div>
+            <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab"
+                tabindex="0">
+                <app-course-item></app-course-item>
+            </div>
+            <div class="tab-pane fade" id="development-tab-pane" role="tabpanel" aria-labelledby="development-tab"
+                tabindex="0">
+                <app-course-item></app-course-item>
+            </div>
+        </div>
+        <div class="all-courses-btn mt-30">
+            <div class="tg-button-wrap justify-content-center">
+                <a href="courses.html" class="btn arrow-btn">See All Courses</a>
+            </div>
+        </div>
+    </div>
+</section>

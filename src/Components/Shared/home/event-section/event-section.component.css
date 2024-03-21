@@ -1,0 +1,100 @@
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.blog__post-area {
+    position: relative;
+    padding: 90px 0 ;
+    z-index: 1;
+    margin-top: 0;
+}
+
+.section__title .sub-title {
+    display: inline-block;
+    line-height: 1.62;
+    background: var(--tg-common-color-gray-2);
+    border-radius: 30px;
+    padding: 3px 16px;
+    font-weight: var(--tg-fw-medium);
+    color: var(--tg-theme-primary);
+    margin: 0 0 14px;
+  }
+  
+  
+  .section__title .title {
+    font-size: 36px;
+    line-height: 1.33;
+    margin: 5px 0 0;
+    letter-spacing: -0.75px;
+    text-transform: capitalize;
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-heading-color);
+    font-weight: var(--tg-fw-semi-bold);
+    line-height: var(--tg-heading-line-height)
+  }
+  
+  
+  
+  .section__title .title span {
+    color: var(--tg-common-color-white);
+    padding: 0 13px 10px 20px;
+    font-weight: var(--tg-fw-bold);
+    display: inline-block;
+    z-index: 1;
+  }
+  
+  .section__title .title span svg {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 100%;
+    height: 59px;
+    z-index: -1;
+    color: var(--tg-theme-secondary);
+    vertical-align: middle;
+  }
+  
+  .arrow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s linear;
+}
+
+.btn {
+    background: var(--tg-theme-primary) none repeat scroll 0 0;
+    border: medium none;
+    color: var(--tg-common-color-white);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: var(--tg-fw-semi-bold);
+    font-family: var(--tg-heading-font-family);
+    letter-spacing: 0;
+    line-height: 1.12;
+    margin-bottom: 0;
+    padding: 16px 30px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 0.3s ease-out 0s;
+    vertical-align: middle;
+    border-radius: 50px;
+    white-space: nowrap;
+    box-shadow: 4px 6px 0px 0px var(--tg-common-color-blue);
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: var(--tg-theme-secondary);
+    color: var(--tg-heading-color);
+    box-shadow: 0 0 0 0 var(--tg-common-color-blue);
+}
+
+.tg-button-wrap {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}

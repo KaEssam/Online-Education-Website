@@ -7,12 +7,25 @@ body {
     background-color: var(--tg-common-color-white);
 }
 
+
+
+
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     display: flex;
     align-items: center;
-    padding: 15px 60px;
+    padding: 1.5rem 60px;
     background-color: var(--tg-common-color-white);
     font-weight: var(--tg-fw-medium);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.shadow {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -95,7 +108,7 @@ body {
     border: 1px solid transparent;
     border-radius: 50%;
     border-color: var(--tg-common-color-gray-3);
-    padding: 8px 10px;
+    padding: 6px 10px;
     transition: all 0.3s ease;
     color:var(--tg-common-color-gray-3); ;
     font-size: var(--tg-fw-semi-bold);

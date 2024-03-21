@@ -15,6 +15,10 @@ import { WishlistComponent } from '../Components/Core/wishlist/wishlist.componen
 import { ProductCartComponent } from '../Components/Core/product-cart/product-cart.component';
 import { CheckOutComponent } from '../Components/Core/check-out/check-out.component';
 import { FormsModule } from '@angular/forms';
+import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
+import { HomeComponent } from '../Components/Shared/home/home.component';
+import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
+
 
 @Component({
   selector: 'app-root',
@@ -34,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     EventItemComponent,
     ProductCartComponent,
     FormsModule,
-  CheckOutComponent],
+    CheckOutComponent,
+    ProductItemComponent,
+    HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

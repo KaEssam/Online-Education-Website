@@ -1,6 +1,7 @@
-.product-card{
-    margin: 7rem auto;
-}
+
+.shop-item:hover.col-lg-3.col-md-6.col-sm-12{
+    box-shadow: 7px 7px 0px #CAC9D6;
+ }
 
 .shop-item {
     border: 1px solid #E8E8E8;
@@ -8,6 +9,7 @@
     padding: 25px 25px 30px;
     margin-bottom: 2.5rem;
     background: var(--tg-common-color-white);
+    transition: all 0.3s ease-out 0s;
 }
 
 .shop-thumb {
