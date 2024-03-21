@@ -15,6 +15,8 @@ import { CheckOutComponent } from '../Components/Core/check-out/check-out.compon
 import { WishlistComponent } from '../Components/Core/wishlist/wishlist.component';
 import { ProductCartComponent } from '../Components/Core/product-cart/product-cart.component';
 import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
+import { HomeComponent } from '../Components/Shared/home/home.component';
+import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
 
 
 @Component({
@@ -35,7 +37,9 @@ import { ProductItemComponent } from '../Components/Shared/product-item/product-
     WishlistComponent,
     EventItemComponent,
     ProductCartComponent,
-    ProductItemComponent],
+    ProductItemComponent,
+    HomeComponent,
+    TopBannerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
