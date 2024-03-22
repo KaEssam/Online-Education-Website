@@ -24,10 +24,8 @@ export class SignInComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // Form is valid, handle submission logic here
       console.log(this.loginForm.value);
     } else {
-      // Form is invalid, mark all fields as touched to display validation messages
       this.markFormGroupTouched(this.loginForm);
     }
   }
@@ -40,4 +38,6 @@ export class SignInComponent {
       }
     });
   }
+
+  
 }
