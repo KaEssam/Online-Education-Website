@@ -8,6 +8,7 @@ body {
     background-color: var(--tg-common-color-black);
 }
 
+
 .footer-icon:hover {
     background-color: var(--tg-theme-secondary);
     border-color: var(--tg-common-color-black);

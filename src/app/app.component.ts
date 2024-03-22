@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
 import { HomeComponent } from '../Components/Shared/home/home.component';
 import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
+import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
 
 
 @Component({
@@ -40,7 +41,8 @@ import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-ban
     FormsModule,
     CheckOutComponent,
     ProductItemComponent,
-    HomeComponent],
+    HomeComponent,
+    AfterEnrollComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
