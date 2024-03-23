@@ -42,7 +42,9 @@ import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-en
     CheckOutComponent,
     ProductItemComponent,
     HomeComponent,
-    AfterEnrollComponent],
+    AfterEnrollComponent,
+    TopBannerComponent,
+    RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

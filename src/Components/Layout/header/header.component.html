@@ -23,7 +23,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" routerLink="/"
           ><svg
             width="153"
             height="38"
@@ -136,12 +136,12 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown"
-                href="#"
+                routerLink=""
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Courses
+                Categories
               </a>
               <ul class="dropdown-menu dropdown-menu-start">
                 <li class="dropdown-submenu" (click)="$event.stopPropagation()">
@@ -231,6 +231,7 @@
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                routerLink="/courses"
               >
                 Courses
               </a>
@@ -316,10 +317,10 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link 1</a>
+              <a class="nav-link" routerLink="/products">Shop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link 2</a>
+              <a class="nav-link" routerLink="/events">Events</a>
             </li>
           </ul>
 
@@ -339,21 +340,21 @@
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Instructor</a>
+              <a class="nav-link" routerLink="/">Instructor</a>
             </li>
           </ul>
           <div class="navbar-icons">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/cart">
               <i class="bi bi-cart">
                 <span class="badge">3</span>
               </i>
             </a>
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/wishlist">
               <i class="bi bi-suit-heart">
                 <span class="badge">5</span>
               </i>
             </a>
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/">
               <i class="bi bi-bell">
                 <span class="badge">5</span>
               </i>
@@ -361,7 +362,7 @@
             <div class="dropdown">
               <a
                 class="nav-link dropdown"
-                href="#"
+                routerLink=""
                 role="button"
                 id="dropdownMenuLink"
                 data-bs-toggle="dropdown"
@@ -373,11 +374,11 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="dropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" routerLink="/">Profile</a></li>
+                <li><a class="dropdown-item" routerLink="/">Settings</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#" id="loginBtn">Sign Out</a>
+                  <a class="dropdown-item" routerLink="/home" id="loginBtn">Sign Out</a>
                 </li>
               </ul>
             </div>
@@ -385,5 +386,6 @@
         </div>
       </div>
     </nav>
+
   </body>
 </html>

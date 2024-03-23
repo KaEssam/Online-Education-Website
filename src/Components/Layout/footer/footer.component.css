@@ -8,6 +8,12 @@ body {
     background-color: var(--tg-common-color-black);
 }
 
+/* .my-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+} */
 
 .footer-icon:hover {
     background-color: var(--tg-theme-secondary);
