@@ -17,8 +17,8 @@ import { CheckOutComponent } from '../Components/Core/check-out/check-out.compon
 import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
 import { HomeComponent } from '../Components/Shared/home/home.component';
-import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
 import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -26,9 +26,9 @@ import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-en
   standalone: true,
   imports: [RouterOutlet,
     HeaderComponent,
-    FooterComponent,
     SignInComponent,
     SignUpComponent,
+    FooterComponent,
     ErrorPageComponent,
     ContactUsComponent,
     AboutUsComponent,
@@ -43,8 +43,7 @@ import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-en
     ProductItemComponent,
     HomeComponent,
     AfterEnrollComponent,
-    TopBannerComponent,
-    RouterOutlet],
+  HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

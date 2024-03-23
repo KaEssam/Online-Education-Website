@@ -1,43 +1,76 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule,ReactiveFormsModule,CommonModule,],
+  providers: [AuthService],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
-export class SignInComponent {
-  loginForm!: FormGroup;
+export class SignInComponent implements OnInit {
+  signInForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient
+  ) {}
 
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
-      password: ['', Validators.required],
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.signInForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
       rememberMe: [false]
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      // Form is valid, handle submission logic here
-      console.log(this.loginForm.value);
-    } else {
-      // Form is invalid, mark all fields as touched to display validation messages
-      this.markFormGroupTouched(this.loginForm);
-    }
-  }
-
-  markFormGroupTouched(formGroup: FormGroup) {
-    Object.values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-      if (control instanceof FormGroup) {
-        this.markFormGroupTouched(control);
+signIn() {
+  if (this.signInForm.valid) {
+    this.authService.SignIn({
+      email: this.signInForm.value.email,
+      password: this.signInForm.value.password
+    }).subscribe(
+      (res: any) => {
+        if (res.token) { // Assuming your backend returns a token upon successful authentication
+          console.log(res);
+          alert('Sign-in successful');
+          // Redirect or do something on successful sign-in
+        } else {
+          alert('Sign-in failed');
+          // Handle unsuccessful sign-in
+        }
+      },
+      (error) => {
+        console.error('Error during sign-in:', error);
+        // Handle error
       }
-    });
+    );
+  } else {
+    alert('Form is invalid');
+    // Handle form validation errors
   }
 }
+
+}
+
+
+
+
+
+
+
+  
+

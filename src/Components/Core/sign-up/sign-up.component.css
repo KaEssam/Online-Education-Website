@@ -123,3 +123,8 @@ button:hover {
   .signin-link a {
     margin-left: 5px;
   }
+
+  span {
+    font-weight: var(--tg-fw-light);
+    margin-left: 15px;
+  }
