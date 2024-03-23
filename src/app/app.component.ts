@@ -19,6 +19,7 @@ import { ProductItemComponent } from '../Components/Shared/product-item/product-
 import { HomeComponent } from '../Components/Shared/home/home.component';
 import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
 import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -42,7 +43,8 @@ import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-en
     CheckOutComponent,
     ProductItemComponent,
     HomeComponent,
-    AfterEnrollComponent],
+    AfterEnrollComponent,
+  HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -17,17 +17,15 @@ interface User {
 
 
 export class AuthService {
-createUser(value: any) {
-  throw new Error('Method not implemented.');
-}
-
-DB_URL = "http://localhost:3000/users";
-constructor(private readonly myClient:HttpClient) { }
 
 
-SignIn(email: string, password: string): Observable<User> {
-  return this.myClient.get<User>(`${this.DB_URL}?email=${email}&password=${password}`);
-}
+DB_URL = "http://localhost:3000";
+constructor(private myClient:HttpClient) { }
+
+
+  SignIn(data:any): Observable<any> {
+    return this.myClient.post(`${this.DB_URL}/signIn`, data);
+  }
 
 SignUp(user: any){
   return this.myClient.post(this.DB_URL, user);
