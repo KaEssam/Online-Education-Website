@@ -1,3 +1,7 @@
+.container{
+    margin-top: 13rem;
+    margin-bottom: 10rem;
+}
 
 .shop-item:hover.col-lg-3.col-md-6.col-sm-12{
     box-shadow: 7px 7px 0px #CAC9D6;

@@ -12,6 +12,19 @@ import { RouterModule } from '@angular/router';
 export class HeaderComponent {
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
+  // ngOnInit() {
+  //   // Listen for collapse events
+  //   const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
+
+  //   navbarCollapse.addEventListener('show.bs.collapse', () => {
+  //     this.renderer.addClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'shadow');
+  //   });
+
+  //   navbarCollapse.addEventListener('hide.bs.collapse', () => {
+  //     this.renderer.removeClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'shadow');
+  //   });
+  // }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const navbar = this.el.nativeElement.querySelector('#navbar');

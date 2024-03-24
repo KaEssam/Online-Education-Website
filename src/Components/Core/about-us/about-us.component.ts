@@ -1,6 +1,7 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
+import AOS from 'aos'; //AOS - 1
+
 
 
 @Component({
@@ -11,5 +12,8 @@ import { Component } from '@angular/core';
   styleUrl: './about-us.component.css'
 })
 export class AboutUsComponent {
- 
+  ngOnInit(): void {
+    AOS.init();
+    AOS.refresh();
+  }
 }
