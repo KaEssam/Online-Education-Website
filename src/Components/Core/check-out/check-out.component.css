@@ -1,3 +1,9 @@
+.container {
+  margin-top: 6rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
 body {
   background: #f5f5f5;
   font-family: var(--tg-heading-font-family);

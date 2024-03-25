@@ -7,7 +7,7 @@
 .courses-area {
     position: relative;
     z-index: 1;
-    margin-bottom: 7rem;
+    margin: 7rem auto;
     /* background-color: var(--tg-common-color-gray); */
 
 }
@@ -28,7 +28,7 @@
 
 .courses-area .section__title-wrap {
     margin: 0 0 1.5rem;
-   
+
 
 }
 
@@ -58,19 +58,19 @@
     color: var(--tg-heading-color);
     font-weight: var(--tg-fw-semi-bold);
     line-height: var(--tg-heading-line-height)
-  }
-  
-  
-  
-  .section__title .title span {
+}
+
+
+
+.section__title .title span {
     color: var(--tg-common-color-white);
     padding: 0 13px 10px 20px;
     font-weight: var(--tg-fw-bold);
     display: inline-block;
     z-index: 1;
-  }
-  
-  .section__title .title span svg {
+}
+
+.section__title .title span svg {
     position: absolute;
     left: 0;
     top: -5px;
@@ -79,8 +79,8 @@
     z-index: -1;
     color: var(--tg-theme-secondary);
     vertical-align: middle;
-  }
-  
+}
+
 .courses__nav .nav {
     display: flex;
     align-items: center;
@@ -170,3 +170,136 @@
 
 
 
+
+.card {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 15 0 15 0;
+    position: relative;
+    width: 90%;
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+.badge {
+    background-color: var(--tg-common-color-gray-2);
+    color: var(--tg-common-color-black-3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.badge:hover {
+    cursor: pointer;
+    color: var(--tg-common-color-white);
+    background-color: var(--tg-theme-primary);
+
+}
+
+.position-absolute {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 30px;
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.position-absolute i {
+    color: var(--tg-common-color-primary);
+    transition: all 0.3s ease-in-out;
+}
+
+.position-absolute i:hover {
+    color: var(--tg-common-color-white);
+    transition: all 0.3s ease-in-out;
+}
+
+.position-absolute button {
+    background-color: var(--tg-common-color-white);
+    margin: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.position-absolute button:hover {
+    background-color: var(--tg-theme-primary);
+    color: var(--tg-theme-white);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover .position-absolute {
+    opacity: 1;
+}
+
+
+.card:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.author-name {
+    color: var(--tg-common-color-black-3);
+    text-decoration: none;
+}
+
+.author-name:hover {
+    color: var(--tg-theme-primary);
+
+}
+
+.card-title:hover {
+    color: var(--tg-theme-primary);
+    cursor: pointer;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+.btn-enroll button {
+    background-color: var(--tg-theme-secondary);
+    color: var(--tg-common-color-black-3);
+    font-weight: var(--tg-fw-medium);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-out 0s;
+    box-shadow: 4px 4px 0px 0px #3D3D3D;
+
+}
+
+.btn-enroll button:hover {
+    background-color: var(--tg-theme-primary);
+    box-shadow: 0 0 0 0 var(--tg-common-color-blue);
+    color: var(--tg-common-color-white);
+}
+
+.price {
+    color: var(--tg-theme-primary);
+    font-weight: var(--tg-fw-bold);
+    font-size: 1.5rem;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: var(--tg-fw-light);
+}

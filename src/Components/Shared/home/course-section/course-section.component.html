@@ -60,7 +60,59 @@
             <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
                 tabindex="0">
                 <div class="p-2">
-                    <app-course-item></app-course-item>
+                    <!-- <app-course-item></app-course-item> -->
+                    <div class="container">
+                        <div class="row">
+                            @for (c of Courses; track c.id) {
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="card h-100">
+                                      <img src= "assets/img/{{c.img}}" alt="Course Title" />
+                          
+                                      <div class="position-absolute">
+                                        <button class="btn btn-sm">
+                                          <i class="bi bi-heart"></i>
+                                        </button>
+                                        <button class="btn btn-sm">
+                                          <i class="bi bi-cart"></i>
+                                        </button>
+                                      </div>
+                          
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <span class="badge">{{c.category}}</span>
+                                          <div class="text-warning">
+                                            <i class="bi bi-star-fill"></i> {{c.rating}}
+                                          </div>
+                                        </div>
+                                        <h5 class="card-title">{{c.title}}</h5>
+                                        <p class="card-text text-muted">
+                                          By <a href="" class="author-name">Author Name</a>
+                                        </p>
+                                        <div class="course-info">
+                                          <div class="me-3"><i class="bi bi-clock"></i> {{c.duration}}</div>
+                                          <div class="me-3">
+                                            <i class="bi bi-list-ol"></i> {{c.sections}}
+                                          </div>
+                                          <div class="text"><i class="bi bi-people-fill"></i> {{c.enrollmentCount}}</div>
+                                        </div>
+                                        <hr />
+                                        <div class="d-flex align-items-center justify-content-between">
+                                          <div class="btn-enroll">
+                                            <button type="button" class="btn btn-primary border-0">
+                                              Enroll Now
+                                            </button>
+                                          </div>
+                                          <div class="price">
+                                            <span class="text-decoration">{{c.price}}</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            }
+                        </div>
+                      </div>
+
                 </div>
             </div>
             <div class="tab-pane fade" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">

@@ -1,3 +1,7 @@
+.container {
+  margin: 13rem auto 10rem;
+}
+
 body {
   font-family: var(--tg-heading-font-family);
 }

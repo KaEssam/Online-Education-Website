@@ -162,5 +162,81 @@
       "email": "dadada@ada.com",
       "password": "Ka12312300"
     }
+  ],
+  "courses":[
+    {
+      "id": 10,
+      "title": "Learning JavaScript With Imagination",
+      "price": 24,
+      "rating": 4.9,
+      "duration": 15,
+      "enrollmentCount": 300,
+      "category": "Development",
+      "img": "course_thumb01.jpg",
+      "sections":9
+    },
+    {
+      "id": 6,
+      "title": "The Complete Graphic Design for Beginners",
+      "price": 15,
+      "rating": 4.8,
+      "duration": 12,
+      "enrollmentCount": 210,
+      "category": "Design",
+      "img": "course_thumb02.jpg",
+      "sections":7
+    },
+    {
+      "id": 15,
+      "title": "Learning Digital Marketing on Facebook",
+      "price": 19,
+      "rating": 4.8,
+      "duration": 5,
+      "enrollmentCount": 350,
+      "category": "Marketing",
+      "img": "course_thumb03.jpg",
+      "sections":3
+    },
+    {
+      "id": 20,
+      "title": "Financial Analyst Training & Investing Course",
+      "price": 12,
+      "rating": 4.7,
+      "duration": 9,
+      "enrollmentCount": 200,
+      "category": "Business",
+      "img": "course_thumb04.jpg",
+      "sections":5
+    }
+  ],
+  "products":[
+    {
+      "id": 1,
+      "title": "The Business Women",
+      "price": 19,
+      "rating": 5,
+      "img": "shop_img01.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Garden Adeline Life",
+      "price": 15,
+      "rating": 4.7,
+      "img": "shop_img02.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Time to Explore",
+      "price": 17,
+      "rating": 4,
+      "img": "shop_img06.jpg"
+    },
+    {
+      "id": 4,
+      "title": "The Fashion Edits",
+      "price": 13,
+      "rating": 4.5,
+      "img": "shop_img07.jpg"
+    }
   ]
 }
