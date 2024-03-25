@@ -19,7 +19,6 @@ import { ProductItemComponent } from '../Components/Shared/product-item/product-
 import { HomeComponent } from '../Components/Shared/home/home.component';
 import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ReviewSectionComponent } from '../Components/Shared/home/review-section/review-section.component';
 
 
 @Component({
@@ -44,8 +43,7 @@ import { ReviewSectionComponent } from '../Components/Shared/home/review-section
     ProductItemComponent,
     HomeComponent,
     AfterEnrollComponent,
-    HttpClientModule,
-    ReviewSectionComponent],
+  HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
