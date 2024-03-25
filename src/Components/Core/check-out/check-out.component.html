@@ -82,7 +82,11 @@
                   tabindex="0"
                   [class.show]="activeTab === 'credit-card'"
                 >
-                  <form role="form" onsubmit="event.preventDefault()">
+                  <!-- <form
+                    role="form"
+                    (submit)="onSubmit()"
+                    [formGroup]="checkoutForm"
+                  >
                     <div class="form-group">
                       <label for="username">
                         <h6>Card Owner</h6>
@@ -93,6 +97,7 @@
                         placeholder="Card Owner Name"
                         required
                         class="form-control"
+                        formControlName="cardOwner"
                       />
                     </div>
                     <div class="form-group">
@@ -105,8 +110,10 @@
                           name="cardNumber"
                           placeholder="Valid card number"
                           class="form-control"
+                          formControlName="cardNumber"
                           required
                         />
+
                         <div class="input-group-append">
                           <span class="input-group-text text-muted">
                             <i class="fab fa-cc-visa mx-1"></i>
@@ -126,14 +133,15 @@
                           >
                           <div class="input-group">
                             <input
-                              type="number"
+                              type="text"
                               placeholder="MM"
                               name=""
                               class="form-control"
                               required
                             />
+
                             <input
-                              type="number"
+                              type="text"
                               placeholder="YY"
                               name=""
                               class="form-control"
@@ -160,11 +168,12 @@
                       <button
                         type="button"
                         class="subscribe btn btn-primary btn-block shadow-sm"
+                        (click)="onSubmit()"
                       >
                         Confirm Payment
                       </button>
                     </div>
-                  </form>
+                  </form> -->
                 </div>
                 <!-- Paypal info -->
                 <div
@@ -174,8 +183,9 @@
                   aria-labelledby="paypal"
                   tabindex="1"
                   [class.show]="activeTab === 'paypal'"
+                  #paypalRef
                 >
-                  <p>
+                  <!-- <p>
                     <button type="button" class="btn btn-primary">
                       <i class="fab fa-paypal"></i> Log into my Paypal
                     </button>
@@ -185,8 +195,9 @@
                     a secure gateway for payment. After completing the payment
                     process, you will be redirected back to the website to view
                     details of your order.
-                  </p>
+                  </p> -->
                 </div>
+
                 <!-- bank transfer info -->
                 <div
                   id="net-banking"
@@ -224,6 +235,6 @@
         </div>
       </div>
     </div>
-    <!-- End Checkout Container -->
+    <script src="http://www.paypal.com/sdk/js?currency=USD&client-id=AbZeNOzbl6ovyTR1WJJ2M4QWq7gij-mtMkBB2UBeFhW6a4VQDtqnMyIKb8gb__ur1UjaVN8P5Tw1KG8O"></script>
   </body>
 </html>
