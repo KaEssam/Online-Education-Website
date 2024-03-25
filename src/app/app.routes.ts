@@ -1,3 +1,4 @@
+
 import { AboutUsComponent } from "../Components/Core/about-us/about-us.component";
 import { CartComponent } from "../Components/Core/cart/cart.component";
 import { CheckOutComponent } from "../Components/Core/check-out/check-out.component";
@@ -17,8 +18,9 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: "home", component:HomeComponent},
   {path: "signup", component:SignUpComponent},
-  {path: "signin", component:SignInComponent},
+  {path: "login", component:SignInComponent},
   {path: "products", component:ProductItemComponent},
   {path: "products/:id", component:ProductCartComponent},
   {path: "courses", component:CourseItemComponent},
@@ -32,5 +34,9 @@ export const routes: Routes = [
   {path: "enroll", component:AfterEnrollComponent},
   {path: "signOut", component:HomeComponent},
   {path: "**", component:ErrorPageComponent},
+
+
+  // {path: "instructor", component:AfterEnrollComponent},
+  // {path: "student", component:SignUpComponent},
   
 ];

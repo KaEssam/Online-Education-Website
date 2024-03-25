@@ -17,7 +17,6 @@ import { CheckOutComponent } from '../Components/Core/check-out/check-out.compon
 import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from '../Components/Shared/product-item/product-item.component';
 import { HomeComponent } from '../Components/Shared/home/home.component';
-import { TopBannerComponent } from '../Components/Shared/home/top-banner/top-banner.component';
 import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxPayPalModule } from 'ngx-paypal';
@@ -28,9 +27,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
   standalone: true,
   imports: [RouterOutlet,
     HeaderComponent,
-    FooterComponent,
     SignInComponent,
     SignUpComponent,
+    FooterComponent,
     ErrorPageComponent,
     ContactUsComponent,
     AboutUsComponent,

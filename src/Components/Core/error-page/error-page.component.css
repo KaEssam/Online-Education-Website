@@ -1,12 +1,16 @@
+.container{
+    margin: 15rem auto 10rem;
+}
+
 .error-wrap {
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .error-img svg {
-    width: 100%;
+    width: 85%;
     height: 100%;
     color: var(--tg-theme-secondary);
 }
@@ -18,11 +22,15 @@
 
 
 h2 {
+    font-size: 36px;
+    line-height: 1.33;
+    margin: 0 0;
+    letter-spacing: -0.75px;
+    text-transform: capitalize;
     font-family: var(--tg-heading-font-family);
     color: var(--tg-heading-color);
-    margin-top: 0px;
     font-weight: var(--tg-fw-semi-bold);
-    line-height: var(--tg-heading-line-height);
+    line-height: var(--tg-heading-line-height)
 }
 
 

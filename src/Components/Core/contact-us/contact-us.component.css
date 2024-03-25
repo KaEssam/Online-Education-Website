@@ -6,6 +6,9 @@ body {
   height: 100vh;
 }
 
+.container{
+  margin: 13rem auto 10rem;
+}
 
 .contact-item {
   background-color: #f5f5f5;

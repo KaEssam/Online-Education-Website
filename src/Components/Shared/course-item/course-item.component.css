@@ -1,3 +1,6 @@
+.container {
+  margin: 13rem auto 10rem;
+}
 
 .card {
   overflow: hidden;

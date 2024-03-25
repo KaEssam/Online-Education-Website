@@ -1,3 +1,6 @@
+@import 'font-awesome/css/font-awesome.min.css';
+
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +11,12 @@ body {
     background-color: var(--tg-common-color-black);
 }
 
+/* .my-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+} */
 
 .footer-icon:hover {
     background-color: var(--tg-theme-secondary);

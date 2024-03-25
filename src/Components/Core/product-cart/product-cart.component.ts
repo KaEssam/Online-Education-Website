@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import AOS from 'aos'; //AOS - 1
 
 @Component({
   selector: 'app-product-cart',
@@ -9,5 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './product-cart.component.css'
 })
 export class ProductCartComponent {
-
+  ngOnInit(): void {
+    AOS.init();
+    AOS.refresh();
+  }
 }
