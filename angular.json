@@ -28,8 +28,7 @@
             "scripts": [
               "node_modules/aos/dist/aos.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "http://www.paypal.com/sdk/js?currency=USD&client-id=AbZeNOzbl6ovyTR1WJJ2M4QWq7gij-mtMkBB2UBeFhW6a4VQDtqnMyIKb8gb__ur1UjaVN8P5Tw1KG8O"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
