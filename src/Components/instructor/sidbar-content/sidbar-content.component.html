@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Component Styling</title>
+    <style>
+      /* Resetting default margins and paddings */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Tab content container */
+      .tab-content {
+        padding: 20px;
+      }
+
+      /* Table styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      /* Buttons */
+      button {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 5px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Tab pane content */
+      .tab-pane {
+        display: none;
+      }
+
+      .tab-pane.active {
+        display: block;
+      }
+
+      /* Image styling */
+      .course-image {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      /* Icon styling */
+      .icon {
+        width: 20px;
+        height: auto;
+        margin-right: 5px;
+      }
+
+      /* Create button styling */
+      .create-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      .create-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Tab Content -->
+    <div class="tab-content" id="myTabContent">
+      <!-- Content Tab Content -->
+      <div
+        class="tab-pane active"
+        id="content"
+        role="tabpanel"
+        aria-labelledby="content-tab"
+      >
+        <h2>
+          My Courses <button class="create-btn">Create New Course</button>
+        </h2>
+        <p>Manage your courses and its update like live, draft and insight.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Student</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Course
+                <img
+                  src="course_image.jpg"
+                  alt="Course Image"
+                  class="course-image"
+                />
+                <img
+                  src="duration_icon.png"
+                  alt="Duration Icon"
+                  class="icon"
+                />3 months
+                <img src="section_icon.png" alt="Section Icon" class="icon" />10
+              </td>
+              <td>2000</td>
+              <td>Live</td>
+              <td>
+                <button>Delete</button>
+                <button>Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Courses Tab Content -->
+        <div
+          class="tab-pane"
+          id="courses"
+          role="tabpanel"
+          aria-labelledby="courses-tab"
+        >
+          <h2>Courses Tab</h2>
+          <p>This is the courses tab content.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to handle tab switching if needed
+    </script>
+  </body>
+</html>
