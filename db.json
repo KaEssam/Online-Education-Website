@@ -571,56 +571,64 @@
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post01.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 2,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post02.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id":2,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post03.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 4,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post04.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 5,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post04.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 6,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post03.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 7,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post02.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     },
     {
       "id": 8,
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post01.jpg",
-      "instructor":"Peter Alias"
+      "instructor":"Peter Alias",
+      "price":17
     }
   ]
 }
