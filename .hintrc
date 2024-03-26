@@ -28,7 +28,8 @@
       "default",
       {
         "aria-required-children": "off",
-        "aria-allowed-attr": "off"
+        "aria-allowed-attr": "off",
+        "aria-valid-attr-value": "off"
       }
     ]
   }
