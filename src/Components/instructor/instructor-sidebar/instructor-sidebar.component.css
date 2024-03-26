@@ -1,0 +1,81 @@
+
+/* Instructor Card */
+.card {
+  width: 300px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
+.card-body {
+  text-align: center;
+}
+.instructor-info {
+  display: flex;
+  align-items: center;
+}
+
+.instructor-img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.instructor-details {
+  flex: 1;
+}
+
+.nav-link.active {
+  background-color: var(--tg-common-color-orange);
+  color: #fff;
+  /* Change text color when active */
+}
+
+ul{
+  border: #007bff;
+  width: 300px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+li{
+  list-style-type: none;
+  color: white;
+  width: 300px;
+  display: block;
+  text-align: center;
+}
+
+.nav-item {
+  border-bottom: 1px solid #dee2e6;
+  width: 300px;
+  /* Add border at the bottom */
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 300px;
+}
+
+button:hover {
+  background-color: var(--tg-common-color-orange);
+  color: #fff;
+}
+
+
+/* Add icons for sidebar titles */
+#content-tab:before {
+  content: "\1F4D6";
+  margin-right: 5px;
+}
+
+#courses-tab:before {
+  content: "\1F3EB";
+  margin-right: 5px;
+}
+
