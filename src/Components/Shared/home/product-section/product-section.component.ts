@@ -14,12 +14,16 @@ import { ProductsService } from '../../../../Services/products.service';
 })
 export class ProductSectionComponent {
   Products:any = [];
+  displayedProducts: any[] = [];
+
   constructor(private productsService:ProductsService , private router:Router){ }
 
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe({
       next:(data)=>{
         this.Products = data;
+        this.displayedProducts = this.Products.slice(0, 4);
+
       },
       error:(err)=>{
         this.router.navigate(['/Error',{errorMessage : err.message as string}]);

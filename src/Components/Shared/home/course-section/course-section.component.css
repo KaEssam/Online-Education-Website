@@ -28,8 +28,6 @@
 
 .courses-area .section__title-wrap {
     margin: 0 0 1.5rem;
-
-
 }
 
 .justify-content-center {
@@ -203,6 +201,7 @@
     background-color: var(--tg-theme-primary);
 
 }
+
 
 .position-absolute {
     height: 25px;

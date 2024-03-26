@@ -3,18 +3,20 @@
     margin-bottom: 10rem;
 }
 
-.shop-item:hover.col-lg-3.col-md-6.col-sm-12{
+.card:hover.col-lg-3.col-md-6.col-sm-12{
     box-shadow: 7px 7px 0px #CAC9D6;
  }
 
-.shop-item {
+.card {
     border: 1px solid #E8E8E8;
     border-radius: 6px;
     padding: 25px 25px 30px;
     margin-bottom: 2.5rem;
     background: var(--tg-common-color-white);
     transition: all 0.3s ease-out 0s;
+    
 }
+
 
 .shop-thumb {
     position: relative;
@@ -37,7 +39,7 @@
 
 }
 
-.shop-item:hover .shop-action li {
+.card:hover .shop-action li {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -124,7 +126,7 @@ a {
 }
 
 @media (max-width: 1199.98px) {
-    .shop-item {
+    .card {
         padding: 20px 20px 25px;
     }
 }

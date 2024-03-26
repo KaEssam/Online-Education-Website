@@ -15,15 +15,44 @@
                             </svg>
                             Community
                         </span>
-                         And Make <br> It Bigger
+                        And Make <br> It Bigger
                     </h2>
                 </div>
             </div>
         </div>
-        <div class="row gutter-20">
-            <div class="">
-                <app-event-item></app-event-item>
+        <div class="row">
+            @for (e of displayedEvents; track e.id) {
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card h-100">
+                    <img src="assets/img/{{e.img}}" alt="Event Title" />
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <!-- <div class="text">
+                              <i class="bi bi-clock"></i> 5:30 PM - 6:30 PM
+                            </div> -->
+                            <div class="text">
+                                <i class="bi bi-calendar-date"></i> {{e.duration}}
+                            </div>
+                        </div>
+                        <h5 class="card-title">{{e.title}}</h5>
+                        <p class="card-text text-muted">
+                            By <a href="" class="author-name">{{e.instructor}}</a>
+                        </p>
+                        <hr />
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="btn-enroll">
+                                <button type="button" class="btn btn-primary border-0">
+                                    Join Event
+                                </button>
+                            </div>
+                            <div class="price">
+                                <span class="text-decoration">{{e.price}}&#163;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            }
         </div>
         <div class="all-courses-btn mt-5">
             <div class="tg-button-wrap justify-content-center">
