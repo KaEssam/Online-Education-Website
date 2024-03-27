@@ -21,7 +21,7 @@ export class SignUpComponent {
     firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z]+$')]],
     lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z]+$')]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@!_.%&]+$')]],
     confirmPassword: ['', Validators.required]
   }, { validators: this.passwordMatchValidator });
 
@@ -59,7 +59,7 @@ export class SignUpComponent {
     if (this.signupForm.valid) {
       const { firstName, lastName, email, password } = this.signupForm.value;
       this.Add(firstName, lastName, email, password);
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/login']);
     } else {
       this.signupForm.markAllAsTouched();
     }

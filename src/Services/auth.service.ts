@@ -18,17 +18,18 @@ interface User {
 
 export class AuthService {
 
+  // https://skillgro.runasp.net
 
-  DB_URL = "http://localhost:3000";
+  DB_URL = "https://skillgro.runasp.net";
   constructor(private myClient: HttpClient) { }
 
 
   SignIn(data: any): Observable<any> {
-    return this.myClient.post(`${this.DB_URL}/signIn`, data);
+    return this.myClient.post(`${this.DB_URL}/api/student/account/login`, data);
   }
 
   SignUp(user: any) {
-    return this.myClient.post(this.DB_URL, user);
+    return this.myClient.post(`${this.DB_URL}/api/student/account/register`, user);
 
   }
 

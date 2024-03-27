@@ -1,48 +1,47 @@
-  <!-- start breadcrumbs -->
-  <section class="breadcrumb__area breadcrumb__bg">
+<!-- start breadcrumbs -->
+<section class="breadcrumb__area breadcrumb__bg">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="breadcrumb__content">
-            <h3 class="title">Who We Are</h3>
-            <nav class="breadcrumb">
-              <span property="itemListElement" typeof="ListItem">
-                <a href="index.html">Home</a>
-              </span>
-              <span class="breadcrumb-separator"><i class="fa fa-angle-right"></i></span>
-              <span property="itemListElement" typeof="ListItem">Products Details</span>
-            </nav>
-          </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb__content">
+                    <h3 class="title">Who We Are</h3>
+                    <nav class="breadcrumb">
+                        <span property="itemListElement" typeof="ListItem">
+                            <a href="index.html">Home</a>
+                        </span>
+                        <span class="breadcrumb-separator"><i class="fa fa-angle-right"></i></span>
+                        <span property="itemListElement" typeof="ListItem">Products Details</span>
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="breadcrumb__shape-wrap">
-      <img src="assets/img/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
-      <img src="assets/img/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
-      <img src="assets/img/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
-      <img src="assets/img/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
-      <img src="assets/img/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
+        <img src="assets/img/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
+        <img src="assets/img/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
+        <img src="assets/img/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/img/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
+        <img src="assets/img/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
     </div>
-  </section>
-  <!--end breadcrumbs -->
+</section>
+<!--end breadcrumbs -->
 
 
 <div class="container shop-details-top">
     <div class="row">
+        @if (product) {
         <div class="col-lg-6">
             <div class="shop-details-images-wrap">
                 <div class="myTabContent">
                     <div class="show active" id="home-tab-pane">
-                        <a routerLink="/" href="assets/Test img/shop_details01.jpg" class="popup-image">
-                            <img src="assets/Test img/shop_details01.jpg" class="img-fluid">
-                        </a>
+                        <img src="assets/img/{{product.img}}" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="shop-details-content">
-                <h2 class="card-header">SEO Tricks &amp; Tips</h2>
+                <h2 class="card-header">{{product.title}}</h2>
                 <div class="product-review">
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -51,17 +50,15 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                     </div>
-                    <span>( Reviews 5.0 )</span>
+                    <span>( Reviews {{product.rating}} )</span>
                 </div>
-                <h3 class="price">$13.00</h3>
-                <p class="card-text">Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti
-                    at bulum nec odio
-                    aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.</p>
+                <h3 class="price">{{product.price}}&#163;</h3>
+                <p class="card-text">{{product.description}}</p>
                 <div class="shop-details-qty">
                     <div class="cart-plus-minus ">
-                        <input type="text" value="1">
-                        <div class="dec qtybutton">-</div>
-                        <div class="inc qtybutton">+</div>
+                        <input type="text" [value]="counter()">
+                        <div class="dec qtybutton" (click)="minus()">-</div>
+                        <div class="inc qtybutton" (click)="plus()">+</div>
                     </div>
                     <a routerLink="/" href="shop-details.html" class="cart-btn btn">Add To Cart</a>
                     <a routerLink="/" href="shop-details.html" class="wishlist-btn"><i class="fa fa-heart-o"></i></a>
@@ -69,19 +66,20 @@
                 <div class="shop-details-bottom">
                     <ul class="list-wrap">
                         <li class="sd-category">
-                            <span class="title">Categories:</span>
-                            <a routerLink="/" href="shop-details.html">Business &amp; Marketing</a>
+                            <span class="title">Category:</span>
+                            <a href="#">{{product.category}}</a>
                         </li>
                         <li class="sd-share">
                             <span class="title">Share This Product:</span>
-                            <a routerLink="/" href="#"><i class="fa fa-facebook-f"></i></a>
-                            <a routerLink="/" href="#"><i class="fa fa-twitter"></i></a>
-                            <a routerLink="/" href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        }
     </div>
 </div>
 
@@ -173,6 +171,6 @@
                 <h4 class="price">$39.00</h4>
             </div>
         </div>
-        
+
     </div>
 </div>

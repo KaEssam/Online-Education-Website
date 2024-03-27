@@ -97,3 +97,10 @@ i {
   border: 1px solid #ddd;
   margin-bottom: 10px;
 }
+
+/* .alert {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content; 
+  z-index: 9999; 
+} */

@@ -49,6 +49,7 @@ signIn() {
           alert('Sign-in successful');
           // Redirect or do something on successful sign-in
         } else {
+          console.log(res);
           alert('Sign-in failed');
           // Handle unsuccessful sign-in
         }

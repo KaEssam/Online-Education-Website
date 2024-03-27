@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,4 +13,9 @@ export class ProductsService {
   getAllProducts(){
     return this.Client.get(this.DB_URL);
   }
+
+  getProductById(id:any){
+    return this.Client.get(this.DB_URL+"/"+id)
+  }
+  
 }

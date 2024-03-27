@@ -3,12 +3,14 @@ import { CourseItemComponent } from '../../course-item/course-item.component';
 import { Router, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesService } from '../../../../Services/courses.service';
+import { CartService } from '../../../../Services/cart.service';
+import { WishlistService } from '../../../../Services/wishlist.service';
 
 @Component({
   selector: 'app-course-section',
   standalone: true,
   imports: [CourseItemComponent, RouterModule, HttpClientModule],
-  providers: [CoursesService],
+  providers: [CoursesService,CartService,WishlistService],
   templateUrl: './course-section.component.html',
   styleUrl: './course-section.component.css'
 })
@@ -17,7 +19,7 @@ export class CourseSectionComponent {
   categoryCourses: any = [];
   displayedCourses: any[] = [];
   displayedCategoryCourses: any[] = [];
-  constructor(private coursesService: CoursesService, private router: Router) { }
+  constructor(private coursesService: CoursesService,private cartService: CartService,private wishlistService: WishlistService, private router: Router) { }
 
   ngOnInit(): void {
     this.coursesService.getAllCourses().subscribe({
@@ -57,6 +59,39 @@ export class CourseSectionComponent {
         }
       })
     }
+  }
+
+
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product).subscribe(
+      () => {
+        // Optional: You can handle success actions here
+        console.log('Product added to cart successfully.');
+        alert("added successfully!!")
+        // this.sendNumber();
+      },
+      (error) => {
+        // Handle error
+        console.error('Error adding product to cart:', error);
+      }
+    );
+  }
+
+
+  addToWishlist(product: any) {
+    this.wishlistService.addToWish(product).subscribe(
+      () => {
+        // Optional: You can handle success actions here
+        console.log('Product added to cart successfully.');
+        alert("added successfully!!")
+        // this.sendNumber();
+      },
+      (error) => {
+        // Handle error
+        console.error('Error adding product to cart:', error);
+      }
+    );
   }
 
 }
