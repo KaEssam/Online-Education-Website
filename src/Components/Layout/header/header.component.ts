@@ -1,28 +1,31 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Renderer2} from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { Component, ElementRef, HostListener, Renderer2, Signal, signal } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { CartService } from '../../../Services/cart.service';
+import { Subscription } from 'rxjs';
+import { ProductsService } from '../../../Services/products.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
+  providers: [ProductsService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
 
-  // ngOnInit() {
-  //   // Listen for collapse events
-  //   const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
+  // number: any;
+  // subscription: Subscription;
+  constructor(private renderer: Renderer2, private el: ElementRef, private productService: ProductsService) {
 
-  //   navbarCollapse.addEventListener('show.bs.collapse', () => {
-  //     this.renderer.addClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'shadow');
-  //   });
+    // this.subscription = this.productService.getBadgeCount().subscribe(number => { this.number = number });
 
-  //   navbarCollapse.addEventListener('hide.bs.collapse', () => {
-  //     this.renderer.removeClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'shadow');
-  //   });
+  }
+
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
   // }
 
   @HostListener('window:scroll', [])
@@ -35,7 +38,11 @@ export class HeaderComponent {
     }
   }
 
-  
+  // counter:Signal(0)
+
+  // counter = signal(0);
+
+
 }
 
 

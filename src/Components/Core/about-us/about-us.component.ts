@@ -1,6 +1,8 @@
 import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
-import AOS from 'aos'; //AOS - 1
+import AOS from 
+
+'aos'; //AOS - 1
 
 
 

@@ -25,33 +25,32 @@
             </thead>
             <tbody>
               <!-- Repeat this block for each item in the cart -->
-              <tr>
-                <td>
-                  <img
-                    src="assets/Test img/course_thumb01.jpg"
-                    class="img-fluid"
-                    alt="Item Image"
-                  />
-                </td>
-                <td>Item Title</td>
-                <td>Author Name</td>
-                <td>$50</td>
-                <td>
-                  <div class="action">
-                    <button class="btn btn-danger">
-                      <i class="bi bi-x"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- End of item block -->
+                <tr *ngFor="let p of Products; trackBy: trackByFn">
+                  <td>
+                    <img
+                      src="assets/img/{{p.img}}"
+                      class="img-fluid"
+                      alt="Item Image"
+                    />
+                  </td>
+                  <td>{{p.title}}</td>
+                  <td>{{p.author}}</td>
+                  <td>{{p.price}}</td>
+                  <td>
+                    <div class="action">
+                      <button class="btn btn-danger" (click)="deleteFromCart(p.id)">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- End of item block -->
             </tbody>
           </table>
         </div>
         <div class="col-md-4">
           <div class="cart-summary">
-            <h4>Total: $50</h4>
+            <h4>Total: {{totalPrice}}</h4>
             <button class="btn btn-primary btn-lg">Checkout</button>
           </div>
         </div>

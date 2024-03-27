@@ -144,11 +144,13 @@
   "signIn": [
     {
       "email": "dadada@ada.com",
-      "password": "Ka12312300"
+      "password": "Ka12312300",
+      "id": "f447"
     },
     {
       "email": "karim.2024@gmail.com",
-      "password": "Zo123456"
+      "password": "Zo123456",
+      "id": "b8a3"
     },
     {
       "id": "20",
@@ -163,9 +165,9 @@
       "password": "Ka12312300"
     }
   ],
-  "courses":[
+  "courses": [
     {
-      "id": 10,
+      "id": "10",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -173,11 +175,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -185,11 +187,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -197,11 +199,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -209,11 +211,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
+      "sections": 5,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -221,11 +223,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -233,11 +235,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -245,11 +247,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -257,12 +259,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
-    }
-    ,
+      "sections": 5,
+      "instructor": "Peter Alias"
+    },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -270,11 +271,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -282,11 +283,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -294,11 +295,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -306,12 +307,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
-    }
-    ,
+      "sections": 5,
+      "instructor": "Peter Alias"
+    },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -319,11 +319,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -331,11 +331,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -343,11 +343,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -355,12 +355,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
-    }
-    ,
+      "sections": 5,
+      "instructor": "Peter Alias"
+    },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -368,11 +367,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -380,11 +379,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -392,11 +391,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -404,12 +403,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
-    }
-    ,
+      "sections": 5,
+      "instructor": "Peter Alias"
+    },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -417,11 +415,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -429,11 +427,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -441,11 +439,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -453,12 +451,11 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
-    }
-    ,
+      "sections": 5,
+      "instructor": "Peter Alias"
+    },
     {
-      "id": 4,
+      "id": "4",
       "title": "Learning JavaScript With Imagination",
       "price": 24,
       "rating": 4.9,
@@ -466,11 +463,11 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections":9,
-      "instructor":"Peter Alias"
+      "sections": 9,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
       "rating": 4.8,
@@ -478,11 +475,11 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections":7,
-      "instructor":"Peter Alias"
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Learning Digital Marketing on Facebook",
       "price": 19,
       "rating": 4.8,
@@ -490,11 +487,11 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections":3,
-      "instructor":"Peter Alias"
+      "sections": 3,
+      "instructor": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Financial Analyst Training & Investing Course",
       "price": 12,
       "rating": 4.7,
@@ -502,133 +499,218 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections":5,
-      "instructor":"Peter Alias"
+      "sections": 5,
+      "instructor": "Peter Alias"
     }
   ],
-  "products":[
+  "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "The Business Women",
       "price": 19,
       "rating": 5,
-      "img": "shop_img01.jpg"
+      "img": "shop_img01.jpg",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias"
     },
     {
-      "id": 2,
+      "id": "2",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "Garden Adeline Life",
       "price": 15,
       "rating": 4.7,
       "img": "shop_img02.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "Time to Explore",
       "price": 17,
       "rating": 4,
       "img": "shop_img06.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
       "img": "shop_img07.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
       "img": "shop_img07.jpg"
-    }
-    ,
+    },
     {
-      "id": 6,
+      "id": "6",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "Time to Explore",
       "price": 17,
       "rating": 4,
       "img": "shop_img06.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
       "img": "shop_img02.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
       "img": "shop_img01.jpg"
     }
   ],
-  "events":[
+  "events": [
     {
-      "id": 1,
+      "id": "1",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post01.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post02.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id":2,
+      "id": "2",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post03.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post04.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post04.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post03.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post02.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "How To Become Idiculously Self-Aware In 20 Minutes",
       "duration": "Mar 24, 2024 5:30 PM - 6:30 PM",
       "img": "blog_post01.jpg",
-      "instructor":"Peter Alias",
-      "price":17
+      "instructor": "Peter Alias",
+      "price": 17
+    }
+  ],
+  "cart": [
+    {
+      "id": "2",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
+      "category": "Development",
+      "author": "Peter Alias",
+      "title": "Garden Adeline Life",
+      "price": 15,
+      "rating": 4.7,
+      "img": "shop_img02.jpg"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "2",
+      "title": "sqll",
+      "description": null,
+      "img": null,
+      "price": null,
+      "rating": null,
+      "duration": null,
+      "categoryName": null,
+      "instructorId": "6955345f-9492-4700-8992-5a7bceabf7e8",
+      "sections": [
+        {
+          "id": 1,
+          "order": 0,
+          "title": "ahmed"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "ahmed",
+      "description": null,
+      "img": null,
+      "price": null,
+      "rating": null,
+      "duration": null,
+      "categoryName": null,
+      "instructorId": "e575eb4f-1c73-4712-a9d0-f77154244c78",
+      "sections": [
+        {
+          "id": 2,
+          "order": 0,
+          "title": "lectuer"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "The Complete Graphic Design for Beginners",
+      "price": 15,
+      "rating": 4.8,
+      "duration": 12,
+      "enrollmentCount": 210,
+      "category": "Design",
+      "img": "course_thumb02.jpg",
+      "sections": 7,
+      "instructor": "Peter Alias"
     }
   ]
 }
