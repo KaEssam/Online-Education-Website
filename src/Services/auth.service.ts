@@ -1,5 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -11,28 +14,81 @@ interface User {
   token?: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 
+
+// export class AuthService {
+
+// private baseUrl = 'https://skillgro.runasp.net';
+
+//   constructor(private http: HttpClient) { }
+
+// SignUp(newUser: any): Observable<any> {
+//     return this.http.post<any>(`${this.baseUrl}/api/student/account/register`, newUser);
+//   }
+  
+//   signIn(email: string, password: string): Observable<any> {
+
+//     const headers = new HttpHeaders({
+//       'Content-Type': 'application/json',
+//       // Add any other headers you need
+//     });
+//     return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, { email, password });
+//   }
+
+  
+
+// }
+
+
+@Injectable({ providedIn: 'root' })
 
 export class AuthService {
+  private baseUrl = 'https://skillgro.runasp.net';
+  
+  private currentUserSubject: BehaviorSubject<User | null>;
+  public currentUser: Observable<User | null>;
 
-
-  DB_URL = "http://localhost:3000";
-  constructor(private myClient: HttpClient) { }
-
-
-  SignIn(data: any): Observable<any> {
-    return this.myClient.post(`${this.DB_URL}/signIn`, data);
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
+    this.currentUserSubject = new BehaviorSubject<User | null>(
+      JSON.parse(localStorage.getItem('currentUser') || '{}') 
+    );
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  SignUp(user: any) {
-    return this.myClient.post(this.DB_URL, user);
-
+  public get currentUserValue(): User | null {
+    return this.currentUserSubject.value;
   }
 
+  signIn(username: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, { username, password })
+      .pipe(map(response => {
+        if (response && response.token) {
+          localStorage.setItem('currentUser', JSON.stringify(response));
+          this.currentUserSubject.next(response);
+        }
+        return response;
+      }));
+  }
+
+  SignUp(userData: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/api/student/account/register`, userData);
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
+
+  isLoggedIn(): boolean {
+  const currentUser = localStorage.getItem('currentUser');
+  const token = currentUser ? JSON.parse(currentUser).token : null;
+  return token ? !this.jwtHelper.isTokenExpired(token) : false;
 }
+  }
+
 
 
 

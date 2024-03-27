@@ -66,7 +66,6 @@
             formControlName="email"
             placeholder="Enter your email address"
             required
-            formControlName="email"
           />
         </div>
         <div class="form-group">
@@ -78,7 +77,6 @@
             formControlName="password"
             placeholder="Enter your password"
             required
-            formControlName="password"
           />
           <div class="form-check">
             <div class="form-check-Remember">
@@ -100,13 +98,11 @@
             >
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="signIn()">
-          Sign In
-        </button>
+        <button type="submit" class="btn btn-primary">Sign In</button>
       </form>
 
       <div class="signup-link">
-        Don't have an account? <a routerLink="/signup" >Sign Up</a>
+        Don't have an account? <a routerLink="/signup">Sign Up</a>
       </div>
     </div>
   </body>

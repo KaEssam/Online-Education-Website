@@ -15,23 +15,21 @@
       </div>
       <div class="form-group">
         <label for="category">Category</label>
-        <input
-          type="text"
+        <select
           class="form-control"
           id="category"
           [(ngModel)]="course.category"
           name="category"
-        />
+        >
+          <option value="web">Web Development</option>
+          <option value="mobile">Mobile Development</option>
+          <option value="data">Data Science</option>
+          <!-- Add more options as needed -->
+        </select>
       </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea
-          class="form-control"
-          id="description"
-          [(ngModel)]="course.description"
-          name="description"
-        ></textarea>
-      </div>
+      <button class="btn btn-primary mr-2" (click)="goBack()">
+        Back to Courses
+      </button>
       <button class="btn btn-primary" (click)="nextStep()">Next</button>
     </form>
   </div>
@@ -48,6 +46,9 @@
         <label for="videoIntroduction">Video Introduction</label>
         <input type="file" class="form-control-file" id="videoIntroduction" />
       </div>
+      <button class="btn btn-primary mr-2" (click)="previousStep()">
+        Back
+      </button>
       <button class="btn btn-primary" (click)="nextStep()">Next</button>
     </form>
   </div>
@@ -61,14 +62,152 @@
       </button>
     </div>
     <div *ngFor="let section of course.curriculum">
-      <div>{{ section.name }}</div>
-      <button class="btn btn-sm btn-info" (click)="editSection(section)">
-        Edit
-      </button>
-      <button class="btn btn-sm btn-danger" (click)="deleteSection(section)">
-        Delete
-      </button>
-      <!-- Add content options here -->
+      <div>
+        <button class="btn btn-sm btn-info" (click)="toggleCollapse(section)">
+          {{ section.name }}
+          <i
+            class="fa"
+            [ngClass]="{
+              'fa-caret-down': !section.collapsed,
+              'fa-caret-up': section.collapsed
+            }"
+          ></i>
+        </button>
+        <button
+          class="btn btn-sm btn-primary ml-2"
+          (click)="openAddLectureModal(section)"
+        >
+          Add Lecture
+        </button>
+        <button
+          class="btn btn-sm btn-warning ml-2"
+          (click)="editSection(section)"
+        >
+          Edit Section
+        </button>
+        <button
+          class="btn btn-sm btn-danger ml-2"
+          (click)="deleteSection(section)"
+        >
+          Delete Section
+        </button>
+      </div>
+      <div *ngIf="!section.collapsed">
+        <!-- Display added lectures here -->
+        <div *ngFor="let lecture of section.lectures">
+          <p>{{ lecture.title }}</p>
+          <button class="btn btn-sm btn-warning" (click)="editLecture(lecture)">
+            Edit
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="deleteLecture(section, lecture)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
+    <button class="btn btn-primary mr-2" (click)="previousStep()">Back</button>
+    <button class="btn btn-primary" (click)="nextStep()">Next</button>
+
+    <!-- Add Lecture Modal -->
+    <div
+      #addLectureModal
+      class="modal fade"
+      id="addLectureModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addLectureModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addLectureModalLabel">Add Lecture</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="openAddLectureModal(['section'])"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Add form fields for lecture title and media upload here -->
+            <div class="form-group">
+              <label for="lectureTitle">Lecture Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lectureTitle"
+                [(ngModel)]="newLecture.title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="mediaUpload">Media Upload</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="mediaUpload"
+                [(ngModel)]="newLecture.media"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              (click)="closeAddLectureModal()"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="saveLecture(['section'])"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="currentStep === 4">
+    <!-- Fourth Step: Course Settings -->
+    <h2>Step 4: Course Settings</h2>
+    <form>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          [(ngModel)]="course.price"
+          name="price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select
+          class="form-control"
+          id="status"
+          [(ngModel)]="course.status"
+          name="status"
+        >
+          <option value="draft">Draft</option>
+          <option value="published">Published</option>
+        </select>
+      </div>
+      <button class="btn btn-primary mr-2" (click)="previousStep()">
+        Back
+      </button>
+      <button class="btn btn-primary" (click)="publishCourse()">Publish</button>
+    </form>
   </div>
 </div>

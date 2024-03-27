@@ -9,7 +9,7 @@ import { AuthService } from '../../../Services/auth.service';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [HttpClientModule,ReactiveFormsModule,CommonModule,RouterModule],
+  imports: [HttpClientModule,ReactiveFormsModule,CommonModule,RouterModule,],
   providers: [AuthService],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
@@ -37,33 +37,31 @@ export class SignInComponent implements OnInit {
     });
   }
 
-signIn() {
-  if (this.signInForm.valid) {
-    this.authService.SignIn({
-      email: this.signInForm.value.email,
-      password: this.signInForm.value.password
-    }).subscribe(
-      (res: any) => {
-        if (res.token) { // Assuming your backend returns a token upon successful authentication
-          console.log(res);
-          alert('Sign-in successful');
-          // Redirect or do something on successful sign-in
-        } else {
-          alert('Sign-in failed');
-          // Handle unsuccessful sign-in
-        }
-      },
-      (error) => {
-        console.error('Error during sign-in:', error);
-        // Handle error
-      }
-    );
-  } else {
-    alert('Form is invalid');
-    // Handle form validation errors
-  }
-}
+  
 
+  
+  signIn() {
+    if (this.signInForm.valid) {
+      const email = this.signInForm.value.email;
+      const password = this.signInForm.value.password;
+
+      this.authService.signIn(email, password).subscribe(
+        (res: any) => {
+                      console.log(res);
+
+
+        },
+        (error) => {
+          console.error('Error during sign-in:', error);
+          // Handle error
+        }
+      );
+    } else {
+      alert('Form is invalid');
+
+      // Handle form validation errors
+    }
+  }
 }
 
 
