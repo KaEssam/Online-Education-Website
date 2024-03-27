@@ -19,7 +19,8 @@ import { ProductItemComponent } from '../Components/Shared/product-item/product-
 import { HomeComponent } from '../Components/Shared/home/home.component';
 import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-enroll.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-// import { NgxPayPalModule } from 'ngx-paypal';
+import { InstructorDashboardComponent } from '../Components/instructor/instructor-dashboard.component';
+import { CreateCourseComponent } from '../Components/instructor/create-course/create-course.component';
 
 
 @Component({
@@ -45,7 +46,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AfterEnrollComponent,
   HttpClientModule,
-],
+InstructorDashboardComponent, CreateCourseComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

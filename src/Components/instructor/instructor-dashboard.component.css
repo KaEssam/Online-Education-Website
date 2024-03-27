@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--tg-common-color-gray);
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-9 {
+  flex: 0 0 75%;
+  /* Adjust as needed */
+  max-width: 75%;
+  /* Adjust as needed */
+}
+
+/* Styles for Left Side Component */
+app-instructor-sidebar {
+  flex: 0 0 25%;
+  /* Adjust as needed */
+  max-width: 25%;
+  /* Adjust as needed */
+}
+
+/* Styles for Right Side Component (Content) */
+app-sidebar-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+
+  .col-md-9,
+  app-instructor-sidebar {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

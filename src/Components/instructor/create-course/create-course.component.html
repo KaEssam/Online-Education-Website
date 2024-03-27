@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div *ngIf="currentStep === 1">
+    <!-- First Step: Basic Information -->
+    <h2>Step 1: Basic Information</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="course.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          [(ngModel)]="course.category"
+          name="category"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          [(ngModel)]="course.description"
+          name="description"
+        ></textarea>
+      </div>
+      <button class="btn btn-primary" (click)="nextStep()">Next</button>
+    </form>
+  </div>
+
+  <div *ngIf="currentStep === 2">
+    <!-- Second Step: Course Media -->
+    <h2>Step 2: Course Media</h2>
+    <form>
+      <div class="form-group">
+        <label for="courseCover">Course Cover</label>
+        <input type="file" class="form-control-file" id="courseCover" />
+      </div>
+      <div class="form-group">
+        <label for="videoIntroduction">Video Introduction</label>
+        <input type="file" class="form-control-file" id="videoIntroduction" />
+      </div>
+      <button class="btn btn-primary" (click)="nextStep()">Next</button>
+    </form>
+  </div>
+
+  <div *ngIf="currentStep === 3">
+    <!-- Third Step: Create Curriculum -->
+    <h2>Step 3: Create Curriculum</h2>
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="addSection()">
+        Add Section
+      </button>
+    </div>
+    <div *ngFor="let section of course.curriculum">
+      <div>{{ section.name }}</div>
+      <button class="btn btn-sm btn-info" (click)="editSection(section)">
+        Edit
+      </button>
+      <button class="btn btn-sm btn-danger" (click)="deleteSection(section)">
+        Delete
+      </button>
+      <!-- Add content options here -->
+    </div>
+  </div>
+</div>
