@@ -64,15 +64,5 @@ export class ProductSectionComponent {
     );
   }
 
-  // public count: number = 0;
-  // sendNumber() {
-  //   this.productsService.incrementBadgeCount(); // Notify header component to update badge count
-  //   alert("addedddddddddddddddddddddddddddddddddddddddddddddd");
-  // }
-  // Increment() {
-  //   this.count++;
-  //   console.log("done");
-  //   return this.count;
-  // }
 
 }

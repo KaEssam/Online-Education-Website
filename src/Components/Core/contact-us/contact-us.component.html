@@ -29,21 +29,37 @@
     <div class="col-lg-8 col-md-12 col-sm-10 contact-input pt-4 pb-5 px-5">
       <h2 class="mt-2">Send Us Message</h2>
       <p>Your email address will not be published.</p>
-      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="name" />
+          <input type="text" class="form-control" id="name" formControlName="name" />
+          @if (!isValidFirstName) {
+            <div  class="text-danger">
+              Name is required
+            </div>
+          }
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email" />
+          <input type="email" class="form-control" id="email" formControlName="email" />
+          @if (!isValidEmail) {
+            <div  class="text-danger">
+              Please enter a valid email
+            </div>
+          }
         </div>
         <div class="mb-3">
           <label for="comment" class="form-label">Comment</label>
-          <textarea class="form-control mb-4" id="comment" name="comment" rows="3" [(ngModel)]="comment"></textarea>
+          <textarea class="form-control mb-4" id="comment" formControlName="comment" rows="3"></textarea>
+          @if (!isValidComment) {
+            <div class="text-danger">
+              Comment is required
+            </div>
+          }
         </div>
         <button type="submit" class="btn">Submit Now</button>
       </form>
     </div>
   </div>
+  
 </div>

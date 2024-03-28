@@ -66,7 +66,7 @@ export class WishlistComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        this.showAlert = true;
+        alert("Added Successfully")
         // this.sendNumber();
       },
       (error) => {
