@@ -1,8 +1,9 @@
 /* Container */
 .container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px;
+  /* margin: 0 auto; */
+  padding: 0 15px 1rem;
+  margin-bottom: 5rem;
 }
 
 /* Margin top */
@@ -65,4 +66,115 @@
   color: #fff;
   background-color: #bd2130;
   border-color: #bd2130;
+}
+
+/* Custom CSS */
+.container {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+/* General form styling */
+/* .form-group {
+  margin-bottom: 1rem; 
+} */
+
+.form-control-file {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.form-control-file:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control-file::after {
+  content: "\f0e4"; /* Font Awesome icon for file upload (adjust as needed) */
+  font-family: FontAwesome; /* Replace with your font family if using a different icon */
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #868e96;
+  font-size: 1.2rem;
+  line-height: 1;
+  content: "Browse"; /* Optional text for clarity, adjust as needed */
+}
+
+/* Buttons */
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+             border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus,
+.btn-primary.active,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary:visited {
+  /* outline: 0; */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* Optional: Add spacing around the form */
+.step-2-form { /* Add a class to the form (if needed) */
+  margin: 1rem; /* Adjust margins as desired */
+}
+
+h2{
+  margin-bottom: 2rem;
+}
+
+button{
+  margin-top: 1.5rem;
+}
+
+/* input{
+  margin-bottom: 2rem;
+} */
+
+.curriculum-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.lecture-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lecture-item{
+  background-color: #f0f0f0; /* Change to desired background color */
+    padding: 15px;
+    border-radius: 5px;
 }

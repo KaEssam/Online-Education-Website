@@ -25,7 +25,7 @@ export class CoursesService {
   // constructor(private readonly Client: HttpClient) { }
 
   // getAllCourses() {
-  //   return this.Client.get(this.DB_URL+"/api/CourseWithSection");
+  //   return this.Client.get(this.DB_URL+"/api/CourseHome");
   // }
 
   // getCoursesByCategory(category: string) {
