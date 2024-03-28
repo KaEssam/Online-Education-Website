@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   signIn(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, { "email":"deyaataha9999@gmail.com", "password":"Test1234!" })
+    return this.http.post<any>(`${this.baseUrl}/api/student/account/login?useCookies=true&useSessionCookies=true`, { "email":"deyaataha9999@gmail.com", "password":"Test1234!" })
       .pipe(map(response => {
         setTimeout(() => {}, 1000)
         if (response && response.accessToken) {
