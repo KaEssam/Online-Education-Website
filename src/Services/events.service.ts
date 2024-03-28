@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class EventsService {
 
-  private readonly DB_URL = "http://localhost:3000/events";
+  private readonly DB_URL: string = "https://skillgro.runasp.net/api/CourseWithSection";
 
   constructor(private readonly Client: HttpClient) { }
 

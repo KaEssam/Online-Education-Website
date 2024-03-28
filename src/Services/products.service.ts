@@ -6,16 +6,16 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  private readonly DB_URL = "http://localhost:3000/products";
+  private readonly DB_URL = "https://skillgro.runasp.net";
 
   constructor(private readonly Client:HttpClient) { }
 
   getAllProducts(){
-    return this.Client.get(this.DB_URL);
+    return this.Client.get(this.DB_URL+"/api/CourseWithSection");
   }
 
   getProductById(id:any){
-    return this.Client.get(this.DB_URL+"/"+id)
+    return this.Client.get(/*this.DB_URL+"/"+id*/this.DB_URL+"/api/CourseWithSection")
   }
   
 }

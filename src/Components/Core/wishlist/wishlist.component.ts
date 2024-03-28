@@ -31,6 +31,8 @@ export class WishlistComponent {
   loadWishItems() {
     this.wishlistService.getWishItems().subscribe({
       next: (data) => {
+        setTimeout(() => {}, 1000);
+        console.log(data);
         this.Products = data;
       },
       error: (err) => {
