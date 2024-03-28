@@ -18,7 +18,7 @@ export class WishlistService {
         'Authorization':"Bearer "+localStorage.getItem('currentUser') || ""
       })
     };
-    return this.Client.get(this.WISH_URL, httpOptions); // Fetch items from the cart URL
+    return this.Client.get(this.WISH_URL/*, httpOptions*/); // Fetch items from the cart URL
   }
 
   private getCookie(name: string): string {
