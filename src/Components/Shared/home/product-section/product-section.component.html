@@ -35,14 +35,18 @@
                             <img src="assets/img/{{p.img}}" class="img-fluid card-img ">
                         </a>
                         <ul class="shop-action">
-                            <li style="cursor: pointer;"><a (click)="addToCart(p)"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li style="cursor: pointer;"><a (click)="addToWishlist(p)"><i class="fa fa-heart"></i></a></li>
+                            <li style="cursor: pointer;"><a (click)="addToCart(p)"><i
+                                        class="fa fa-shopping-cart"></i></a></li>
+                            <li style="cursor: pointer;"><a (click)="addToWishlist(p)"><i class="fa fa-heart"></i></a>
+                            </li>
                             <li><a routerLink="/products/{{p.id}}"><i class="fa fa-eye"></i></a></li>
                         </ul>
                     </div>
                     <div class="shop-content card-body ">
                         <h3 class="title shop-content-h3 card-title"><a href="shop-details.html"
                                 style="color: var(--tg-heading-color);">{{p.title}}</a></h3>
+                        <h3 class="title shop-content-h3 card-title"><a href="shop-details.html"
+                                style="color: var(--tg-heading-color); font-size: 15px;">{{p.instructor}}</a></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
