@@ -512,13 +512,13 @@
       "img": "shop_img01.jpg",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias"
+      "instructor": "Peter Alias"
     },
     {
       "id": "2",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "Garden Adeline Life",
       "price": 15,
       "rating": 4.7,
@@ -528,7 +528,7 @@
       "id": "3",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "Time to Explore",
       "price": 17,
       "rating": 4,
@@ -538,7 +538,7 @@
       "id": "4",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
@@ -548,7 +548,7 @@
       "id": "5",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
@@ -558,7 +558,7 @@
       "id": "6",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "Time to Explore",
       "price": 17,
       "rating": 4,
@@ -568,7 +568,7 @@
       "id": "7",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
@@ -578,7 +578,7 @@
       "id": "8",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
+      "instructor": "Peter Alias",
       "title": "The Fashion Edits",
       "price": 13,
       "rating": 4.5,
@@ -653,52 +653,28 @@
   ],
   "cart": [
     {
-      "id": "2",
+      "id": "1",
+      "title": "The Business Women",
+      "price": 19,
+      "rating": 5,
+      "img": "shop_img01.jpg",
       "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "author": "Peter Alias",
-      "title": "Garden Adeline Life",
-      "price": 15,
-      "rating": 4.7,
-      "img": "shop_img02.jpg"
+      "instructor": "Peter Alias"
     }
   ],
   "wishlist": [
     {
-      "id": "2",
-      "title": "sqll",
-      "description": null,
-      "img": null,
-      "price": null,
-      "rating": null,
-      "duration": null,
-      "categoryName": null,
-      "instructorId": "6955345f-9492-4700-8992-5a7bceabf7e8",
-      "sections": [
-        {
-          "id": 1,
-          "order": 0,
-          "title": "ahmed"
-        }
-      ]
-    },
-    {
-      "id": "3",
-      "title": "ahmed",
-      "description": null,
-      "img": null,
-      "price": null,
-      "rating": null,
-      "duration": null,
-      "categoryName": null,
-      "instructorId": "e575eb4f-1c73-4712-a9d0-f77154244c78",
-      "sections": [
-        {
-          "id": 2,
-          "order": 0,
-          "title": "lectuer"
-        }
-      ]
+      "id": "6",
+      "title": "The Complete Graphic Design for Beginners",
+      "price": 15,
+      "rating": 4.8,
+      "duration": 12,
+      "enrollmentCount": 210,
+      "category": "Design",
+      "img": "course_thumb02.jpg",
+      "sections": 7,
+      "instructor": "Peter Alias"
     },
     {
       "id": "6",

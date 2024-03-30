@@ -3,7 +3,7 @@ import {Component, ElementRef, OnInit, ViewChild, viewChild } from '@angular/cor
 import { PaymentService } from '../../../Services/payment.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 
 
 declare var paypal: any;
@@ -11,7 +11,7 @@ declare var paypal: any;
 @Component({
   selector: 'app-check-out',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,RouterModule],
   providers: [PaymentService],
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.css'],

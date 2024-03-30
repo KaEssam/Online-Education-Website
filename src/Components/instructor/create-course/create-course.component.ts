@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-create-course',
   standalone: true,
-  imports: [FormsModule,CommonModule,],
+  imports: [FormsModule,CommonModule,RouterModule],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })
@@ -48,6 +49,7 @@ currentStep: number = 1;
     const sectionName = prompt("Enter section name:");
     if (sectionName) {
       this.course.curriculum.push({ name: sectionName, lectures: [], collapsed: true });
+      console.log(this.course.curriculum);
     }
   }
 

@@ -12,6 +12,8 @@ import { CourseItemComponent } from "../Components/Shared/course-item/course-ite
 import { EventItemComponent } from "../Components/Shared/event-item/event-item.component";
 import { HomeComponent } from "../Components/Shared/home/home.component";
 import { ProductItemComponent } from "../Components/Shared/product-item/product-item.component";
+import { CreateCourseComponent } from "../Components/instructor/create-course/create-course.component";
+import { InstructorDashboardComponent } from "../Components/instructor/instructor-dashboard.component";
 import { SignUpComponent } from "./../Components/Core/sign-up/sign-up.component";
 import { Routes } from '@angular/router';
 
@@ -35,10 +37,9 @@ export const routes: Routes = [
   {path: "wishlist/:id", component:WishlistComponent},
   {path: "enroll", component:AfterEnrollComponent},
   {path: "signOut", component:HomeComponent},
+  {path: "dashboard", component:InstructorDashboardComponent},
+  {path: "createCourse", component:CreateCourseComponent},
   {path: "**", component:ErrorPageComponent},
-
-
-  // {path: "instructor", component:AfterEnrollComponent},
   // {path: "student", component:SignUpComponent},
   
 ];

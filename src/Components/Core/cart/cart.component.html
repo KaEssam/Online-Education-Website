@@ -34,7 +34,7 @@
                     />
                   </td>
                   <td>{{p.title}}</td>
-                  <td>{{p.author}}</td>
+                  <td>{{p.instructor}}</td>
                   <td>{{p.price}}</td>
                   <td>
                     <div class="action">
@@ -51,7 +51,7 @@
         <div class="col-md-4">
           <div class="cart-summary">
             <h4>Total: {{totalPrice}}</h4>
-            <button class="btn btn-primary btn-lg">Checkout</button>
+            <button routerLink="/checkout" class="btn btn-primary btn-lg" >Checkout</button>
           </div>
         </div>
       </div>

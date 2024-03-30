@@ -534,19 +534,25 @@ svg {
     vertical-align: middle;
 }
 
-@media (max-width: 1199.98px) {
-    .shop-item {
-        padding: 20px 20px 25px;
-    }
+.blog__post-item-four{
+    margin-top: 3rem;
 }
 
-.shop-item {
+
+.card:hover.col-lg-3.col-md-6.col-sm-12{
+    box-shadow: 7px 7px 0px #CAC9D6;
+ }
+
+.card {
     border: 1px solid #E8E8E8;
     border-radius: 6px;
     padding: 25px 25px 30px;
     margin-bottom: 2.5rem;
     background: var(--tg-common-color-white);
+    transition: all 0.3s ease-out 0s;
+    
 }
+
 
 .shop-thumb {
     position: relative;
@@ -569,7 +575,7 @@ svg {
 
 }
 
-.shop-item:hover .shop-action li {
+.card:hover .shop-action li {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -596,6 +602,12 @@ svg {
     line-height: 0;
 }
 
+a {
+    color: var(--tg-theme-primary);
+    outline: none;
+    text-decoration: none;
+    transition: all 0.3s ease-out 0s;
+}
 
 .shop-action a:hover {
     background: var(--tg-theme-primary);
@@ -647,5 +659,11 @@ svg {
     margin-bottom: 0;
     color: var(--tg-theme-primary);
     
+}
+
+@media (max-width: 1199.98px) {
+    .card {
+        padding: 20px 20px 25px;
+    }
 }
 /* shop-details-bottom */

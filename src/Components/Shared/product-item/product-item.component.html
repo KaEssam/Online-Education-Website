@@ -8,9 +8,9 @@
                             <img src="assets/img/{{p.img}}" class="img-fluid card-img ">
                         </a>
                         <ul class="shop-action">
-                            <li><a href="shop-details.html"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="shop-details.html"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="shop-details.html"><i class="fa fa-eye"></i></a></li>
+                            <li style="cursor: pointer;"><a (click)="addToCart(p)"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li style="cursor: pointer;"><a (click)="addToWishlist(p)"><i class="fa fa-heart"></i></a></li>
+                            <li><a routerLink="/products/{{p.id}}"><i class="fa fa-eye"></i></a></li>
                         </ul>
                     </div>
                     <div class="shop-content card-body ">

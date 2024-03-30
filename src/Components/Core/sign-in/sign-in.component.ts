@@ -1,18 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../Services/auth.service';
-
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [HttpClientModule,ReactiveFormsModule,CommonModule,RouterModule,],
+  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, RouterModule],
   providers: [AuthService],
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.css'
+  styleUrl: './sign-in.component.css',
 })
 export class SignInComponent implements OnInit {
   signInForm!: FormGroup;
@@ -33,13 +37,10 @@ export class SignInComponent implements OnInit {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      rememberMe: [false]
+      rememberMe: [false],
     });
   }
 
-  
-
-  
   signIn() {
     if (this.signInForm.valid) {
       const email = this.signInForm.value.email;
@@ -47,9 +48,7 @@ export class SignInComponent implements OnInit {
 
       this.authService.signIn(email, password).subscribe(
         (res: any) => {
-                      console.log(res);
-
-
+          localStorage.setItem("token", res.accessToken);
         },
         (error) => {
           console.error('Error during sign-in:', error);
@@ -63,12 +62,3 @@ export class SignInComponent implements OnInit {
     }
   }
 }
-
-
-
-
-
-
-
-  
-

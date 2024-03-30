@@ -19,8 +19,6 @@ constructor(private fb: FormBuilder, private router: Router, private authService
   signupForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z]+$')]],
     lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z]+$')]],
-    email: ['', [Validators.required, Validators.email, Validators.maxLength(50), Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')]],
-    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20),]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@!_.%&]+$')]],
     confirmPassword: ['', Validators.required]
@@ -59,10 +57,10 @@ constructor(private fb: FormBuilder, private router: Router, private authService
   validateAndSubmit() {
     if (this.signupForm.valid) {
       const { firstName, lastName, email, password } = this.signupForm.value;
-      this.addUser(firstName, lastName, email, password);
-      this.router.navigate(['/signin']);
+      // this.addUser(firstName, lastName, email, password);
+      // this.router.navigate(['/signin']);
       
-      this.Add(firstName, lastName, email, password);
+      this.addUser(firstName, lastName, email, password);
       this.router.navigate(['/login']);
     } else {
       this.signupForm.markAllAsTouched();
@@ -74,5 +72,3 @@ constructor(private fb: FormBuilder, private router: Router, private authService
     this.authService.SignUp(newUser).subscribe();
   }
 }
-
-

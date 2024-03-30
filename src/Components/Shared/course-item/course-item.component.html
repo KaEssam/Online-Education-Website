@@ -20,10 +20,10 @@
         <div class="card h-100">
           <img src="assets/img/{{c.img}}" alt="Course Title" />
           <div class="position-absolute">
-            <button class="btn btn-sm">
+            <button class="btn btn-sm" (click)="addToWishlist(c)">
               <i class="bi bi-heart"></i>
             </button>
-            <button class="btn btn-sm">
+            <button class="btn btn-sm" (click)="addToCart(c)" >
               <i class="bi bi-cart"></i>
             </button>
           </div>

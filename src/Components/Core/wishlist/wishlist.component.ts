@@ -31,6 +31,8 @@ export class WishlistComponent {
   loadWishItems() {
     this.wishlistService.getWishItems().subscribe({
       next: (data) => {
+        setTimeout(() => {}, 1000);
+        console.log(data);
         this.Products = data;
       },
       error: (err) => {
@@ -66,7 +68,7 @@ export class WishlistComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        this.showAlert = true;
+        alert("Added Successfully")
         // this.sendNumber();
       },
       (error) => {

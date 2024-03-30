@@ -7,6 +7,8 @@ body {
 
 .container-fluid {
   padding: 20px;
+/* padding-bottom: 5rem; */
+ margin-top: 6rem;
 }
 
 .row {
