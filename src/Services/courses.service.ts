@@ -33,4 +33,9 @@ export class CoursesService {
     const DB_URL_Category = `http://localhost:3000/courses?category=${category}`;
     return this.Client.get(DB_URL_Category);
   }
+
+  getCourseById(id:any){
+    return this.Client.get(this.DB_URL+"/"+id)
+  }
+  
 }

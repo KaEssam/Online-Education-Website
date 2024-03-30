@@ -3,6 +3,7 @@ import { AboutUsComponent } from "../Components/Core/about-us/about-us.component
 import { CartComponent } from "../Components/Core/cart/cart.component";
 import { CheckOutComponent } from "../Components/Core/check-out/check-out.component";
 import { ContactUsComponent } from "../Components/Core/contact-us/contact-us.component";
+import { CourseDetailsComponent } from "../Components/Core/course-details/course-details.component";
 import { ErrorPageComponent } from "../Components/Core/error-page/error-page.component";
 import { ProductCartComponent } from "../Components/Core/product-cart/product-cart.component";
 import { SignInComponent } from "../Components/Core/sign-in/sign-in.component";
@@ -26,7 +27,9 @@ export const routes: Routes = [
   {path: "products", component:ProductItemComponent},
   {path: "products/:id", component:ProductCartComponent},
   {path: "courses", component:CourseItemComponent},
+  {path: "courses/:id", component:CourseDetailsComponent},
   {path: "productDetails", component:ProductCartComponent},
+  {path: "courseDetails", component:CourseDetailsComponent},
   {path: "events", component:EventItemComponent},
   {path: "about", component:AboutUsComponent},
   {path: "contact", component:ContactUsComponent},
