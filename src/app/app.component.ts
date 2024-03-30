@@ -21,6 +21,7 @@ import { AfterEnrollComponent } from '../Components/Shared/after-enroll/after-en
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InstructorDashboardComponent } from '../Components/instructor/instructor-dashboard.component';
 import { CreateCourseComponent } from '../Components/instructor/create-course/create-course.component';
+import { PaypalComponent } from '../Components/Core/paypal/paypal.component';
 
 
 @Component({
@@ -46,7 +47,7 @@ import { CreateCourseComponent } from '../Components/instructor/create-course/cr
     HomeComponent,
     AfterEnrollComponent,
   HttpClientModule,
-InstructorDashboardComponent, CreateCourseComponent],
+InstructorDashboardComponent, CreateCourseComponent,PaypalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
