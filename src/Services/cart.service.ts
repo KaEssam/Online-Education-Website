@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
- private readonly CART_URL = "http://localhost:3000/cart"; // Separate URL for cart operations
+ private readonly CART_URL = "https://skillgro.runasp.net/api/Cart"; // Separate URL for cart operations
   constructor(private readonly Client:HttpClient) { }
 
   addToCart(product:any){
@@ -14,7 +14,13 @@ export class CartService {
   }
 
   getCartItems(){
-    return this.Client.get(this.CART_URL); // Fetch items from the cart URL
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.Client.get(this.CART_URL, httpOptions); // Fetch items from the cart URL
   }
 
   deleteFromCart(id: any) {

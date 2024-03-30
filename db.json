@@ -691,43 +691,29 @@
   ],
   "cart": [
     {
-      "id": "10",
-      "title": "Learning JavaScript With Imagination",
-      "price": 24,
-      "rating": 4.9,
-      "duration": 15,
-      "enrollmentCount": 300,
+      "id": "1",
+      "title": "The Business Women",
+      "price": 19,
+      "rating": 5,
+      "img": "shop_img01.jpg",
+      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
       "category": "Development",
-      "img": "course_thumb01.jpg",
-      "sectionsCount": 9,
-      "instructor": "Peter Alias"
-    },
-    {
-      "id": "6",
-      "title": "The Complete Graphic Design for Beginners",
-      "price": 15,
-      "rating": 4.8,
-      "duration": 12,
-      "enrollmentCount": 210,
-      "category": "Design",
-      "img": "course_thumb02.jpg",
-      "sections": 7,
-      "instructor": "Peter Alias"
-    },
-    {
-      "id": "6",
-      "title": "The Complete Graphic Design for Beginners",
-      "price": 15,
-      "rating": 4.8,
-      "duration": 12,
-      "enrollmentCount": 210,
-      "category": "Design",
-      "img": "course_thumb02.jpg",
-      "sections": 7,
       "instructor": "Peter Alias"
     }
   ],
   "wishlist": [
+    {
+      "id": "6",
+      "title": "The Complete Graphic Design for Beginners",
+      "price": 15,
+      "rating": 4.8,
+      "duration": 12,
+      "enrollmentCount": 210,
+      "category": "Design",
+      "img": "course_thumb02.jpg",
+      "sections": 7,
+      "instructor": "Peter Alias"
+    },
     {
       "id": "6",
       "title": "The Complete Graphic Design for Beginners",
