@@ -175,8 +175,46 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
-      "instructor": "Peter Alias"
+      "sectionsCount": 9,
+      "instructor": {
+        "name":"Peter Alias",
+        "img":"mentors02.png"
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus facere, quam a amet quod quibusdam fugiat doloremque at placeat saepe, dolor quidem harum reprehenderit ipsum vero magni quos mollitia perferendis.",
+      "sectionsContent":[
+        {
+          "id":1,
+          "title":"Introduction To JavaScript",
+          "lessons":[
+            {
+              "id":1,
+              "title":"Course Installation",
+              "url":"https://www.youtube.com/watch?v=b2Az7_lLh3g"
+            },
+            {
+              "id":2,
+              "title":"Simple App",
+              "url":"https://www.youtube.com/watch?v=b2Az7_lLh3g"
+            }
+          ]
+        },
+        {
+          "id":2,
+          "title":"Introduction To JavaScript",
+          "lessons":[
+            {
+              "id":1,
+              "title":"Course Installation",
+              "url":"https://www.youtube.com/watch?v=b2Az7_lLh3g"
+            },
+            {
+              "id":2,
+              "title":"Simple App",
+              "url":"https://www.youtube.com/watch?v=b2Az7_lLh3g"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "6",
@@ -187,7 +225,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -199,7 +237,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -211,7 +249,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -223,7 +261,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -235,7 +273,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -247,7 +285,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -259,7 +297,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -271,7 +309,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -283,7 +321,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -295,7 +333,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -307,7 +345,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -319,7 +357,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -331,7 +369,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -343,7 +381,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -355,7 +393,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -367,7 +405,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -379,7 +417,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -391,7 +429,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -403,7 +441,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -415,7 +453,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -427,7 +465,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -439,7 +477,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -451,7 +489,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     },
     {
@@ -463,7 +501,7 @@
       "enrollmentCount": 300,
       "category": "Development",
       "img": "course_thumb01.jpg",
-      "sections": 9,
+      "sectionsCount": 9,
       "instructor": "Peter Alias"
     },
     {
@@ -475,7 +513,7 @@
       "enrollmentCount": 210,
       "category": "Design",
       "img": "course_thumb02.jpg",
-      "sections": 7,
+      "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
@@ -487,7 +525,7 @@
       "enrollmentCount": 350,
       "category": "Marketing",
       "img": "course_thumb03.jpg",
-      "sections": 3,
+      "sectionsCount": 3,
       "instructor": "Peter Alias"
     },
     {
@@ -499,7 +537,7 @@
       "enrollmentCount": 200,
       "category": "Business",
       "img": "course_thumb04.jpg",
-      "sections": 5,
+      "sectionsCount": 5,
       "instructor": "Peter Alias"
     }
   ],
@@ -653,6 +691,18 @@
   ],
   "cart": [
     {
+      "id": "10",
+      "title": "Learning JavaScript With Imagination",
+      "price": 24,
+      "rating": 4.9,
+      "duration": 15,
+      "enrollmentCount": 300,
+      "category": "Development",
+      "img": "course_thumb01.jpg",
+      "sectionsCount": 9,
+      "instructor": "Peter Alias"
+    },
+    {
       "id": "6",
       "title": "The Complete Graphic Design for Beginners",
       "price": 15,
@@ -665,127 +715,19 @@
       "instructor": "Peter Alias"
     },
     {
-      "id": "2",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "instructor": "Peter Alias",
-      "title": "Garden Adeline Life",
+      "id": "6",
+      "title": "The Complete Graphic Design for Beginners",
       "price": 15,
-      "rating": 4.7,
-      "img": "shop_img02.jpg"
-    },
-    {
-      "id": "3",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "instructor": "Peter Alias",
-      "title": "Time to Explore",
-      "price": 17,
-      "rating": 4,
-      "img": "shop_img06.jpg"
-    },
-    {
-      "id": "15",
-      "title": "Learning Digital Marketing on Facebook",
-      "price": 19,
       "rating": 4.8,
-      "duration": 5,
-      "enrollmentCount": 350,
-      "category": "Marketing",
-      "img": "course_thumb03.jpg",
-      "sections": 3,
-      "instructor": "Peter Alias"
-    },
-    {
-      "id": "20",
-      "title": "Financial Analyst Training & Investing Course",
-      "price": 12,
-      "rating": 4.7,
-      "duration": 9,
-      "enrollmentCount": 200,
-      "category": "Business",
-      "img": "course_thumb04.jpg",
-      "sections": 5,
+      "duration": 12,
+      "enrollmentCount": 210,
+      "category": "Design",
+      "img": "course_thumb02.jpg",
+      "sections": 7,
       "instructor": "Peter Alias"
     }
   ],
   "wishlist": [
-    {
-      "id": "6",
-      "title": "The Complete Graphic Design for Beginners",
-      "price": 15,
-      "rating": 4.8,
-      "duration": 12,
-      "enrollmentCount": 210,
-      "category": "Design",
-      "img": "course_thumb02.jpg",
-      "sections": 7,
-      "instructor": "Peter Alias"
-    },
-    {
-      "id": "6",
-      "title": "The Complete Graphic Design for Beginners",
-      "price": 15,
-      "rating": 4.8,
-      "duration": 12,
-      "enrollmentCount": 210,
-      "category": "Design",
-      "img": "course_thumb02.jpg",
-      "sections": 7,
-      "instructor": "Peter Alias"
-    },
-    {
-      "id": "2",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "author": "Peter Alias",
-      "title": "Garden Adeline Life",
-      "price": 15,
-      "rating": 4.7,
-      "img": "shop_img02.jpg"
-    },
-    {
-      "id": "2",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "author": "Peter Alias",
-      "title": "Garden Adeline Life",
-      "price": 15,
-      "rating": 4.7,
-      "img": "shop_img02.jpg"
-    },
-    {
-      "id": "2",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "author": "Peter Alias",
-      "title": "Garden Adeline Life",
-      "price": 15,
-      "rating": 4.7,
-      "img": "shop_img02.jpg"
-    },
-    {
-      "id": "1",
-      "title": "The Business Women",
-      "price": 19,
-      "rating": 5,
-      "img": "shop_img01.jpg",
-      "description": "Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.",
-      "category": "Development",
-      "author": "Peter Alias"
-    },
-    {
-      "id": "6",
-      "title": "The Complete Graphic Design for Beginners",
-      "price": 15,
-      "rating": 4.8,
-      "duration": 12,
-      "enrollmentCount": 210,
-      "category": "Design",
-      "img": "course_thumb02.jpg",
-      "sections": 7,
-      "instructor": "Peter Alias"
-    },
     {
       "id": "6",
       "title": "The Complete Graphic Design for Beginners",

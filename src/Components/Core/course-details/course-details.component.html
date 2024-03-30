@@ -1,0 +1,280 @@
+<!-- start breadcrumbs -->
+<section class="breadcrumb__area breadcrumb__bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb__content">
+                    <h3 class="title">Who We Are</h3>
+                    <nav class="breadcrumb">
+                        <span property="itemListElement" typeof="ListItem">
+                            <a href="index.html">Home</a>
+                        </span>
+                        <span class="breadcrumb-separator"><i class="fa fa-angle-right"></i></span>
+                        <span property="itemListElement" typeof="ListItem">Course Details</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb__shape-wrap">
+        <img src="assets/img/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
+        <img src="assets/img/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
+        <img src="assets/img/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/img/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
+        <img src="assets/img/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
+    </div>
+</section>
+<!--end breadcrumbs -->
+
+
+<div class="container shop-details-top">
+    <div class="row">
+        @if (Course) {
+        <div class="col-lg-8">
+            <div class="shop-details-images-wrap">
+                <div class="myTabContent">
+                    <div class="show active" id="home-tab-pane">
+                        <img src="assets/img/{{Course.img}}" class="col-10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-details-middle">
+                <div class="product-desc-wrap">
+                    <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                data-bs-target="#description-tab-pane" type="button" role="tab"
+                                aria-controls="description-tab-pane" aria-selected="true">Description</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab"
+                                data-bs-target="#curriculum-tab-pane" type="button" role="tab"
+                                aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
+                                data-bs-target="#reviews-tab-pane" type="button" role="tab"
+                                aria-controls="reviews-tab-pane" aria-selected="false" tabindex="-1">Instructor</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent2">
+                        <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
+                            aria-labelledby="description-tab" tabindex="0">
+                            <div class="product-desc-des">
+                                <p>{{Course.description}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
+                            aria-labelledby="curriculum-tab" tabindex="0">
+                            <div class="product-desc-cir">
+                                <div class="accordion" id="accordionExample">
+
+                                    <div class="accordion-item">
+                                        @for (section of Course.sectionsContent; track section.id) {
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                {{section.title}}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                                            <div class="accordion-body">
+                                                <ul class="list-wrap">
+                                                    @for (lesson of Course.sectionsContent.lessons; track lesson.id) {
+                                                    <li class="course-item open-item">
+                                                        <a href={{lesson.url}} class="course-item-link popup-video"
+                                                            target="_blank">
+                                                            <span class="item-name">{{lesson.title}}</span>
+                                                            <div class="course-item-meta">
+                                                                <span class="item-meta duration">03:03</span>
+                                                                <!-- Assuming duration is static -->
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    }
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab"
+                            tabindex="0">
+                            <div class="product-desc-review">
+                                <div class="single-instructor">
+                                    <div class="review-author">
+                                        <div class="author-thumb">
+                                            <img src="assets/img/{{Course.instructor.img}}" alt="Author">
+                                        </div>
+                                        <div class="author-content">
+                                            <h4 class="name">{{Course.instructor.name}}</h4>
+                                            <span class="designation">Product Designer, USA</span>
+                                            <span class="rating-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="pt-3">Lorem Ipsum is simply dummy text of the printing
+                                        and
+                                        typesetting industry. Lorem Ipsum has been industry's
+                                        standard dummy text ever since the 1500s when andom unknown
+                                        printer took a galley of type scrambled it to make a type
+                                        specimen book.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="shop-details-content">
+                <div class="courses__cost-wrap text-center">
+                    <span>This Course Fee:</span>
+                    <h2 class="title align-items-center">{{Course.price}} <span class="pt-2 fs-5">EGP</span></h2>
+
+                </div>
+                <h2 class="card-header">{{Course.title}}</h2>
+                <div class="courses__information-wrap">
+                    <ul class="list-wrap">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none"
+                                data-inject-url="https://themegenix.com/demo/skillgro/assets/img/icons/course_icon01.svg"
+                                class="injectable">
+                                <path
+                                    d="M19.1667 17.9167H14.1667V1.66675H19.1667V17.9167ZM15.4167 16.6667H17.9167V2.91675H15.4167V16.6667ZM12.9167 17.9167H7.91666V6.66675H12.9167V17.9167ZM9.16666 16.6667H11.6667V7.91675H9.16666V16.6667ZM6.66666 17.9167H1.66666V10.4167H6.66666V17.9167ZM2.91666 16.6667H5.41666V11.6667H2.91666V16.6667Z"
+                                    fill="#7F7E97"></path>
+                            </svg>
+                            Category
+                            <span>{{Course.category}}</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none"
+                                data-inject-url="https://themegenix.com/demo/skillgro/assets/img/icons/course_icon02.svg"
+                                class="injectable">
+                                <g clip-path="url(#clip0_0_2442--inject-4)">
+                                    <path
+                                        d="M19.9983 9.96833C19.9983 10.4059 19.9983 10.8434 19.9359 11.2809C19.8735 11.5934 19.5615 11.8434 19.2495 11.8434C18.9375 11.8434 18.688 11.4684 18.688 11.1559C18.7503 10.7184 18.7503 10.3433 18.7503 9.96833C18.7503 5.15563 14.8193 1.21797 10.0147 1.21797C9.64036 1.21797 9.26598 1.21797 8.8292 1.28047C8.51721 1.34297 8.14283 1.09296 8.14283 0.780451C8.08043 0.467938 8.33002 0.092922 8.64201 0.092922C14.133 -0.657109 19.1247 3.21805 19.8735 8.65578C19.9983 9.0933 19.9983 9.53081 19.9983 9.96833Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M6.6453 18.0312C5.95893 17.7187 5.27256 17.3436 4.64859 16.9061C4.399 16.7186 3.96222 16.7186 3.77503 17.0311C3.58784 17.2811 3.58784 17.7187 3.89982 17.9062C4.58619 18.4062 5.33496 18.9062 6.14612 19.2187C6.45811 19.3437 6.83249 19.2187 6.95728 18.9062C7.14448 18.5312 7.01968 18.1562 6.6453 18.0312Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M4.27421 3.15555C4.399 3.15555 4.52379 3.09305 4.64859 3.03054C5.27256 2.59303 5.89653 2.15551 6.5829 1.9055C6.89489 1.78049 7.08208 1.40548 6.95728 1.09296C6.83249 0.780451 6.45811 0.592943 6.14612 0.717948C5.33496 1.03046 4.58619 1.46798 3.89982 2.0305C3.65023 2.28051 3.58784 2.65553 3.77503 2.90554C3.89982 3.09305 4.08701 3.15555 4.27421 3.15555Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M1.96551 13.3435C1.84072 13.031 1.46633 12.8435 1.15435 12.9685C0.842362 13.0935 0.65517 13.4685 0.779965 13.781C1.09195 14.5935 1.52873 15.3436 2.09031 16.0311C2.2775 16.2811 2.71428 16.3436 2.96387 16.1561C3.21345 15.9686 3.27585 15.5311 3.08866 15.2811C2.65188 14.7185 2.2151 14.031 1.96551 13.3435Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M1.34154 11.1559C1.21674 10.4059 1.21674 9.65582 1.34154 8.84329C1.40394 8.53077 1.15435 8.21826 0.779965 8.15576C0.405582 8.09325 0.155993 8.34327 0.0935958 8.71828C-0.0311986 9.59332 -0.0311986 10.4684 0.0935958 11.3434C0.155993 11.6559 0.405582 11.9059 0.717567 11.9059H0.779965C1.15435 11.7809 1.40394 11.4684 1.34154 11.1559Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M1.09195 6.96821C1.40394 7.09321 1.77832 6.96821 1.90311 6.65569C2.2151 5.96817 2.58948 5.28064 3.02626 4.65561C3.21345 4.4056 3.21345 3.96808 2.90147 3.78058C2.65188 3.59307 2.2775 3.65557 2.09031 3.90558C1.59113 4.59311 1.15435 5.34314 0.779965 6.15567C0.65517 6.46819 0.779965 6.8432 1.09195 6.96821Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M15.3185 16.9061C14.6945 17.3436 14.0706 17.7812 13.3218 18.0312C13.0098 18.1562 12.8226 18.5312 12.9474 18.8437C13.0722 19.1562 13.4466 19.3437 13.7586 19.2187C14.5697 18.9062 15.3185 18.4687 16.0049 17.9062C16.2545 17.7187 16.3169 17.3436 16.1297 17.0311C16.0049 16.7811 15.6305 16.7186 15.3185 16.9061Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M11.1379 18.6562C10.3891 18.7812 9.64036 18.7812 8.8292 18.6562C8.51721 18.5937 8.20523 18.8437 8.14283 19.2187C8.08043 19.5312 8.33002 19.8437 8.70441 19.9062C9.57797 20.0313 10.4515 20.0313 11.3251 19.9062C11.6371 19.8437 11.8867 19.5312 11.8867 19.2187C11.8243 18.8437 11.5123 18.5937 11.1379 18.6562Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M18.8751 13.031C18.5632 12.906 18.1888 13.031 18.064 13.3435C17.752 14.031 17.3776 14.7185 16.9408 15.3436C16.7536 15.5936 16.7536 16.0311 17.0656 16.2186C17.3776 16.4061 17.752 16.4061 17.9392 16.0936C18.5008 15.4061 18.9375 14.656 19.2495 13.8435C19.3743 13.531 19.1871 13.156 18.8751 13.031Z"
+                                        fill="#7F7E97"></path>
+                                    <path
+                                        d="M10.0147 4.4056C9.64036 4.4056 9.39077 4.65561 9.39077 5.03063V10.0308C9.39077 10.4059 9.64036 10.6559 10.0147 10.6559H15.0065C15.3809 10.6559 15.6305 10.4059 15.6305 10.0308C15.6305 9.65582 15.3809 9.40581 15.0065 9.40581H10.6387V5.03063C10.6387 4.65561 10.3891 4.4056 10.0147 4.4056Z"
+                                        fill="#7F7E97"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_0_2442--inject-4">
+                                        <rect width="20" height="20" fill="white"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            Duration
+                            <span>{{Course.duration}}</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none"
+                                data-inject-url="https://themegenix.com/demo/skillgro/assets/img/icons/course_icon03.svg"
+                                class="injectable">
+                                <path
+                                    d="M4.78579 15.3125H15.3519C17.0718 15.3125 18.471 13.9107 18.471 12.1875V3.125C18.471 1.40182 17.0718 0 15.3519 0H4.78579C3.06585 0 1.66666 1.40182 1.66666 3.125V16.875C1.66666 18.5982 3.06585 20 4.78579 20H15.3519C17.0718 20 18.471 18.5982 18.471 16.875C18.471 16.4435 18.1219 16.0937 17.6912 16.0937C17.2605 16.0937 16.9114 16.4435 16.9114 16.875C16.9114 17.7365 16.2118 18.4375 15.3519 18.4375H4.78579C3.9259 18.4375 3.22622 17.7365 3.22622 16.875C3.22622 16.0135 3.9259 15.3125 4.78579 15.3125ZM3.22622 3.125C3.22622 2.26349 3.9259 1.5625 4.78579 1.5625H15.3519C16.2118 1.5625 16.9114 2.26349 16.9114 3.125V12.1875C16.9114 13.049 16.2118 13.75 15.3519 13.75H4.78579C4.21801 13.75 3.68526 13.9027 3.22622 14.1693V3.125ZM6.38435 5.27344C6.38435 4.84192 6.73343 4.49219 7.16414 4.49219H13.0125C13.4432 4.49219 13.7923 4.84192 13.7923 5.27344C13.7923 5.70496 13.4432 6.05469 13.0125 6.05469H7.16414C6.73343 6.05469 6.38435 5.70496 6.38435 5.27344Z"
+                                    fill="#7F7E97"></path>
+                            </svg>
+                            Lessons
+                            <span>{{Course.sectionsCount}}</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none"
+                                data-inject-url="https://themegenix.com/demo/skillgro/assets/img/icons/course_icon06.svg"
+                                class="injectable">
+                                <path
+                                    d="M18.5604 4.97272C18.5604 4.97272 11.5036 1.96687 11.5018 1.96608C11.0252 1.76745 10.5199 1.66675 10 1.66675C9.48008 1.66675 8.97484 1.76745 8.49824 1.96608C8.49637 1.96687 1.43961 4.97272 1.43961 4.97272C0.565 5.33862 0 6.18722 0 7.1355C0 8.08378 0.565 8.93237 1.43961 9.29827L3.125 10.0162V14.948C3.125 16.2403 4.17641 17.2917 5.46875 17.2917H14.5312C15.8236 17.2917 16.875 16.2403 16.875 14.948V12.8648C16.875 12.4333 16.5252 12.0835 16.0937 12.0835C15.6623 12.0835 15.3125 12.4333 15.3125 12.8648V14.948C15.3125 15.3788 14.962 15.7292 14.5312 15.7292H5.46875C5.03797 15.7292 4.6875 15.3788 4.6875 14.948V10.6817C4.6875 10.6817 8.49637 12.3042 8.49824 12.305C8.97484 12.5035 9.48008 12.6042 10 12.6042C10.5198 12.6042 11.0251 12.5035 11.5017 12.305C11.5036 12.3042 18.5604 9.29827 18.5604 9.29827C19.435 8.93237 20 8.08378 20 7.1355C20 6.18722 19.435 5.33862 18.5604 4.97272ZM17.9563 7.85726C17.9545 7.85804 10.8983 10.8636 10.8983 10.8636C10.6138 10.9818 10.3116 11.0417 9.99996 11.0417C9.68832 11.0417 9.38609 10.9818 9.10168 10.8637C8.40086 10.5651 2.04551 7.85804 2.04363 7.85726C1.75137 7.73542 1.5625 7.45214 1.5625 7.1355C1.5625 6.81886 1.75137 6.53558 2.04367 6.41374C2.04555 6.41296 9.10172 3.40733 9.10172 3.40733C9.38613 3.28917 9.68836 3.22925 10 3.22925C10.3116 3.22925 10.6139 3.28917 10.8983 3.40733C10.8983 3.40733 17.9545 6.41296 17.9563 6.41374C18.2486 6.53558 18.4375 6.81886 18.4375 7.1355C18.4375 7.45214 18.2486 7.73542 17.9563 7.85726Z"
+                                    fill="#7F7E97"></path>
+                                <path
+                                    d="M19.2187 10.7779C18.7873 10.7779 18.4375 11.1277 18.4375 11.5592V14.948C18.4375 15.3795 18.7873 15.7292 19.2187 15.7292C19.6502 15.7292 20 15.3795 20 14.948V11.5592C20 11.1277 19.6502 10.7779 19.2187 10.7779Z"
+                                    fill="#7F7E97"></path>
+                            </svg>
+                            Enrollments
+                            <span>{{Course.enrollmentCount}}</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none"
+                                data-inject-url="https://themegenix.com/demo/skillgro/assets/img/icons/course_icon05.svg"
+                                class="injectable">
+                                <path
+                                    d="M19.1667 9.37479C19.1674 8.65706 18.9831 7.95019 18.63 7.3165C18.2769 6.68281 17.7659 6.14177 17.1421 5.74108C16.5182 5.3404 15.8007 5.09237 15.0527 5.01887C14.3047 4.94538 13.5493 5.04867 12.853 5.31964C12.1567 5.59061 11.5409 6.02094 11.06 6.57268C10.5791 7.12442 10.2478 7.78063 10.0953 8.48344C9.94276 9.18626 9.97376 9.9141 10.1855 10.6028C10.3973 11.2915 10.7833 11.9198 11.3095 12.4325V16.8746C11.3095 16.9812 11.3379 17.086 11.3923 17.1791C11.4466 17.2722 11.525 17.3505 11.62 17.4066C11.7149 17.4626 11.8234 17.4946 11.9349 17.4994C12.0465 17.5042 12.1574 17.4816 12.2573 17.4339L14.5833 16.323L16.9094 17.4339C17.0092 17.4816 17.1202 17.5042 17.2318 17.4994C17.3433 17.4946 17.4518 17.4626 17.5467 17.4066C17.6417 17.3505 17.7201 17.2722 17.7744 17.1791C17.8288 17.086 17.8572 16.9812 17.8572 16.8746V12.4325C18.6969 11.6167 19.1672 10.5185 19.1667 9.37479ZM14.5833 6.24989C15.2308 6.24989 15.8638 6.43316 16.4022 6.77653C16.9405 7.1199 17.3602 7.60794 17.6079 8.17894C17.8557 8.74995 17.9206 9.37826 17.7942 9.98443C17.6679 10.5906 17.3561 11.1474 16.8983 11.5844C16.4404 12.0215 15.8571 12.3191 15.222 12.4397C14.587 12.5602 13.9287 12.4983 13.3305 12.2618C12.7323 12.0253 12.221 11.6248 11.8613 11.1109C11.5015 10.597 11.3095 9.99284 11.3095 9.37479C11.3095 8.54602 11.6545 7.75119 12.2684 7.16515C12.8824 6.57912 13.7151 6.24989 14.5833 6.24989ZM14.8763 15.0652C14.7854 15.0218 14.6851 14.9992 14.5833 14.9992C14.4816 14.9992 14.3813 15.0218 14.2903 15.0652L12.6191 15.8637V13.327C13.2328 13.6053 13.9038 13.7497 14.5833 13.7497C15.2628 13.7497 15.9338 13.6053 16.5476 13.327V15.8637L14.8763 15.0652ZM10 14.3746C10 14.5404 9.93103 14.6994 9.80823 14.8166C9.68544 14.9338 9.5189 14.9996 9.34525 14.9996H2.14287C1.79556 14.9996 1.46248 14.8679 1.21689 14.6335C0.971311 14.3991 0.833344 14.0812 0.833344 13.7497V3.74996C0.833344 3.41845 0.971311 3.10052 1.21689 2.86611C1.46248 2.63169 1.79556 2.5 2.14287 2.5H16.5476C16.8949 2.5 17.228 2.63169 17.4736 2.86611C17.7192 3.10052 17.8572 3.41845 17.8572 3.74996C17.8572 3.91572 17.7882 4.07468 17.6654 4.19189C17.5426 4.3091 17.376 4.37494 17.2024 4.37494C17.0287 4.37494 16.8622 4.3091 16.7394 4.19189C16.6166 4.07468 16.5476 3.91572 16.5476 3.74996H2.14287V13.7497H9.34525C9.5189 13.7497 9.68544 13.8155 9.80823 13.9327C9.93103 14.0499 10 14.2089 10 14.3746ZM8.69049 9.99978C8.69049 10.1655 8.6215 10.3245 8.49871 10.4417C8.37592 10.5589 8.20938 10.6248 8.03572 10.6248H4.76191C4.58826 10.6248 4.42172 10.5589 4.29893 10.4417C4.17614 10.3245 4.10715 10.1655 4.10715 9.99978C4.10715 9.83402 4.17614 9.67505 4.29893 9.55785C4.42172 9.44064 4.58826 9.37479 4.76191 9.37479H8.03572C8.20938 9.37479 8.37592 9.44064 8.49871 9.55785C8.6215 9.67505 8.69049 9.83402 8.69049 9.99978ZM8.69049 7.49985C8.69049 7.66561 8.6215 7.82457 8.49871 7.94178C8.37592 8.05899 8.20938 8.12483 8.03572 8.12483H4.76191C4.58826 8.12483 4.42172 8.05899 4.29893 7.94178C4.17614 7.82457 4.10715 7.66561 4.10715 7.49985C4.10715 7.3341 4.17614 7.17513 4.29893 7.05792C4.42172 6.94072 4.58826 6.87487 4.76191 6.87487H8.03572C8.20938 6.87487 8.37592 6.94072 8.49871 7.05792C8.6215 7.17513 8.69049 7.3341 8.69049 7.49985Z"
+                                    fill="#7F7E97"></path>
+                            </svg>
+                            Rating
+                            <span>
+                                <div class="product-review align-items-center ">
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <span>( Reviews {{Course.rating}} )</span>
+                                </div>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="courses__details-social">
+                    <h5 class="title">Share this course:</h5>
+                    <ul class="list-wrap">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="shop-details-qty justify-content-center">
+                    <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course)">Add To Cart</a>
+                    <a style="cursor: pointer;" class="wishlist-btn" (click)="addToWishlist(Course)"><i
+                            class="fa fa-heart-o"></i></a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
