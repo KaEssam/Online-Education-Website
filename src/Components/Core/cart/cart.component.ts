@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CartService } from '../../../Services/cart.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-cart',
@@ -45,6 +47,7 @@ export class CartComponent {
 
 
   deleteFromCart(id:any) {
+    this.confirmDelete();
     this.cartService.deleteFromCart(id).subscribe({
       next: (data) =>{
         // Optional: Handle success actions
@@ -64,4 +67,41 @@ export class CartComponent {
     // Iterate through cart items and sum up prices
     this.totalPrice = this.Products.reduce((total:number, product:any) => total + product.price, 0);
   }
+
+
+  confirmDelete() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true, // Optional: Reverse button order
+      customClass: { // Apply Bootstrap button classes
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false // Disable default Swal button styling
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Handle successful deletion (e.g., call an API to delete data)
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Your file has been deleted.',
+          icon: 'success'
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          title: 'Cancelled',
+          text: 'Your imaginary file is safe :)',
+          icon: 'error'
+        });
+      }
+    });
+  }
+  
+
+
+
 }

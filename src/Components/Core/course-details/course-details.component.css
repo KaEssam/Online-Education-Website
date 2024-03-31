@@ -732,4 +732,17 @@ courses__curriculum-wrap .course-item .item-name::before {
 .course-item .course-item-link:hover {
     color: var(--tg-theme-primary);
 }
+
+.course-item .item-name {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+
 /* shop-details-middle */
