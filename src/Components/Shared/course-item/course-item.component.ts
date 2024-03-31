@@ -6,12 +6,13 @@ import { CoursesService } from '../../../Services/courses.service';
 import { CartService } from '../../../Services/cart.service';
 import { WishlistService } from '../../../Services/wishlist.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-item',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
-  providers: [CommonModule,CoursesService,CartService,WishlistService],
+  imports: [HttpClientModule, RouterModule],
+  providers: [CommonModule, CoursesService, CartService, WishlistService],
   templateUrl: './course-item.component.html',
   styleUrl: './course-item.component.css'
 })
@@ -23,7 +24,7 @@ export class CourseItemComponent {
   // totalCourses: number = 0;
   // totalPages: number = 0;
 
-  constructor(private coursesService: CoursesService, private router: Router,private route: ActivatedRoute,private cartService: CartService,private wishlistService: WishlistService) { }
+  constructor(private coursesService: CoursesService, private router: Router, private route: ActivatedRoute, private cartService: CartService, private wishlistService: WishlistService) { }
 
   ngOnInit(): void {
     this.coursesService.getAllCourses().subscribe({
@@ -94,7 +95,7 @@ export class CourseItemComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        alert("added successfully!!")
+        this.confirmAddToCart();
         // this.sendNumber();
       },
       (error) => {
@@ -110,7 +111,7 @@ export class CourseItemComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        alert("added successfully!!")
+        this.confirmAddToWish();
         // this.sendNumber();
       },
       (error) => {
@@ -118,5 +119,36 @@ export class CourseItemComponent {
         console.error('Error adding product to cart:', error);
       }
     );
+  }
+
+
+
+  confirmAddToCart() {
+    Swal.fire({
+      icon: "success",
+      title: "Added To Cart Successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
+    });
+  }
+
+  confirmAddToWish() {
+    Swal.fire({
+      icon: "success",
+      title: "Added To Wishlist Successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+      width: '390px',
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
+    });
   }
 }

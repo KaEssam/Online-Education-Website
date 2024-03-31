@@ -6,6 +6,10 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+//https://skillgro.runasp.net/api/Cart/{courseId} ==> post
+//https://skillgro.runasp.net/api/Cart ==> get
+//https://skillgro.runasp.net/api/Cart/{courseId} ==> delete
+
  private readonly CART_URL = "https://skillgro.runasp.net"; // Separate URL for cart operations
   constructor(private readonly Client:HttpClient) { }
   addToCart(id:any){

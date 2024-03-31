@@ -6,7 +6,6 @@ import { CartService } from '../../../Services/cart.service';
 import { WishlistService } from '../../../Services/wishlist.service';
 import AOS from 'aos'; //AOS - 1
 import { CoursesService } from '../../../Services/courses.service';
-
 import Swal from 'sweetalert2';
 
 @Component({
@@ -68,7 +67,7 @@ export class CourseDetailsComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Course added to cart successfully.');
-        alert("added successfully!!")
+        this.confirmAddToCart();
         // this.sendNumber();
       },
       (error) => {
@@ -84,7 +83,7 @@ export class CourseDetailsComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Course added to cart successfully.');
-        alert("added successfully!!")
+        this.confirmAddToWish();
         // this.sendNumber();
       },
       (error) => {
@@ -95,13 +94,32 @@ export class CourseDetailsComponent {
   }
 
 
-  confirmAdd() {
+  confirmAddToCart() {
     Swal.fire({
-      // position: "top-end",
       icon: "success",
-      title: "Your work has been saved",
+      title: "Added To Cart Successfully!",
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
+    });
+  }
+
+  confirmAddToWish() {
+    Swal.fire({
+      icon: "success",
+      title: "Added To Wishlist Successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+      width: '390px',
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
     });
   }
 

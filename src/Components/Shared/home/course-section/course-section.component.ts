@@ -69,9 +69,8 @@ export class CourseSectionComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        this.confirmAdd();
-        // alert("added successfully!!")
-        // this.sendNumber();
+        // confirmAdd();
+        this.confirmAddToCart();
       },
       (error) => {
         // Handle error
@@ -86,8 +85,8 @@ export class CourseSectionComponent {
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        alert("added successfully!!")
-        // this.sendNumber();
+        //confirm Add
+        this.confirmAddToWish();
       },
       (error) => {
         // Handle error
@@ -97,13 +96,32 @@ export class CourseSectionComponent {
   }
 
 
-  confirmAdd() {
+  confirmAddToCart() {
     Swal.fire({
-      // position: "top-end",
       icon: "success",
-      title: "Your work has been saved",
+      title: "Added To Cart Successfully!",
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
+    });
+  }
+
+  confirmAddToWish() {
+    Swal.fire({
+      icon: "success",
+      title: "Added To Wishlist Successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+      width: '390px',
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
     });
   }
 

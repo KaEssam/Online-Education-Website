@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WishlistService {
+  //https://skillgro.runasp.net/api/WishList/{courseId} ==> post
+  //https://skillgro.runasp.net/api/WishList ==> get
+  //https://skillgro.runasp.net/api/WishList/{courseId} ==> delete
+  
   private readonly WISH_URL = 'https://skillgro.runasp.net'; // Separate URL for cart operations
   constructor(private readonly Client: HttpClient) {}
 

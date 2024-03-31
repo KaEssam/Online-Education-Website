@@ -16,10 +16,10 @@ import Swal from 'sweetalert2';
 })
 export class CartComponent {
   Products: any = [];
-  id: any;
+  // id: any;
   
   constructor(private cartService: CartService, private router: Router, private Activated: ActivatedRoute) {
-    this.id = this.Activated.snapshot.params["id"];
+    // this.id = this.Activated.snapshot.params["id"];
   }
   
 
@@ -47,11 +47,13 @@ export class CartComponent {
 
 
   deleteFromCart(id:any) {
-    this.confirmDelete();
+    // this.confirmDelete();
     this.cartService.deleteFromCart(id).subscribe({
       next: (data) =>{
         // Optional: Handle success actions
         console.log('Product deleted from cart successfully.',data);
+       //confirm delete
+        this.confirmDelete();
         // Refresh cart items after deletion
         this.loadCartItems();
       },
@@ -70,32 +72,38 @@ export class CartComponent {
 
 
   confirmDelete() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
-      reverseButtons: true, // Optional: Reverse button order
-      customClass: { // Apply Bootstrap button classes
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success customBtn",
+        cancelButton: "btn btn-danger customBtn",
+        icon:'myCustomIcon',
+        title: 'myCustomTitle'
       },
-      buttonsStyling: false // Disable default Swal button styling
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are You Sure!",
+      icon: "warning",
+      width: '450px',
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        // Handle successful deletion (e.g., call an API to delete data)
-        Swal.fire({
-          title: 'Deleted!',
-          text: 'Your file has been deleted.',
-          icon: 'success'
+        swalWithBootstrapButtons.fire({
+          title: "Deleted!",
+          icon: "success",
+          width: '450px',
+          
         });
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire({
-          title: 'Cancelled',
-          text: 'Your imaginary file is safe :)',
-          icon: 'error'
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          icon: "error",
+          width: '450px',
         });
       }
     });

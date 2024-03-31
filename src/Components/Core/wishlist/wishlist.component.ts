@@ -1,16 +1,16 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { WishlistService } from '../../../Services/wishlist.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../Services/cart.service';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-wishlist',
   standalone: true,
   imports: [RouterModule, HttpClientModule, CommonModule],
-  providers: [WishlistService,CartService],
+  providers: [WishlistService, CartService],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css'
 })
@@ -19,7 +19,7 @@ export class WishlistComponent {
   id: any;
   Products: any = [];
 
-  constructor(private wishlistService: WishlistService,private cartService: CartService, private router: Router, private Activated: ActivatedRoute) {
+  constructor(private wishlistService: WishlistService, private cartService: CartService, private router: Router, private Activated: ActivatedRoute) {
     this.id = this.Activated.snapshot.params["id"];
   }
 
@@ -31,9 +31,10 @@ export class WishlistComponent {
   loadWishItems() {
     this.wishlistService.getWishItems().subscribe({
       next: (data) => {
-        setTimeout(() => {}, 1000);
-        console.log(data);
+        // setTimeout(() => {}, 1000);
         this.Products = data;
+        console.log(data);
+
       },
       error: (err) => {
         this.router.navigate(['/Error', { errorMessage: err.message as string }]);
@@ -51,6 +52,7 @@ export class WishlistComponent {
       next: (data) => {
         // Optional: Handle success actions
         console.log('Product deleted from cart successfully.', data);
+        this.confirmDelete();
         // Refresh cart items after deletion
         this.loadWishItems();
       },
@@ -62,13 +64,12 @@ export class WishlistComponent {
 
   }
 
-  showAlert = false; // Flag to control alert visibility
   addToCart(id: any) {
     this.cartService.addToCart(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
-        alert("Added Successfully")
+        this.confirmAddToCart();
         // this.sendNumber();
       },
       (error) => {
@@ -77,5 +78,58 @@ export class WishlistComponent {
       }
     );
   }
-  
+
+
+  confirmAddToCart() {
+    Swal.fire({
+      icon: "success",
+      title: "Added To Cart Successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+      position: "top-end",
+      toast: true,
+      customClass: {
+        title: 'myCustomTitle'
+      }
+    });
+  }
+
+  confirmDelete() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success customBtn",
+        cancelButton: "btn btn-danger customBtn",
+        icon: 'myCustomIcon',
+        title: 'myCustomTitle'
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are You Sure!",
+      icon: "warning",
+      width: '450px',
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire({
+          title: "Deleted!",
+          icon: "success",
+          width: '450px',
+
+        });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          icon: "error",
+          width: '450px',
+        });
+      }
+    });
+  }
+
 }
