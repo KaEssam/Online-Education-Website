@@ -71,39 +71,35 @@
                             aria-labelledby="curriculum-tab" tabindex="0">
                             <div class="product-desc-cir">
                                 <div class="accordion" id="accordionExample">
-
+                                    @for (section of Course.sectionsContent; track section.id) {
                                     <div class="accordion-item">
-                                        @for (section of Course.sectionsContent; track section.id) {
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
+                                        <h2 class="accordion-header" id="heading{{section.id}}">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                [attr.data-bs-target]="'#collapse' + section.id" aria-expanded="true">
                                                 {{section.title}}
                                             </button>
                                         </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show"
-                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                                        <div [id]="'collapse' + section.id" class="accordion-collapse collapse show">
                                             <div class="accordion-body">
                                                 <ul class="list-wrap">
-                                                    @for (lesson of Course.sectionsContent.lessons; track lesson.id) {
+                                                    @for (lesson of section.lessons; track lesson.id) {
                                                     <li class="course-item open-item">
+                                                        <img src="../../../assets/img/play.svg" alt="">
                                                         <a href={{lesson.url}} class="course-item-link popup-video"
                                                             target="_blank">
                                                             <span class="item-name">{{lesson.title}}</span>
                                                             <div class="course-item-meta">
-                                                                <span class="item-meta duration">03:03</span>
-                                                                <!-- Assuming duration is static -->
+                                                                <!-- <span class="item-meta duration">03:03</span> -->
                                                             </div>
                                                         </a>
                                                     </li>
                                                     }
                                                 </ul>
-
                                             </div>
                                         </div>
-                                        }
-
                                     </div>
+                                    }
                                 </div>
                             </div>
                         </div>

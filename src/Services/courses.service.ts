@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -37,5 +37,13 @@ export class CoursesService {
   getCourseById(id:any){
     return this.Client.get(this.DB_URL+"/"+id)
   }
+
+  // getPaginatedCourses(page: number, pageSize: number) {
+  //   const params = new HttpParams()
+  //     .set('page', page.toString())
+  //     .set('pageSize', pageSize.toString());
+
+  //     return this.Client.get(`${this.DB_URL}?${params.toString()}`);
+  // }
   
 }
