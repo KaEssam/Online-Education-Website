@@ -72,14 +72,15 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    localStorage.removeItem('token');
   }
 
-  isLoggedIn(): boolean {
-    const currentUser = localStorage.getItem('currentUser');
-    const token = currentUser ? JSON.parse(currentUser).token : null;
+  isLoggedIn() {
+    const currentUser = localStorage.getItem('token');
+    const isLoggedIn = currentUser ? true : false;
     // return token ? !this.jwtHelper.isTokenExpired(token) : false;
-    return true;
+    return isLoggedIn;
   }
+
+  isLoggedIn$ = new BehaviorSubject<boolean>(false);
 }

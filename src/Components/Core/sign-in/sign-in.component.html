@@ -13,11 +13,11 @@
     <div class="container">
       <h1 class="title">Welcome back!</h1>
       <p class="description">
-        Hey there! Ready to log in? Just enter your username and password below
-        and you'll be back in action in no time. Let's go!
+        Hey there! Ready to log in? Just enter your Email and password below and
+        you'll be back in action in no time. Let's go!
       </p>
 
-      <div class="social-container">
+      <!-- <div class="social-container">
         <a href="#" class="social-btn btn-google"
           ><svg
             width="24"
@@ -54,7 +54,7 @@
           Continue with Google
         </a>
         <hr />
-      </div>
+      </div> -->
 
       <form [formGroup]="signInForm" (ngSubmit)="signIn()">
         <div class="form-group">
@@ -98,12 +98,7 @@
             >
           </div>
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="signIn()"
-          routerLink="/home"
-        >
+        <button type="submit" class="btn btn-primary" (click)="signIn()">
           Sign In
         </button>
       </form>
