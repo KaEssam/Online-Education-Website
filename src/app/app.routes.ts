@@ -5,6 +5,7 @@ import { CheckOutComponent } from "../Components/Core/check-out/check-out.compon
 import { ContactUsComponent } from "../Components/Core/contact-us/contact-us.component";
 import { CourseDetailsComponent } from "../Components/Core/course-details/course-details.component";
 import { ErrorPageComponent } from "../Components/Core/error-page/error-page.component";
+import { LoginInstructorComponent } from "../Components/Core/login-instructor/login-instructor.component";
 import { ProductCartComponent } from "../Components/Core/product-cart/product-cart.component";
 import { SignInComponent } from "../Components/Core/sign-in/sign-in.component";
 import { WishlistComponent } from "../Components/Core/wishlist/wishlist.component";
@@ -40,7 +41,8 @@ export const routes: Routes = [
   {path: "wishlist/:id", component:WishlistComponent},
   {path: "enroll", component:AfterEnrollComponent},
   {path: "signOut", component:HomeComponent},
-  {path: "dashboard", component:InstructorDashboardComponent},
+  {path: "dashboard", component:LoginInstructorComponent},
+  {path: "instructor", component:InstructorDashboardComponent},
   {path: "createCourse", component:CreateCourseComponent},
   {path: "**", component:ErrorPageComponent},
   // {path: "student", component:SignUpComponent},

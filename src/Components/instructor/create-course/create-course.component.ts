@@ -2,33 +2,37 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CreateCourseService } from "../../../Services/create-course.service";
 
 @Component({
   selector: 'app-create-course',
   standalone: true,
   imports: [FormsModule,CommonModule,RouterModule],
+  providers: [CreateCourseService],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })
 export class CreateCourseComponent implements OnInit {
 currentStep: number = 1;
   course: any = {
-    title: '',
-    category: '',
-    description: '',
-    curriculum: [],
-    price: null,
-    status: 'draft'
+      title: '',
+  categoryID:'',
+  description: '',
+  img: '',
+  url: '',
+  price: 0,
+  sections: [],
+  status: 'draft'
   };
-  newLecture: any = {
+  contents: any = {
     title: '',
-    media: null // You may need to adjust this depending on how you handle media uploads
+    url: '' // You may need to adjust this depending on how you handle media uploads
   };
 
 @ViewChild('addLectureModal') addLectureModal!: ElementRef;
   currentSection: any;
 
-  constructor() {}
+  constructor(private CreateCourseService: CreateCourseService) {}
 
   ngOnInit(): void {}
 
@@ -48,8 +52,8 @@ currentStep: number = 1;
   addSection() {
     const sectionName = prompt("Enter section name:");
     if (sectionName) {
-      this.course.curriculum.push({ name: sectionName, lectures: [], collapsed: true });
-      console.log(this.course.curriculum);
+      this.course.sections.push({ title: sectionName, contents: [] });
+      console.log(this.course.sections);
     }
   }
 
@@ -60,7 +64,9 @@ currentStep: number = 1;
 
 
   publishCourse() {
-    // Logic to publish the course
+    this.CreateCourseService.createCourse(this.course).subscribe((response) => {
+      console.log('Course published:', response);
+    });
     console.log('Publishing course:', this.course);
   }
 
@@ -74,9 +80,9 @@ currentStep: number = 1;
   deleteSection(section: any) {
     const confirmDelete = confirm("Are you sure you want to delete this section?");
     if (confirmDelete) {
-      const index = this.course.curriculum.indexOf(section);
+      const index = this.course.sections.indexOf(section);
       if (index !== -1) {
-        this.course.curriculum.splice(index, 1);
+        this.course.sections.splice(index, 1);
       }
     }
   }
@@ -122,12 +128,12 @@ closeAddLectureModal() {
 
   saveLecture(section: any) {
   // Add validation if necessary
-  const lectureTitle = this.newLecture.title.trim();
+  const lectureTitle = this.contents.title.trim();
   if (lectureTitle) {
     if (!this.currentSection.lectures) {
       this.currentSection.lectures = [];
     }
-    this.currentSection.lectures.push({ title: lectureTitle, media: this.newLecture.media });
+    this.currentSection.lectures.push({ title: lectureTitle, media: this.contents.media });
     this.closeAddLectureModal();
   } else {
     alert('Please enter a lecture title.');

@@ -8,15 +8,19 @@ import { Course } from './course';
 })
 export class CreateCourseService {
 
-  private apiUrl = 'http://localhost:3000/addedcourse';
+  private apiUrl = 'https://skillgro.runasp.net/api/CourseWithSection';
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  
 
   constructor(private http: HttpClient) { }
 
   createCourse(course: Course): Observable<Course> {
-    return this.http.post<Course>(this.apiUrl, course, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }
 }
