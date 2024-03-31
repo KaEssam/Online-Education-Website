@@ -22,6 +22,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InstructorDashboardComponent } from '../Components/instructor/instructor-dashboard.component';
 import { CreateCourseComponent } from '../Components/instructor/create-course/create-course.component';
 import { CourseDetailsComponent } from '../Components/Core/course-details/course-details.component';
+import { LoginInstructorComponent } from '../Components/Core/login-instructor/login-instructor.component';
 
 
 @Component({
@@ -49,7 +50,7 @@ import { CourseDetailsComponent } from '../Components/Core/course-details/course
     HttpClientModule,
     InstructorDashboardComponent,
     CreateCourseComponent,
-    CourseDetailsComponent],
+    CourseDetailsComponent, LoginInstructorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

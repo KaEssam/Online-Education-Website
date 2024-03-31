@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login instructor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Welcome back!</h1>
+      <p class="description">
+        Hey there! Ready to log in? Just enter your Email and password below and
+        you'll be back in action in no time. Let's go!
+      </p>
+
+      <form [formGroup]="LoginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label class="input-label" for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="input-label" for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div class="form-check">
+            <div class="form-check-Remember">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="rememberMe"
+                formControlName="rememberMe"
+              />
+              <label class="form-check-label" for="rememberMe"
+                >Remember me</label
+              >
+            </div>
+            <a
+              routerLink="/forgot-password"
+              href="#"
+              class="forgot-password-link"
+              >Forgot Password?</a
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="login()"
+          routerLink="/instructor"
+        >
+          Login
+        </button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a routerLink="/about">Join Us</a>
+      </div>
+    </div>
+  </body>
+</html>
