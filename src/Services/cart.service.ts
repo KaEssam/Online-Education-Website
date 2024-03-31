@@ -6,11 +6,16 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
- private readonly CART_URL = "https://skillgro.runasp.net/api/Cart"; // Separate URL for cart operations
+ private readonly CART_URL = "https://skillgro.runasp.net"; // Separate URL for cart operations
   constructor(private readonly Client:HttpClient) { }
-
-  addToCart(product:any){
-    return this.Client.post(this.CART_URL, product); // Post product to the cart URL
+  addToCart(id:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.Client.post(`${this.CART_URL}/api/Cart/${id}`,httpOptions); // Post product to the cart URL
   }
 
   getCartItems(){
@@ -20,28 +25,12 @@ export class CartService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    return this.Client.get(this.CART_URL, httpOptions); // Fetch items from the cart URL
+    return this.Client.get(`${this.CART_URL}/api/Cart`, httpOptions); // Fetch items from the cart URL
   }
 
   deleteFromCart(id: any) {
-    return this.Client.delete(this.CART_URL+"/"+id);
+    return this.Client.delete(`${this.CART_URL}/api/Cart/${id}`);
   }
 
-
-
-  // private readonly CART_URL = "https://skillgro.runasp.net"; // Separate URL for cart operations
-  // constructor(private readonly Client:HttpClient) { }
-
-  // addToCart(product:any){
-  //   return this.Client.post(this.CART_URL+"/api/Cart", product); // Post product to the cart URL
-  // }
-
-  // getCartItems(){
-  //   return this.Client.get(this.CART_URL+"/api/Cart"); // Fetch items from the cart URL
-  // }
-
-  // deleteFromCart(id: any) {
-  //   return this.Client.delete(this.CART_URL+"/api/Cart/"+id);
-  // }
 
 }

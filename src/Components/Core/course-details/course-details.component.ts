@@ -7,12 +7,13 @@ import { WishlistService } from '../../../Services/wishlist.service';
 import AOS from 'aos'; //AOS - 1
 import { CoursesService } from '../../../Services/courses.service';
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-details',
   standalone: true,
-  imports: [RouterModule,HttpClientModule],
-  providers: [CoursesService,CartService,WishlistService],
+  imports: [RouterModule, HttpClientModule],
+  providers: [CoursesService, CartService, WishlistService],
   templateUrl: './course-details.component.html',
   styleUrl: './course-details.component.css'
 })
@@ -22,7 +23,7 @@ export class CourseDetailsComponent {
   Courses: any = [];
   displayedCourses: any[] = [];
 
-  constructor(private courseService: CoursesService, private router: Router, private Activated: ActivatedRoute,private cartService: CartService,private wishlistService: WishlistService) {
+  constructor(private courseService: CoursesService, private router: Router, private Activated: ActivatedRoute, private cartService: CartService, private wishlistService: WishlistService) {
     this.id = this.Activated.snapshot.params["id"];
   }
 
@@ -62,8 +63,8 @@ export class CourseDetailsComponent {
 
 
 
-  addToCart(Course: any) {
-    this.cartService.addToCart(Course).subscribe(
+  addToCart(id: any) {
+    this.cartService.addToCart(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Course added to cart successfully.');
@@ -78,8 +79,8 @@ export class CourseDetailsComponent {
   }
 
 
-  addToWishlist(Course: any) {
-    this.wishlistService.addToWish(Course).subscribe(
+  addToWishlist(id: any) {
+    this.wishlistService.addToWish(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Course added to cart successfully.');
@@ -94,5 +95,14 @@ export class CourseDetailsComponent {
   }
 
 
+  confirmAdd() {
+    Swal.fire({
+      // position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
 
 }

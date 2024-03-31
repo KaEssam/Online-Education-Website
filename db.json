@@ -176,10 +176,7 @@
       "category": "Development",
       "img": "course_thumb01.jpg",
       "sectionsCount": 9,
-      "instructor": {
-        "name":"Peter Alias",
-        "img":"mentors02.png"
-      },
+      "instructor":"Peter Alias",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus facere, quam a amet quod quibusdam fugiat doloremque at placeat saepe, dolor quidem harum reprehenderit ipsum vero magni quos mollitia perferendis.",
       "sectionsContent":[
         {
