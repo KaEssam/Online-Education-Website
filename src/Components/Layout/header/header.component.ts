@@ -1,6 +1,7 @@
+import { AuthService } from "./../../../Services/auth.service";
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, ElementRef, HostListener, Renderer2, Signal, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, Signal, inject, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CartService } from '../../../Services/cart.service';
 import { Subscription } from 'rxjs';
@@ -10,23 +11,37 @@ import { ProductsService } from '../../../Services/products.service';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  providers: [ProductsService],
+  providers: [ProductsService, AuthService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   // number: any;
   // subscription: Subscription;
-  constructor(private renderer: Renderer2, private el: ElementRef, private productService: ProductsService) {
+  constructor(private renderer: Renderer2, private el: ElementRef, private productService: ProductsService,) {
 
     // this.subscription = this.productService.getBadgeCount().subscribe(number => { this.number = number });
 
   }
+  
 
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
+  AuthService = inject(AuthService);
+  isLoggedIn: boolean = false;
+
+  ngOnInit(): void {
+    this.AuthService.isLoggedIn$.subscribe(res => {
+    this.isLoggedIn = this.AuthService.isLoggedIn();
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.AuthService.isLoggedIn$.next(false);
+    
+  }
+
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
