@@ -63,8 +63,8 @@ export class WishlistComponent {
   }
 
   showAlert = false; // Flag to control alert visibility
-  addToCart(product: any) {
-    this.cartService.addToCart(product).subscribe(
+  addToCart(id: any) {
+    this.cartService.addToCart(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');

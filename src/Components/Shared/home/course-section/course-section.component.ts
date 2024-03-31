@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoursesService } from '../../../../Services/courses.service';
 import { CartService } from '../../../../Services/cart.service';
 import { WishlistService } from '../../../../Services/wishlist.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-section',
@@ -63,8 +64,25 @@ export class CourseSectionComponent {
 
 
 
-  addToCart(product: any) {
-    this.cartService.addToCart(product).subscribe(
+  addToCart(id: any) {
+    this.cartService.addToCart(id).subscribe(
+      () => {
+        // Optional: You can handle success actions here
+        console.log('Product added to cart successfully.');
+        this.confirmAdd();
+        // alert("added successfully!!")
+        // this.sendNumber();
+      },
+      (error) => {
+        // Handle error
+        console.error('Error adding product to cart:', error);
+      }
+    );
+  }
+
+
+  addToWishlist(id: any) {
+    this.wishlistService.addToWish(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
@@ -79,19 +97,14 @@ export class CourseSectionComponent {
   }
 
 
-  addToWishlist(product: any) {
-    this.wishlistService.addToWish(product).subscribe(
-      () => {
-        // Optional: You can handle success actions here
-        console.log('Product added to cart successfully.');
-        alert("added successfully!!")
-        // this.sendNumber();
-      },
-      (error) => {
-        // Handle error
-        console.error('Error adding product to cart:', error);
-      }
-    );
+  confirmAdd() {
+    Swal.fire({
+      // position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 
 }

@@ -109,10 +109,10 @@
                                 <div class="single-instructor">
                                     <div class="review-author">
                                         <div class="author-thumb">
-                                            <img src="assets/img/{{Course.instructor.img}}" alt="Author">
+                                            <img src="assets/img/mentors02.png" alt="Author">
                                         </div>
                                         <div class="author-content">
-                                            <h4 class="name">{{Course.instructor.name}}</h4>
+                                            <h4 class="name">{{Course.instructor}}</h4>
                                             <span class="designation">Product Designer, USA</span>
                                             <span class="rating-star">
                                                 <i class="fa fa-star"></i>
@@ -265,8 +265,8 @@
                 </div>
 
                 <div class="shop-details-qty justify-content-center">
-                    <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course)">Add To Cart</a>
-                    <a style="cursor: pointer;" class="wishlist-btn" (click)="addToWishlist(Course)"><i
+                    <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course.id)">Add To Cart</a>
+                    <a style="cursor: pointer;" class="wishlist-btn" (click)="addToWishlist(Course.id)"><i
                             class="fa fa-heart-o"></i></a>
                 </div>
             </div>
