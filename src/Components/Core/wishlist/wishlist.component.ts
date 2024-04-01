@@ -48,19 +48,7 @@ export class WishlistComponent {
   }
 
   deleteFromWish(id: any) {
-    this.wishlistService.deleteFromCart(id).subscribe({
-      next: (data) => {
-        // Optional: Handle success actions
-        console.log('Product deleted from cart successfully.', data);
-        this.confirmDelete();
-        // Refresh cart items after deletion
-        this.loadWishItems();
-      },
-      error: (err) => {
-        // Handle error**********************
-        console.error('Error deleting product from cart:', err);
-      }
-    });
+    this.confirmDelete(id);
 
   }
 
@@ -70,7 +58,19 @@ export class WishlistComponent {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
         this.confirmAddToCart();
-        // this.sendNumber();
+        
+                    this.wishlistService.deleteFromCart(id).subscribe({
+      next: (data) => {
+        // Optional: Handle success actions
+        console.log('Product deleted from cart successfully.', data);
+        // Refresh cart items after deletion
+        this.loadWishItems();
+      },
+      error: (err) => {
+        // Handle error**********************
+        console.error('Error deleting product from cart:', err);
+      }
+    });
       },
       (error) => {
         // Handle error
@@ -94,7 +94,7 @@ export class WishlistComponent {
     });
   }
 
-  confirmDelete() {
+  confirmDelete(id: any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success customBtn",
@@ -120,6 +120,18 @@ export class WishlistComponent {
           width: '450px',
 
         });
+            this.wishlistService.deleteFromCart(id).subscribe({
+      next: (data) => {
+        // Optional: Handle success actions
+        console.log('Product deleted from cart successfully.', data);
+        // Refresh cart items after deletion
+        this.loadWishItems();
+      },
+      error: (err) => {
+        // Handle error**********************
+        console.error('Error deleting product from cart:', err);
+      }
+    });
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {

@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart Page</title>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="table-responsive">
-          <table class="table cart-table">
-            <thead>
-              <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Price</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Repeat this block for each item in the cart -->
-              <tr *ngFor="let p of Products; trackBy: trackByFn">
-                <td>
-                  <img src="assets/img/{{p.img}}" class="img-fluid" alt="Item Image" />
-                </td>
-                <td>{{p.title}}</td>
-                <td>{{p.author}}</td>
-                <td>{{p.price}}</td>
-                <td>
-                  <div class="d-flex">
-                    <div class="remove-action me-2">
-                      <button class="btn btn-danger" (click)="deleteFromWish(p.id)">
-                        <i class="fa fa-trash"></i>
-                      </button>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="table-responsive">
+            <table class="table cart-table">
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">instructor</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Repeat this block for each item in the cart -->
+                <tr *ngFor="let p of Products; trackBy: trackByFn">
+                  <td>
+                    <img
+                      src="assets/img/{{ p.courseImage }}"
+                      class="img-fluid"
+                      alt="Item Image"
+                    />
+                  </td>
+                  <td>{{ p.courseTitle }}</td>
+                  <td>{{ p.instructorName }}</td>
+                  <td>{{ p.coursePrice }}</td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="remove-action me-2">
+                        <button
+                          class="btn btn-danger"
+                          (click)="deleteFromWish(p.courseId)"
+                        >
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                      <div class="cart-action">
+                        <button class="btn" (click)="addToCart(p.courseId)">
+                          <i class="bi bi-cart"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="cart-action">
-                      <button class="btn" (click)="addToCart(p.id)"><i
-                          class="bi bi-cart"></i></button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
