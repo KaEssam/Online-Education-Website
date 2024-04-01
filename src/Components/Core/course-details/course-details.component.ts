@@ -37,27 +37,8 @@ export class CourseDetailsComponent {
         this.router.navigate(['/Error', { errorMessage: err.message as string }]);
       }
     })
-
-    // this.courseService.getAllCourses().subscribe({
-    //   next: (data) => {
-    //     this.Courses = data;
-    //     this.displayedCourses = this.Courses.slice(0, 4);
-
-    //   },
-    //   error: (err) => {
-    //     this.router.navigate(['/Error', { errorMessage: err.message as string }]);
-    //   }
-    // })
   }
 
-  // counter = signal(1);
-  // plus() {
-  //   this.counter.update(num => ++num);
-  // }
-  // minus() {
-  //   this.counter.update(num => num > 0 ? --num : num);
-
-  // }
 
 
 

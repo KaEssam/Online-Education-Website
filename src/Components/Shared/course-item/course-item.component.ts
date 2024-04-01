@@ -91,8 +91,8 @@ export class CourseItemComponent {
   // }
 
 
-  addToCart(product: any) {
-    this.cartService.addToCart(product).subscribe(
+  addToCart(id: any) {
+    this.cartService.addToCart(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
@@ -107,8 +107,8 @@ export class CourseItemComponent {
   }
 
 
-  addToWishlist(product: any) {
-    this.wishlistService.addToWish(product).subscribe(
+  addToWishlist(id: any) {
+    this.wishlistService.addToWish(id).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');

@@ -1,27 +1,22 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TotalPriceService {
+  private _totalPrice = new BehaviorSubject<number>(0);
+  readonly totalPrice$ = this._totalPrice.asObservable();
+  private _courseList = new BehaviorSubject<number[]>([]);
+  readonly courseList$ = this._courseList.asObservable();
 
-  totalPrice: number = 0;
-  courseList: any;
-  constructor() { }
+  constructor() {}
 
   setTotalPrice(price: number) {
-    this.totalPrice = price;
-  }
-
-  getTotalPrice() {
-    return this.totalPrice;
+    this._totalPrice.next(price);
   }
 
   setCourseList(courseList: any) {
-    this.courseList = courseList;
-  }
-
-  getCourseList() {
-    return this.courseList;
+    this._courseList.next(Object.assign([], courseList));
   }
 }

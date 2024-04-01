@@ -36,12 +36,5 @@ export class CoursesService {
     return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`)
   }
 
-  // getPaginatedCourses(page: number, pageSize: number) {
-  //   const params = new HttpParams()
-  //     .set('page', page.toString())
-  //     .set('pageSize', pageSize.toString());
-
-  //     return this.Client.get(`${this.DB_URL}?${params.toString()}`);
-  // }
   
 }
