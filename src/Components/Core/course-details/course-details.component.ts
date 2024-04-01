@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { ProductsService } from '../../../Services/products.service';
 import { CartService } from '../../../Services/cart.service';
 import { WishlistService } from '../../../Services/wishlist.service';
 import AOS from 'aos'; //AOS - 1

@@ -1,3 +1,4 @@
+import { PaginationComponent } from './../../Core/pagination/pagination.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -11,18 +12,18 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-course-item',
   standalone: true,
-  imports: [HttpClientModule, RouterModule],
+  imports: [HttpClientModule, RouterModule,PaginationComponent],
   providers: [CommonModule, CoursesService, CartService, WishlistService],
   templateUrl: './course-item.component.html',
   styleUrl: './course-item.component.css'
 })
 export class CourseItemComponent {
   allCourses: any = [];
-  // pagCourses: any = [];
-  // currentPage: number = 1;
-  // pageSize: number = 12;
-  // totalCourses: number = 0;
-  // totalPages: number = 0;
+  paginatedData: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 12;
+  totalItems!: number;
+  totalPages: number = 0; // Define totalPages property
 
   constructor(private coursesService: CoursesService, private router: Router, private route: ActivatedRoute, private cartService: CartService, private wishlistService: WishlistService) { }
 
