@@ -1,14 +1,17 @@
+import { UploadImgService } from "./../../../Services/upload-img.service";
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CreateCourseService } from "../../../Services/create-course.service";
+import { GetCategoryService } from "../../../Services/get-category.service";
+
 
 @Component({
   selector: 'app-create-course',
   standalone: true,
-  imports: [FormsModule,CommonModule,RouterModule],
-  providers: [CreateCourseService],
+  imports: [FormsModule,CommonModule,RouterModule,],
+  providers: [CreateCourseService, UploadImgService, GetCategoryService],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })
@@ -18,7 +21,7 @@ currentStep: number = 1;
       title: '',
   categoryID:'',
   description: '',
-  img: '',
+  img: FormData,
   url: '',
   price: 0,
   sections: [],
@@ -29,12 +32,27 @@ currentStep: number = 1;
     url: '' // You may need to adjust this depending on how you handle media uploads
   };
 
+  img: any ={
+    img: FormData,
+    title: ''
+  };
+
+  categories: any[] = [];
+  
+
 @ViewChild('addLectureModal') addLectureModal!: ElementRef;
   currentSection: any;
 
-  constructor(private CreateCourseService: CreateCourseService) {}
+  constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService) {}
 
-  ngOnInit(): void {}
+
+ 
+  ngOnInit(): void {
+    this.getCategoriesService.getAllCategories().subscribe((response:any) => {
+      this.categories = response;
+      console.log('Categories:', response);
+    });
+  }
 
   nextStep() {
     this.currentStep++;
@@ -140,6 +158,20 @@ closeAddLectureModal() {
   }
 
 }
+
+
+// OnFileSelected(event:any){
+//   const file:File = event.target.files[0];
+
+//   if (file) {
+//       const formData = new FormData();
+//       formData.append("img", file);
+
+//       const upload$ = this.UploadImgService.uploadImg(formData, 5);
+
+//       upload$.subscribe();
+// }
+// }
 }
 
 
