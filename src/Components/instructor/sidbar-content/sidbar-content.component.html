@@ -4,92 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tab Component Styling</title>
-    <style>
-      /* Resetting default margins and paddings */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Tab content container */
-      .tab-content {
-        padding: 20px;
-      }
-
-      /* Table styling */
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-
-      th,
-      td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-
-      th {
-        background-color: #f2f2f2;
-      }
-
-      /* Buttons */
-      button {
-        padding: 8px 16px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 4px;
-        margin-right: 5px;
-      }
-
-      button:hover {
-        background-color: #45a049;
-      }
-
-      /* Tab pane content */
-      .tab-pane {
-        display: none;
-      }
-
-      .tab-pane.active {
-        display: block;
-      }
-
-      /* Image styling */
-      .course-image {
-        width: 100px;
-        height: auto;
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      /* Icon styling */
-      .icon {
-        width: 20px;
-        height: auto;
-        margin-right: 5px;
-      }
-
-      /* Create button styling */
-      .create-btn {
-        display: inline-block;
-        padding: 8px 16px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 4px;
-        margin-right: 10px;
-      }
-
-      .create-btn:hover {
-        background-color: #45a049;
-      }
-    </style>
   </head>
   <body>
     <!-- Tab Content -->
@@ -102,7 +16,10 @@
         aria-labelledby="content-tab"
       >
         <h2>
-          My Courses <button class="create-btn" routerLink="/createCourse">Create New Course</button>
+          My Courses
+          <button class="create-btn" routerLink="/createCourse">
+            Create New Course
+          </button>
         </h2>
         <p>Manage your courses and its update like live, draft and insight.</p>
 
