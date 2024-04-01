@@ -706,7 +706,7 @@ a {
     margin-right: 20px;
 }
 
-courses__curriculum-wrap .course-item .item-name::before {
+ .course-item .item-name::before {
     content: "";
     display: block;
     background-image: url(../../../assets/img/play.svg);

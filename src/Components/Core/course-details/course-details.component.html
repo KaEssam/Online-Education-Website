@@ -54,11 +54,11 @@
                                 aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
                         </li>
 
-                        <li class="nav-item" role="presentation">
+                        <!-- <li class="nav-item" role="presentation">
                             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
                                 data-bs-target="#reviews-tab-pane" type="button" role="tab"
                                 aria-controls="reviews-tab-pane" aria-selected="false" tabindex="-1">Instructor</button>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab"
+                        <!-- <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab"
                             tabindex="0">
                             <div class="product-desc-review">
                                 <div class="single-instructor">
@@ -131,7 +131,7 @@
                                         specimen book.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -144,7 +144,8 @@
                     <h2 class="title align-items-center">{{Course.price}} <span class="pt-2 fs-5">EGP</span></h2>
 
                 </div>
-                <h2 class="card-header">{{Course.title}}</h2>
+                <h2 class="card-header mb-2">{{Course.title}}</h2>
+                <h4 class="mb-4" style="color: var(--tg-heading-color);">By: {{Course.instructor}}</h4>
                 <div class="courses__information-wrap">
                     <ul class="list-wrap">
                         <li>
@@ -253,7 +254,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="courses__details-social">
+                <!-- <div class="courses__details-social">
                     <h5 class="title">Share this course:</h5>
                     <ul class="list-wrap">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -262,9 +263,9 @@
                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                     </ul>
-                </div>
+                </div> -->
 
-                <div class="shop-details-qty justify-content-center">
+                <div class="shop-details-qty justify-content-center mt-5">
                     <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course.id)">Add To Cart</a>
                     <a style="cursor: pointer;" class="wishlist-btn" (click)="addToWishlist(Course.id)"><i
                             class="fa fa-heart-o"></i></a>
