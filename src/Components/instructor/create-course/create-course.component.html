@@ -3,8 +3,8 @@
     <!-- First Step: Basic Information -->
     <h2>Basic Information</h2>
     <form>
-      <div class="form-group">
-        <label for="title">Title</label>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
         <input
           type="text"
           class="form-control"
@@ -13,27 +13,25 @@
           name="title"
         />
       </div>
-      <div class="form-group">
-        <label for="category">Category</label>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
         <select
-          class="form-control"
+          class="form-select"
           id="category"
-          [(ngModel)]="categories"
+          [(ngModel)]="course.category"
           name="category"
         >
           <option *ngFor="let category of categories" [value]="category.id">
             {{ category.title }}
           </option>
-
-          <!-- Add more options as needed -->
         </select>
       </div>
-      <div class="form-group">
-        <label class="form-label mb-2" for="courseCover">Course Cover</label>
-        <input type="file" class="form-control-file" id="courseCover" />
+      <div class="mb-3">
+        <label class="form-label" for="courseCover">Course Cover</label>
+        <input type="file" class="form-control" id="courseCover" />
       </div>
-      <div class="form-group">
-        <label for="description">Description</label>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
         <textarea
           class="form-control"
           id="description"
@@ -41,25 +39,23 @@
           name="description"
         ></textarea>
       </div>
-      <div class="form-group">
+      <div class="mb-3">
         <button
-          class="btn btn-primary btn-back me-3"
+          class="btn btn-primary me-3"
           (click)="goBack()"
           routerLink="/instructor"
         >
           Back to Courses
         </button>
-        <button class="btn btn-success btn-next" (click)="nextStep()">
-          Next
-        </button>
+        <button class="btn btn-success" (click)="nextStep()">Next</button>
       </div>
     </form>
   </div>
 
   <div *ngIf="currentStep === 2" style="padding: 20px">
     <!-- Third Step: Create sections -->
-    <h2 style="font-size: 24px; color: #333">Step 3: Create sections</h2>
-    <div class="form-group">
+    <h2 class="fw-bold fs-4 text-dark">Step 3: Create sections</h2>
+    <div class="mb-3">
       <button
         class="btn btn-primary"
         style="margin-bottom: 10px"
@@ -69,77 +65,52 @@
       </button>
     </div>
 
-    <div
-      *ngFor="let section of course.sections"
-      class="sections-section"
-      style="margin-bottom: 20px"
-    >
+    <div *ngFor="let section of course.sections" class="card mb-3">
       <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 10px;
-        "
+        class="card-header d-flex justify-content-between align-items-center"
       >
-        <div>
-          <button class="btn btn-sm btn-info" (click)="toggleCollapse(section)">
-            {{ section.name }}
-            <i
-              class="fa"
-              [ngClass]="{
-                'fa-caret-down': !section.collapsed,
-                'fa-caret-up': section.collapsed
-              }"
-            ></i>
-          </button>
-        </div>
-
+        <button class="btn btn-info" (click)="toggleCollapse(section)">
+          {{ section.name }}
+          <i
+            class="fas"
+            [ngClass]="{
+              'fa-caret-down': !section.collapsed,
+              'fa-caret-up': section.collapsed
+            }"
+          ></i>
+        </button>
         <div>
           <button
-            class="btn btn-sm btn-primary me-1"
+            class="btn btn-primary me-1"
             (click)="openAddLectureModal(section)"
           >
             Add Lecture
           </button>
-
-          <button
-            class="btn btn-sm btn-warning me-1"
-            (click)="editSection(section)"
-          >
-            <i class="fa fa-edit"></i>
+          <button class="btn btn-warning me-1" (click)="editSection(section)">
+            <i class="fas fa-edit"></i>
           </button>
-
-          <button
-            class="btn btn-sm btn-danger"
-            (click)="deleteSection(section)"
-          >
-            <i class="fa fa-trash"></i>
+          <button class="btn btn-danger" (click)="deleteSection(section)">
+            <i class="fas fa-trash"></i>
           </button>
         </div>
       </div>
 
-      <div *ngIf="!section.collapsed" class="p-3">
+      <div *ngIf="!section.collapsed" class="card-body">
         <!-- Display added lectures here -->
         <div
           *ngFor="let lecture of section.lectures"
-          class="lecture-item mb-3"
-          style="margin-bottom: 5px"
+          class="d-flex justify-content-between align-items-center mb-2"
         >
           <div>{{ lecture.title }}</div>
           <div>
-            <button
-              class="btn btn-sm btn-warning"
-              style="margin-right: 5px"
-              (click)="editLecture(lecture)"
-            >
-              <i class="fa fa-edit"></i>
+            <button class="btn btn-warning me-1" (click)="editLecture(lecture)">
+              <i class="fas fa-edit"></i>
             </button>
             <button
-              class="btn btn-sm btn-danger"
+              class="btn btn-danger"
               (click)="deleteLecture(section, lecture)"
             >
-              <i class="fa fa-trash"></i>
+              <i class="fas fa-trash"></i>
             </button>
           </div>
         </div>
@@ -170,31 +141,25 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="addLectureModalLabel">Add Lecture</h5>
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        (click)="openAddLectureModal(['section'])">
-                    </button> -->
           </div>
           <div class="modal-body">
-            <!-- Add form fields for lecture title and media upload here -->
-            <div class="form-group">
-              <label for="lectureTitle">Lecture Title</label>
+            <div class="mb-3">
+              <label for="lectureTitle" class="form-label">Lecture Title</label>
               <input
                 type="text"
                 class="form-control"
                 id="lectureTitle"
                 [(ngModel)]="contents.title"
-                style="width: 100%"
                 placeholder="Add Lecture Name"
               />
             </div>
-            <div class="form-group">
-              <label for="mediaUpload">Media Upload</label>
+            <div class="mb-3">
+              <label for="mediaUpload" class="form-label">Media Upload</label>
               <input
                 type="text"
-                class="form-control-file"
+                class="form-control"
                 id="mediaUpload"
                 [(ngModel)]="contents.url"
-                style="width: 100%"
                 placeholder="Add URL"
               />
             </div>
@@ -223,10 +188,10 @@
 
   <div *ngIf="currentStep === 3">
     <!-- Fourth Step: Course Settings -->
-    <h2>Step 4: Course Settings</h2>
+    <h2 class="fw-bold">Step 4: Course Settings</h2>
     <form>
-      <div class="form-group">
-        <label for="price">Price</label>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
         <input
           type="number"
           class="form-control"
@@ -235,10 +200,10 @@
           name="price"
         />
       </div>
-      <div class="form-group">
-        <label for="status">Status</label>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
         <select
-          class="form-control"
+          class="form-select"
           id="status"
           [(ngModel)]="course.status"
           name="status"
