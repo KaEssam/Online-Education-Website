@@ -1,16 +1,19 @@
+import { map } from "rxjs";
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CartService } from '../../../Services/cart.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { PaypalComponent } from '../paypal/paypal.component';
+import { TotalPriceService } from '../../../Services/total-price.service';
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, HttpClientModule,RouterModule],
-  providers:[CartService],
+  imports: [CommonModule, HttpClientModule,RouterModule, PaypalComponent],
+  providers:[CartService,TotalPriceService],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -18,7 +21,7 @@ export class CartComponent {
   Products: any = [];
   // id: any;
   
-  constructor(private cartService: CartService, private router: Router, private Activated: ActivatedRoute) {
+  constructor(private cartService: CartService, private router: Router, private Activated: ActivatedRoute, private totalPriceService: TotalPriceService) {
     // this.id = this.Activated.snapshot.params["id"];
   }
   
@@ -52,8 +55,11 @@ export class CartComponent {
 
   totalPrice: number = 0; // Initialize total price to zero
   calculateTotalPrice() {
-    // Iterate through cart items and sum up prices
-    this.totalPrice = this.Products.reduce((total:number, product:any) => total + product.price, 0);
+    this.totalPrice = this.Products.reduce((total:number, product:any) => total + product.coursePrice, 0);
+    this.totalPriceService.setTotalPrice(this.totalPrice);
+    this.totalPriceService.setCourseList(this.Products.map((product:any) => product.courseId));
+
+
   }
 
 

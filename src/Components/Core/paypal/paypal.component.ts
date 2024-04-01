@@ -1,52 +1,67 @@
+import { Course } from "./../../../Services/course";
+import { CartComponent } from "./../cart/cart.component";
 import { Component } from '@angular/core';
+import { PayPalService } from '../../../Services/paypal.service';
+import { TotalPriceService } from "../../../Services/total-price.service";
 
 interface PayPalWindow extends Window {
   paypal?: any;
 }
 
-declare var paypal: { Buttons: (arg0: { createOrder: (data: any, actions: any) => any; onApprove: (data: any, actions: any) => any; onError: (err: any) => void; }) => { (): any; new(): any; render: { (arg0: string): void; new(): any; }; }; };
-
+declare var paypal: {
+  Buttons: (arg0: {
+    createOrder: (data: any, actions: any) => any;
+    onApprove: (data: any, actions: any) => void;
+    onError: (err: any) => void;
+  }) => { (): any; new (): any; render: { (arg0: string): void; new (): any } };
+};
 
 @Component({
   selector: 'app-paypal',
   standalone: true,
-  imports: [],
+  imports: [CartComponent],
+  providers: [PayPalService, TotalPriceService],
   templateUrl: './paypal.component.html',
-  styleUrl: './paypal.component.css'
+  styleUrl: './paypal.component.css',
 })
 export class PaypalComponent {
-  constructor() { }
+  constructor(private payPalService: PayPalService, private totalPriceService: TotalPriceService ) {}
+
+  value :any
+  Courses :any
+
+  valueChanged() {
+    this.value = this.totalPriceService.getTotalPrice();
+    this.Courses = this.totalPriceService.getCourseList();
+  }
 
   ngOnInit(): void {
-    paypal.Buttons({
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: '10.00' 
-            }
-          }]
-        });
-      },
-      onApprove: (data, actions) => {
-        return actions.order.capture().then((details: any) => {
-          console.log(details);
-         
-          
-            window.alert('Payment successful! Thank you for your purchase.');
-        
-        });
-      },
-      onError: (err) => {
-        console.log(err);
-       
-      }
-    }).render('#paypal-button-container');
+    paypal
+      .Buttons({
+        createOrder: (data, actions) => {
+          this.valueChanged();
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: '',
+                  currency_code: 'USD',
+                },
+              },
+            ],
+          });
+        },
+        onApprove: (data, actions) => {
+          this.payPalService.capturePayment(data.orderID, this.Courses).subscribe({
+            next: () => {
+              window.alert('Payment successful! Thank you for your purchase.');
+            },
+          });
+        },
+        onError: (err) => {
+          console.log(err);
+        },
+      })
+      .render('#paypal-button-container');
+  }
 }
-}
-
-
-
-
-
-
