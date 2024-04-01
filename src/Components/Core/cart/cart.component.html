@@ -18,40 +18,45 @@
               <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Title</th>
-                <th scope="col">Author</th>
+                <th scope="col">instructor</th>
                 <th scope="col">Price</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
               <!-- Repeat this block for each item in the cart -->
-                <tr *ngFor="let p of Products; trackBy: trackByFn">
-                  <td>
-                    <img
-                      src="assets/img/{{p.img}}"
-                      class="img-fluid"
-                      alt="Item Image"
-                    />
-                  </td>
-                  <td>{{p.title}}</td>
-                  <td>{{p.instructor}}</td>
-                  <td>{{p.price}}</td>
-                  <td>
-                    <div class="action">
-                      <button class="btn btn-danger" (click)="deleteFromCart(p.id)">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- End of item block -->
+              <tr *ngFor="let p of Products; trackBy: trackByFn">
+                <td>
+                  <img
+                    src="assets/img/{{ p.courseImage }}"
+                    class="img-fluid"
+                    alt="Item Image"
+                  />
+                </td>
+                <td>{{ p.courseTitle }}</td>
+                <td>{{ p.instructorName }}</td>
+                <td>{{ p.coursePrice }}</td>
+                <td>
+                  <div class="action">
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteFromCart(p.courseId)"
+                    >
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- End of item block -->
             </tbody>
           </table>
         </div>
         <div class="col-md-4">
           <div class="cart-summary">
-            <h4>Total: {{totalPrice}}</h4>
-            <button routerLink="/checkout" class="btn btn-primary btn-lg" >Checkout</button>
+            <h4>Total: {{ totalPrice }}</h4>
+            <button routerLink="/checkout" class="btn btn-primary btn-lg">
+              Checkout
+            </button>
           </div>
         </div>
       </div>

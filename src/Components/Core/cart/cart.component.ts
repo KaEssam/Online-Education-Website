@@ -47,21 +47,7 @@ export class CartComponent {
 
 
   deleteFromCart(id:any) {
-    // this.confirmDelete();
-    this.cartService.deleteFromCart(id).subscribe({
-      next: (data) =>{
-        // Optional: Handle success actions
-        console.log('Product deleted from cart successfully.',data);
-       //confirm delete
-        this.confirmDelete();
-        // Refresh cart items after deletion
-        this.loadCartItems();
-      },
-      error: (err) => {
-        // Handle error**********************
-        console.error('Error deleting product from cart:', err);
-      }
-  });
+    this.confirmDelete(id);
   }
 
   totalPrice: number = 0; // Initialize total price to zero
@@ -71,7 +57,7 @@ export class CartComponent {
   }
 
 
-  confirmDelete() {
+  confirmDelete(id:any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success customBtn",
@@ -97,6 +83,19 @@ export class CartComponent {
           width: '450px',
           
         });
+            this.cartService.deleteFromCart(id).subscribe({
+      next: (data) =>{
+        // Optional: Handle success actions
+        console.log('Product deleted from cart successfully.',data);
+       //confirm delete
+        // Refresh cart items after deletion
+        this.loadCartItems();
+      },
+      error: (err) => {
+        // Handle error**********************
+        console.error('Error deleting product from cart:', err);
+      }
+  });
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {
@@ -105,6 +104,7 @@ export class CartComponent {
           icon: "error",
           width: '450px',
         });
+
       }
     });
   }
