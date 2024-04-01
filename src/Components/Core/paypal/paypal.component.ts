@@ -1,8 +1,8 @@
-import { Course } from "./../../../Services/course";
-import { CartComponent } from "./../cart/cart.component";
+import { Course } from './../../../Services/course';
+import { CartComponent } from './../cart/cart.component';
 import { Component } from '@angular/core';
 import { PayPalService } from '../../../Services/paypal.service';
-import { TotalPriceService } from "../../../Services/total-price.service";
+import { TotalPriceService } from '../../../Services/total-price.service';
 
 interface PayPalWindow extends Window {
   paypal?: any;
@@ -25,37 +25,44 @@ declare var paypal: {
   styleUrl: './paypal.component.css',
 })
 export class PaypalComponent {
-  constructor(private payPalService: PayPalService, private totalPriceService: TotalPriceService ) {}
+  constructor(
+    private payPalService: PayPalService,
+    private totalPriceService: TotalPriceService
+  ) {}
 
-  value :any
-  Courses :any
-
-  valueChanged() {
-    this.value = this.totalPriceService.getTotalPrice();
-    this.Courses = this.totalPriceService.getCourseList();
-  }
+  value: any;
+  Courses: any;
 
   ngOnInit(): void {
     paypal
       .Buttons({
         createOrder: (data, actions) => {
-          this.valueChanged();
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: '',
-                  currency_code: 'USD',
+          this.totalPriceService.totalPrice$.subscribe((val) => {
+            this.value = val;
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: '',
+                    currency_code: 'USD',
+                  },
                 },
-              },
-            ],
+              ],
+            });
           });
         },
         onApprove: (data, actions) => {
-          this.payPalService.capturePayment(data.orderID, this.Courses).subscribe({
-            next: () => {
-              window.alert('Payment successful! Thank you for your purchase.');
-            },
+          this.totalPriceService.courseList$.subscribe((crsList) => {
+            this.Courses = crsList;
+            this.payPalService
+              .capturePayment(data.orderID, this.Courses)
+              .subscribe({
+                next: () => {
+                  window.alert(
+                    'Payment successful! Thank you for your purchase.'
+                  );
+                },
+              });
           });
         },
         onError: (err) => {
