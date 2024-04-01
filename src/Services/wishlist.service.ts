@@ -19,7 +19,7 @@ export class WishlistService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    return this.Client.post(`${this.WISH_URL}/api/WishList/${id}`,httpOptions); // Post product to the cart URL
+    return this.Client.post(`${this.WISH_URL}/api/WishList/${id}`, undefined, httpOptions); // Post product to the cart URL
   }
 
   getWishItems() {
@@ -34,6 +34,12 @@ export class WishlistService {
   }
 
   deleteFromCart(id: any) {
-    return this.Client.delete(`${this.WISH_URL}/api/WishList/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.Client.delete(`${this.WISH_URL}/api/WishList/${id}`,httpOptions);
   }
 }
