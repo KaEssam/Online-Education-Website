@@ -48,3 +48,15 @@ app-sidebar-content {
     max-width: 100%;
   }
 }
+
+body {
+  background-color: #f4f4f4;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
