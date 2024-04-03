@@ -1,80 +1,111 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-family: var(--tg-body-font-family);
+  font-size: var(--tg-body-font-size);
+  
 }
 
-/* Tab content container */
+/* Overall container for better spacing and alignment */
 .tab-content {
   padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: var(--tg-body-font-family);
+  font-size: var(--tg-body-font-size);
+  border-radius: 10px;
 }
 
-/* Table styling */
-table {
+/* Styling for the header section */
+.tab-pane h2 {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: var(--tg-fw-semi-bold);
+}
+
+
+/* Styling for the table */
+.tab-pane table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-th,
-td {
+.tab-pane th,
+.tab-pane td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-th {
-  background-color: #f2f2f2;
-}
-
-/* Buttons */
-button {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Tab pane content */
-.tab-pane {
-  display: none;
-}
-
-.tab-pane.active {
-  display: block;
-}
-
-/* Course image */
+/* Styling for course title and icons */
 .course-image {
-  max-width: 100px;
+  width: 120px;
+  height:120px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+.course{
+  display: flex;
+  align-items: center;
+}
+.card-info {
+  display: grid;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-/* Icons */
-.icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
+.card-title {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: var(--tg-fw-semi-bold);
 }
 
-/* Create button */
-.create-btn {
-  padding: 8px 16px;
-  background-color: #337ab7;
-  color: white;
+a{
+  text-decoration: none;
+  color: var(--tg-common-color-black-2);
+}
+
+.card-title:hover {
+  color: var(--tg-theme-primary);
+  cursor: pointer;
+}
+
+.course-info {
+  margin-top: 10px;
+  display: inline-flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--tg-common-color-gray-3);
+
+}
+
+.course-info div {
+  margin-right: 10px;
+}
+
+
+
+/* Example styling for the buttons in the last column */
+.tab-pane td button {
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-  margin-left: 10px;
+  margin-right: 5px;
+
 }
 
-.create-btn:hover {
-  background-color: #286090;
+/* Edit Button */
+.edit {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
