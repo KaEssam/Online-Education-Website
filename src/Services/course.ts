@@ -1,6 +1,6 @@
 export interface Section {
   title: string;
-  contents: Content[];
+  sections: Content[];
 }
 
 export interface Content {
@@ -12,10 +12,14 @@ export interface Content {
 export interface Course {
   id: number;
   title: string;
-  categoryID: number;
+  categoryId: Category["id"];
   description: string;
   img: string;
   url: string;
   price: number;
   sections: Section[];
+}
+
+export interface Category {
+  id: number;
 }
