@@ -40,6 +40,7 @@ export const routes: Routes = [
   {path: "wishlist", component:WishlistComponent},
   {path: "wishlist/:id", component:WishlistComponent},
   {path: "enroll", component:AfterEnrollComponent},
+  {path: "enroll/:id", component:AfterEnrollComponent},
   {path: "signOut", component:HomeComponent},
   {path: "dashboard", component:LoginInstructorComponent},
   {path: "instructor", component:InstructorDashboardComponent},

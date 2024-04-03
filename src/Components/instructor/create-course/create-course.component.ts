@@ -1,4 +1,4 @@
-import { UploadImgService } from "./../../../Services/upload-img.service";
+// import { UploadImgService } from "./../../../Services/upload-img.service";
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,14 +11,14 @@ import { GetCategoryService } from "../../../Services/get-category.service";
   selector: 'app-create-course',
   standalone: true,
   imports: [FormsModule,CommonModule,RouterModule,],
-  providers: [CreateCourseService, UploadImgService, GetCategoryService],
+  providers: [CreateCourseService, GetCategoryService],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })
 export class CreateCourseComponent implements OnInit {
 currentStep: number = 1;
   course: any = {
-      title: '',
+  title: '',
   categoryID:'',
   description: '',
   img: FormData,
@@ -43,7 +43,8 @@ currentStep: number = 1;
 @ViewChild('addLectureModal') addLectureModal!: ElementRef;
   currentSection: any;
 
-  constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService) {}
+  constructor(private CreateCourseService: CreateCourseService, private getCategoriesService: GetCategoryService) {}
+  // constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService) {}
 
 
  
