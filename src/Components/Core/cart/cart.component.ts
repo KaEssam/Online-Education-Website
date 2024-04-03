@@ -6,13 +6,12 @@ import { CartService } from '../../../Services/cart.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { PaypalComponent } from '../paypal/paypal.component';
-import { TotalPriceService } from '../../../Services/total-price.service';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
   imports: [CommonModule, HttpClientModule, RouterModule, PaypalComponent],
-  providers: [CartService, TotalPriceService],
+  providers: [CartService],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -23,8 +22,7 @@ export class CartComponent {
   constructor(
     private cartService: CartService,
     private router: Router,
-    private Activated: ActivatedRoute,
-    private totalPriceService: TotalPriceService
+    private Activated: ActivatedRoute
   ) {
     // this.id = this.Activated.snapshot.params["id"];
   }
@@ -62,10 +60,6 @@ export class CartComponent {
     this.totalPrice = this.Products.reduce(
       (total: number, product: any) => total + product.coursePrice,
       0
-    );
-    this.totalPriceService.setTotalPrice(this.totalPrice);
-    this.totalPriceService.setCourseList(
-      this.Products.map((product: any) => product.courseId)
     );
   }
 
