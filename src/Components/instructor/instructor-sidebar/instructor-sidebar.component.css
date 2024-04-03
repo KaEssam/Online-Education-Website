@@ -1,41 +1,61 @@
 
 /* Instructor Card */
+
 .card {
-  width: 300px;
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 30px;
+  width: 350px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: var(--tg-body-font-family);
+  font-size: var(--tg-body-font-size);
+  align-items: center;
+
 }
 
 .card-body {
-  text-align: center;
+  padding: 20px;
 }
+
 .instructor-info {
   display: flex;
   align-items: center;
+  
 }
 
 .instructor-img {
-  width: 70px;
-  height: 70px;
-  margin-right: 10px;
-  object-fit: cover;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  margin-right: 15px;
 }
 
-.instructor-details {
-  flex: 1;
+.card-title {
+  font-size: var(--tg-body-font-size);
+  font-weight: var(--tg-fw-semi-bold);
+  margin-bottom: 0;
+}
+
+.create-btn{
+  background-color: var(--tg-common-color-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-radius: 15px;
+
+
 }
 
 .nav-link.active {
-  background-color: var(--tg-common-color-orange);
+  background-color: var(--tg-common-color-blue);
   color: #fff;
   /* Change text color when active */
 }
 
 ul{
   border: #007bff;
-  width: 300px;
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 30px;
@@ -45,26 +65,24 @@ ul{
 li{
   list-style-type: none;
   color: white;
-  width: 300px;
   display: block;
   text-align: center;
 }
 
 .nav-item {
   border-bottom: 1px solid #dee2e6;
-  width: 300px;
   /* Add border at the bottom */
 }
 
 button {
   padding: 10px 20px;
   cursor: pointer;
-  width: 300px;
+  width: 350px;
 }
 
 button:hover {
-  background-color: var(--tg-common-color-orange);
-  color: #fff;
+  background-color: var(--tg-common-color-teal);
+  color: var(--tg-common-color-white)
 }
 
 
