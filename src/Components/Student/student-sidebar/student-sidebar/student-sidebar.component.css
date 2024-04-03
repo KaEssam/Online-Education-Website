@@ -1,0 +1,97 @@
+/* Instructor Card */
+
+.card {
+  width: 350px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: var(--tg-body-font-family);
+  font-size: var(--tg-body-font-size);
+  align-items: center;
+
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.instructor-info {
+  display: flex;
+  align-items: center;
+
+}
+
+.instructor-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.card-title {
+  font-size: var(--tg-body-font-size);
+  font-weight: var(--tg-fw-semi-bold);
+  margin-bottom: 0;
+}
+
+.create-btn {
+  background-color: var(--tg-common-color-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-radius: 15px;
+
+
+}
+
+.nav-link.active {
+  background-color: var(--tg-common-color-blue);
+  color: #fff;
+  /* Change text color when active */
+}
+
+ul {
+  border: #007bff;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  background-color: white;
+}
+
+li {
+  list-style-type: none;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.nav-item {
+  border-bottom: 1px solid #dee2e6;
+  /* Add border at the bottom */
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 350px;
+}
+
+button:hover {
+  background-color: var(--tg-common-color-teal);
+  color: var(--tg-common-color-white)
+}
+
+
+/* Add icons for sidebar titles */
+#content-tab:before {
+  content: "\1F4D6";
+  margin-right: 5px;
+}
+
+#courses-tab:before {
+  content: "\1F3EB";
+  margin-right: 5px;
+}
