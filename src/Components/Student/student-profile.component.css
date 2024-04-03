@@ -7,8 +7,8 @@ body {
 
 .container-fluid {
   padding: 20px;
-/* padding-bottom: 5rem; */
- margin-top: 6rem;
+  /* padding-bottom: 5rem; */
+  margin-top: 6rem;
 }
 
 .row {
@@ -24,7 +24,7 @@ body {
 }
 
 /* Styles for Left Side Component */
-app-instructor-sidebar {
+app-student-sidebar {
   flex: 0 0 25%;
   /* Adjust as needed */
   max-width: 25%;
@@ -32,7 +32,7 @@ app-instructor-sidebar {
 }
 
 /* Styles for Right Side Component (Content) */
-app-sidebar-content {
+app-student-content {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;

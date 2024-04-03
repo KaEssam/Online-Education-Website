@@ -1,4 +1,3 @@
-
 /* Instructor Card */
 
 .card {
@@ -18,7 +17,7 @@
 .instructor-info {
   display: flex;
   align-items: center;
-  
+
 }
 
 .instructor-img {
@@ -34,7 +33,7 @@
   margin-bottom: 0;
 }
 
-.create-btn{
+.create-btn {
   background-color: var(--tg-common-color-blue);
   color: white;
   border: none;
@@ -54,15 +53,15 @@
   /* Change text color when active */
 }
 
-ul{
+ul {
   border: #007bff;
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 30px;
-    background-color: white;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  background-color: white;
 }
 
-li{
+li {
   list-style-type: none;
   color: white;
   display: block;
@@ -96,4 +95,3 @@ button:hover {
   content: "\1F3EB";
   margin-right: 5px;
 }
-

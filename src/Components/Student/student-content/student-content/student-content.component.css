@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-family: var(--tg-body-font-family);
   font-size: var(--tg-body-font-size);
-  
+
 }
 
 /* Overall container for better spacing and alignment */
@@ -41,15 +41,16 @@
 /* Styling for course title and icons */
 .course-image {
   width: 120px;
-  height:120px;
+  height: 120px;
   margin-right: 15px;
   border-radius: 10px;
 }
 
-.course{
+.course {
   display: flex;
   align-items: center;
 }
+
 .card-info {
   display: grid;
   align-items: center;
@@ -63,7 +64,7 @@
   font-weight: var(--tg-fw-semi-bold);
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--tg-common-color-black-2);
 }
@@ -97,15 +98,3 @@ a{
   margin-right: 5px;
 
 }
-
-/* Edit Button */
-.edit {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-

@@ -23,6 +23,7 @@ import { InstructorDashboardComponent } from '../Components/instructor/instructo
 import { CreateCourseComponent } from '../Components/instructor/create-course/create-course.component';
 import { CourseDetailsComponent } from '../Components/Core/course-details/course-details.component';
 import { LoginInstructorComponent } from '../Components/Core/login-instructor/login-instructor.component';
+import { StudentProfileComponent } from '../Components/Student/student-profile.component';
 
 
 @Component({
@@ -50,7 +51,7 @@ import { LoginInstructorComponent } from '../Components/Core/login-instructor/lo
     HttpClientModule,
     InstructorDashboardComponent,
     CreateCourseComponent,
-    CourseDetailsComponent, LoginInstructorComponent],
+    CourseDetailsComponent, LoginInstructorComponent, StudentProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
