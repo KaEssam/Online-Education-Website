@@ -1,99 +1,91 @@
-/* styles.css */
-
-/* Custom styles for the container */
+/* Style for form container */
 .container {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding:20px;
-  margin: 3rem auto 2rem; 
-}
 
-/* Custom styles for form elements */
-.form-group {
-  margin-bottom: 20px;
-}
-
-/* Custom styles for buttons */
-.btn-back {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-.btn-next {
-  background-color: #198754;
-  border-color: #198754;
-}
-
-/* Custom styles for modal */
-.modal-content {
-  border-radius: 12px;
-}
-
-.modal-header {
-  background-color: #198754;
-  color: #fff;
-}
-
-.modal-footer {
-  justify-content: space-between;
-}
-
-
-/* General styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-}
-
-.container {
-  background-color: #fff;
-  border-radius: 8px;
+  max-width: 80%;
+  height: 60vh;
+  margin: auto;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--tg-common-color-gray);
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10rem;
+  margin-top: 10rem;
+  
 }
 
+/* Style for form headings */
 h2 {
+  margin-top: 20px;
   margin-bottom: 20px;
-  color: #198754;
 }
 
-.btn-primary {
-  background-color: #198754;
-  border-color: #198754;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-
-.btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
-}
-
+/* Style for form labels */
 .form-label {
   font-weight: bold;
 }
 
-.Createsections, .CourseSettings{
-  margin: 3rem auto 2rem; 
-
+/* Style for form input fields */
+.form-control {
+  margin-bottom: 15px;
 }
 
-/* Validation styles */
-.is-valid {
-  border-color: #198754 !important;
+/* Style for buttons */
+.btn {
+  margin-right: 10px;
 }
 
-.is-invalid {
-  border-color: #dc3545 !important;
+/* Style for modal */
+.modal-dialog {
+  max-width: 500px;
 }
 
-.invalid-feedback {
-  display: block;
-  width: 100%;
-  margin-top: .25rem;
-  font-size: 80%;
-  color: #dc3545;
+.modal-content {
+  padding: 20px;
 }
+
+.modal-title {
+  font-weight: bold;
+}
+
+/* Style for card */
+.card {
+  margin-bottom: 20px;
+}
+
+/* Style for card header */
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Style for card body */
+.card-body {
+  padding: 15px;
+}
+
+/* Style for buttons inside card */
+.card button {
+  margin-right: 5px;
+}
+
+/* Style for card footer */
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Style for card title */
+.card-title {
+  font-weight: bold;
+}
+
+/* Style for card text */
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+
+
