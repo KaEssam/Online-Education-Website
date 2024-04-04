@@ -1,4 +1,4 @@
-/* * {
+* {
     box-sizing: border-box;
 }
 
@@ -504,7 +504,7 @@ ul {
     padding: 1px;
 }
 
-.courses-video-playlist {
+/* .courses-video-playlist {
     width: 28.2%;
     background-color: #eefbf3;
 }
@@ -689,10 +689,10 @@ a:hover {
 
 
 
-.video-js {
-    width: 60%; /* Adjust width as needed */
-    height: 500px; /* Adjust height as needed */
-  }
+ .video-js {
+    width: 60%; 
+    height: 500px; 
+  } 
 
   .video-list {
     list-style: none; /* Remove default bullet points */

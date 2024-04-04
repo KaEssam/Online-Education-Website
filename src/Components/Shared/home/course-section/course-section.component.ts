@@ -1,3 +1,4 @@
+// import { Course } from './../../../../Services/course';
 import { Component } from '@angular/core';
 import { CourseItemComponent } from '../../course-item/course-item.component';
 import { Router, RouterModule } from '@angular/router';
@@ -6,6 +7,27 @@ import { CoursesService } from '../../../../Services/courses.service';
 import { CartService } from '../../../../Services/cart.service';
 import { WishlistService } from '../../../../Services/wishlist.service';
 import Swal from 'sweetalert2';
+import { Time } from '@angular/common';
+
+
+interface Category {
+  title:string;
+  courses:Course[];
+}
+
+interface Course{
+  id: number,
+  title: string,
+  price: number,
+  rating: number,
+  duration: Time,
+  category: string,
+  img: string,
+  sections: number,
+  instructor: string,
+  enrollmentCount: number,
+  state: string
+}
 
 @Component({
   selector: 'app-course-section',
@@ -16,8 +38,11 @@ import Swal from 'sweetalert2';
   styleUrl: './course-section.component.css'
 })
 export class CourseSectionComponent {
+
+  
+
   allCourses: any = [];
-  categoryCourses: any = [];
+  categoryCourses: any;
   displayedCourses: any[] = [];
   displayedCategoryCourses: any[] = [];
   constructor(private coursesService: CoursesService,private cartService: CartService,private wishlistService: WishlistService, private router: Router) { }
@@ -52,6 +77,7 @@ export class CourseSectionComponent {
       this.coursesService.getCoursesByCategory(category).subscribe({
         next: (data) => {
           this.categoryCourses = data;
+          console.log(this.categoryCourses);
           this.displayedCategoryCourses = this.categoryCourses.slice(0, 4);
 
         },

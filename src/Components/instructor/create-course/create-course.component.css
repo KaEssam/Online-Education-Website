@@ -4,7 +4,8 @@
 .container {
   background-color: #f8f9fa;
   border-radius: 8px;
-  padding: 20px;
+  padding:20px;
+  margin: 3rem auto 2rem; 
 }
 
 /* Custom styles for form elements */
@@ -73,6 +74,11 @@ h2 {
 
 .form-label {
   font-weight: bold;
+}
+
+.Createsections, .CourseSettings{
+  margin: 3rem auto 2rem; 
+
 }
 
 /* Validation styles */

@@ -1,5 +1,5 @@
-<div class="container mt-5">
-  <div *ngIf="currentStep === 1" class="container">
+<div class="container mt-5" >
+  <div *ngIf="currentStep === 1" class="container BasicInformation">
     <!-- First Step: Basic Information -->
     <h2>Basic Information</h2>
     <form>
@@ -52,9 +52,9 @@
     </form>
   </div>
 
-  <div *ngIf="currentStep === 2" style="padding: 20px">
+  <div *ngIf="currentStep === 2" style="padding: 20px" class="Createsections">
     <!-- Third Step: Create sections -->
-    <h2 class="fw-bold fs-4 text-dark">Step 3: Create sections</h2>
+    <h2 class="fw-bold fs-4 text-dark">Step 2: Create sections</h2>
     <div class="mb-3">
       <button
         class="btn btn-primary"
@@ -186,9 +186,9 @@
     </div>
   </div>
 
-  <div *ngIf="currentStep === 3">
+  <div *ngIf="currentStep === 3" class="CourseSettings">
     <!-- Fourth Step: Course Settings -->
-    <h2 class="fw-bold">Step 4: Course Settings</h2>
+    <h2 class="fw-bold">Step 3: Course Settings</h2>
     <form>
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>

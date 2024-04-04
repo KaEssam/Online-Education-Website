@@ -30,11 +30,11 @@
 <div class="container shop-details-top">
     <div class="row">
         @if (Course) {
-        <div class="col-lg-8">
-            <div class="shop-details-images-wrap">
+        <div class="col-lg-8" >
+            <div class="shop-details-images-wrap" style="background-color: var(--tg-common-color-gray);">
                 <div class="myTabContent">
-                    <div class="show active" id="home-tab-pane">
-                        <img src="assets/img/{{Course.img}}" class="col-10">
+                    <div class="show active d-block " id="home-tab-pane">
+                        <img src="assets/img/test.png" class="col-10">
                     </div>
                 </div>
             </div>
@@ -83,10 +83,10 @@
                                         <div [id]="'collapse' + section.id" class="accordion-collapse collapse show">
                                             <div class="accordion-body">
                                                 <ul class="list-wrap">
-                                                    @for (lesson of section.lessons; track lesson.id) {
+                                                    @for (lesson of section.contents; track lesson.id) {
                                                     <li class="course-item open-item">
-                                                        <img src="../../../assets/img/play.svg" alt="">
-                                                        <a href={{lesson.url}} class="course-item-link popup-video"
+                                                    
+                                                        <a class="course-item-link popup-video"
                                                             target="_blank">
                                                             <span class="item-name">{{lesson.title}}</span>
                                                             <div class="course-item-meta">

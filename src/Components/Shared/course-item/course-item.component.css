@@ -160,3 +160,12 @@ hr {
   align-items: center;
   font-weight: var(--tg-fw-light);
 }
+
+
+.paginator-style {
+  background-color: #f5f5f5;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
