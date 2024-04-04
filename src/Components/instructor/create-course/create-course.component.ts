@@ -23,7 +23,7 @@ export class CreateCourseComponent implements OnInit {
 currentStep: number = 1;
   course: any = {
   title: '',
-  title: '',
+  // title: '',
   categoryID:'',
   description: '',
   img: FormData,
