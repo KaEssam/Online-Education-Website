@@ -1,17 +1,23 @@
-<div class="container mt-5">
-  <div *ngIf="currentStep === 1" class="container">
+<div class="container">
+  <div *ngIf="currentStep === 1">
     <!-- First Step: Basic Information -->
     <h2>Basic Information</h2>
-    <form>
+    <form [formGroup]="FormInfo">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input
+          formControlName="title"
           type="text"
           class="form-control"
           id="title"
           [(ngModel)]="course.title"
           name="title"
         />
+        @if (!isTitleInfoValid) {
+        <div>
+          <small class="text-danger">Title is required</small>
+        </div>
+        }
       </div>
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
@@ -28,16 +34,27 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="courseCover">Course Cover</label>
-        <input type="file" class="form-control" id="courseCover" />
+        <input
+          type="file"
+          formControlName="img"
+          class="form-control"
+          id="courseCover"
+        />
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea
+          formControlName="description"
           class="form-control"
           id="description"
           [(ngModel)]="course.description"
           name="description"
         ></textarea>
+        @if (!isDescriptionValid) {
+        <div>
+          <small class="text-danger">Description is required</small>
+        </div>
+        }
       </div>
       <div class="mb-3">
         <button
@@ -47,149 +64,114 @@
         >
           Back to Courses
         </button>
-        <button class="btn btn-success" (click)="nextStep()">Next</button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          (click)="isInfoFormValid()"
+        >
+          Next
+        </button>
       </div>
     </form>
   </div>
 
   <div *ngIf="currentStep === 2" style="padding: 20px">
     <!-- Third Step: Create sections -->
-    <h2 class="fw-bold fs-4 text-dark">Step 3: Create sections</h2>
-    <div class="mb-3">
-      <button
-        class="btn btn-primary"
-        style="margin-bottom: 10px"
-        (click)="addSection()"
-      >
-        Add Section
-      </button>
-    </div>
+    <form [formGroup]="FormCurriculum">
+      <h2 class="fw-bold text-dark">Create Curriculum</h2>
+      <div class="mb-3">
+        <label for="sectionName" class="form-label">Section Title</label>
 
-    <div *ngFor="let section of course.sections" class="card mb-3">
-      <div
-        class="card-header d-flex justify-content-between align-items-center"
-      >
-        <button class="btn btn-info" (click)="toggleCollapse(section)">
-          {{ section.name }}
-          <i
-            class="fas"
-            [ngClass]="{
-              'fa-caret-down': !section.collapsed,
-              'fa-caret-up': section.collapsed
-            }"
-          ></i>
-        </button>
-        <div>
-          <button
-            class="btn btn-primary me-1"
-            (click)="openAddLectureModal(section)"
-          >
-            Add Lecture
-          </button>
-          <button class="btn btn-warning me-1" (click)="editSection(section)">
-            <i class="fas fa-edit"></i>
-          </button>
-          <button class="btn btn-danger" (click)="deleteSection(section)">
-            <i class="fas fa-trash"></i>
+        <div class="input-group w-50">
+          <input
+            type="text"
+            class="form-control"
+            id="sectionName"
+            [(ngModel)]="section.title"
+            placeholder="Enter Section Name"
+            formControlName="sectionTitle"
+          />
+          <button class="btn btn-primary h-25" (click)="addSection()">
+            <i class="fas fa-plus"></i>
+            Section
           </button>
         </div>
+        @if (!isSectionValid) {
+        <div>
+          <small class="text-danger">Title is required</small>
+        </div>
+        }
       </div>
 
-      <div *ngIf="!section.collapsed" class="card-body">
-        <!-- Display added lectures here -->
+      <div *ngFor="let section of course.sections" class="card mb-3">
         <div
-          *ngFor="let lecture of section.lectures"
-          class="d-flex justify-content-between align-items-center mb-2"
+          class="card-header d-flex justify-content-between align-items-center"
         >
-          <div>{{ lecture.title }}</div>
+          <button class="btn btn-section" (click)="toggleCollapse(section)">
+            {{ section.title }}
+            <i
+              class="fas"
+              [ngClass]="{
+                'fa-caret-up': !section.collapsed,
+                'fa-caret-down': section.collapsed
+              }"
+            ></i>
+          </button>
           <div>
-            <button class="btn btn-warning me-1" (click)="editLecture(lecture)">
+            <button class="btn btn-primary me-1" (click)="Addcontent(section)">
+              <i class="fas fa-plus"></i>
+              content
+            </button>
+            <button class="btn btn-warning me-1" (click)="editSection(section)">
               <i class="fas fa-edit"></i>
             </button>
-            <button
-              class="btn btn-danger"
-              (click)="deleteLecture(section, lecture)"
-            >
+            <button class="btn btn-danger" (click)="deleteSection(section)">
               <i class="fas fa-trash"></i>
             </button>
           </div>
         </div>
-      </div>
-    </div>
 
-    <button
-      class="btn btn-primary me-3"
-      style="margin-right: 5px"
-      (click)="previousStep()"
-    >
-      Back
-    </button>
-    <button class="btn btn-success" (click)="nextStep()">Next</button>
+        <div *ngIf="!section.collapsed" class="card-body">
+          <!-- Display added contents here -->
 
-    <!-- Add Lecture Modal -->
-    <div
-      #addLectureModal
-      class="modal fade"
-      id="addLectureModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="addLectureModalLabel"
-      aria-hidden="true"
-      style="margin-top: 20px"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addLectureModalLabel">Add Lecture</h5>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="lectureTitle" class="form-label">Lecture Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="lectureTitle"
-                [(ngModel)]="contents.title"
-                placeholder="Add Lecture Name"
-              />
+          <div
+            *ngFor="let content of section.contents; let i = index"
+            class="d-flex justify-content-between align-items-center mb-2"
+          >
+            <div>{{ content.title }}</div>
+            <div>
+              <button
+                class="btn btn-warning me-1"
+                (click)="editcontant(content)"
+              >
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="deleteContent(content)">
+                <i class="fas fa-trash"></i>
+              </button>
             </div>
-            <div class="mb-3">
-              <label for="mediaUpload" class="form-label">Media Upload</label>
-              <input
-                type="text"
-                class="form-control"
-                id="mediaUpload"
-                [(ngModel)]="contents.url"
-                placeholder="Add URL"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-danger"
-              data-dismiss="modal"
-              (click)="closeAddLectureModal()"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-success"
-              (click)="saveLecture(['section'])"
-            >
-              Save
-            </button>
           </div>
         </div>
       </div>
-    </div>
+
+      <button
+        class="btn btn-primary me-3"
+        style="margin-right: 5px"
+        (click)="previousStep()"
+      >
+        Back
+      </button>
+      <button class="btn btn-success" (click)="isCurriculumFormValid()">
+        Next
+      </button>
+    </form>
+    <!-- Add content Modal -->
   </div>
 
   <div *ngIf="currentStep === 3">
     <!-- Fourth Step: Course Settings -->
-    <h2 class="fw-bold">Step 4: Course Settings</h2>
-    <form>
+    <h2 class="fw-bold">Course Settings</h2>
+    <form [formGroup]="FormSettings">
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
         <input
@@ -198,8 +180,14 @@
           id="price"
           [(ngModel)]="course.price"
           name="price"
+          formControlName="price"
         />
       </div>
+      @if (!isPriceValid) {
+      <div>
+        <small class="text-danger">Price is required</small>
+      </div>
+      }
       <div class="mb-3">
         <label for="status" class="form-label">Status</label>
         <select
@@ -217,11 +205,85 @@
       </button>
       <button
         class="btn btn-success"
-        (click)="publishCourse()"
+        (click)="isSettingsFormValid()"
         routerLink="/home"
       >
         Publish
       </button>
     </form>
   </div>
+
+  <!-- Add content Modal -->
+  <form [formGroup]="FormContant">
+    <div
+      #addcontentModal
+      class="modal fade"
+      id="addcontentModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addcontentModalLabel"
+      aria-hidden="true"
+      style="margin-top: 20px"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addcontentModalLabel">Add content</h5>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="contentTitle" class="form-label">content Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contentTitle"
+                [(ngModel)]="contents.title"
+                placeholder="Enter content Name"
+                formControlName="contentTitle"
+              />
+              @if (!isContentTitleValid) {
+              <div>
+                <small class="text-danger">Title is required</small>
+              </div>
+              }
+            </div>
+            <div class="mb-3">
+              <label for="mediaUpload" class="form-label">Media Upload</label>
+              <input
+                type="text"
+                class="form-control"
+                id="mediaUpload"
+                [(ngModel)]="contents.url"
+                placeholder="Enter Media URL"
+                formControlName="media"
+              />
+              @if (!isMediaValid) {
+              <div>
+                <small class="text-danger">Media URL is required</small>
+              </div>
+              }
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+              (click)="closeAddcontentModal()"
+            >
+              Close
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="savecontent(['section'])"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

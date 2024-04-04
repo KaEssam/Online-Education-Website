@@ -1,16 +1,20 @@
+import { Content, Section } from "./../../../Services/course";
 import { UploadImgService } from "./../../../Services/upload-img.service";
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormControl } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { CreateCourseService } from "../../../Services/create-course.service";
 import { GetCategoryService } from "../../../Services/get-category.service";
+import Swal from 'sweetalert2';
+
+
 
 
 @Component({
   selector: 'app-create-course',
   standalone: true,
-  imports: [FormsModule,CommonModule,RouterModule,],
+  imports: [FormsModule,CommonModule,RouterModule, ReactiveFormsModule,],
   providers: [CreateCourseService, UploadImgService, GetCategoryService],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
@@ -18,7 +22,7 @@ import { GetCategoryService } from "../../../Services/get-category.service";
 export class CreateCourseComponent implements OnInit {
 currentStep: number = 1;
   course: any = {
-      title: '',
+  title: '',
   categoryID:'',
   description: '',
   img: FormData,
@@ -37,13 +41,69 @@ currentStep: number = 1;
     title: ''
   };
 
+  section: any = {
+    title: ''
+  };
+
   categories: any[] = [];
   
 
-@ViewChild('addLectureModal') addLectureModal!: ElementRef;
+
+@ViewChild('addcontentModal') addcontentModal!: ElementRef;
   currentSection: any;
 
-  constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService) {}
+
+  FormInfo = new FormGroup({
+    title: new FormControl('',[Validators.required,Validators.minLength(5), Validators.maxLength(50),Validators.pattern('^[a-zA-Z]+$')]),
+    description: new FormControl('', [Validators.required,Validators.minLength(5), Validators.maxLength(500)]),
+    img: new FormControl('',),
+  });
+
+  get isTitleInfoValid() {
+    return this.FormInfo.get('title')?.valid || this.FormInfo.get('title')?.untouched;
+
+  }
+
+
+  
+  get isDescriptionValid() {
+    return this.FormInfo.get('description')?.valid || this.FormInfo.get('description')?.untouched;
+  }
+
+  FormCurriculum= new FormGroup({
+    sectionTitle: new FormControl('', [Validators.minLength(5), Validators.maxLength(50)]),
+  });
+
+  get isSectionValid() {
+    return this.FormCurriculum.get('sectionTitle')?.valid || this.FormCurriculum.get('sectionTitle')?.untouched;
+  }
+
+  FormSettings = new FormGroup({
+    price: new FormControl('', [Validators.required,Validators.min(0), Validators.pattern('^[0-9]+$')]),
+  });
+
+  get isPriceValid() {
+    return this.FormSettings.get('price')?.valid || this.FormSettings.get('price')?.untouched;
+  }
+
+  FormContant = new FormGroup({
+    contentTitle: new FormControl('', [Validators.required,Validators.minLength(5), Validators.maxLength(50),Validators.pattern('^[a-zA-Z]+$')]),
+    media: new FormControl('', [Validators.required]),
+  });
+
+  get isContentTitleValid() {
+    return this.FormContant.get('contantTitle')?.valid || this.FormContant.get('contantTitle')?.untouched;
+  }
+
+  get isMediaValid() {
+    return this.FormContant.get('media')?.valid || this.FormContant.get('media')?.untouched;
+  }
+
+
+
+
+
+  constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService,) {}
 
 
  
@@ -52,33 +112,180 @@ currentStep: number = 1;
       this.categories = response;
       console.log('Categories:', response);
     });
+
+
+  }
+
+
+  isInfoFormValid() {
+    if (this.FormInfo.valid) {
+      this.nextStep();
+    } else {
+      this.FormInfo.markAllAsTouched();
+    }
+  }
+
+  isCurriculumFormValid() {
+    if (this.FormCurriculum.valid) {
+      this.nextStep();
+    } else {
+      this.FormCurriculum.markAllAsTouched();
+    }
+  }
+
+  isSettingsFormValid() {
+    if (this.FormSettings.valid) {
+      this.publishCourse();
+    } else {
+      this.FormSettings.markAllAsTouched();
+    }
   }
 
   nextStep() {
     this.currentStep++;
+      
   }
-
+  
   previousStep() {
     this.currentStep--;
   }
 
   goBack() {
-    // Logic to navigate back to the courses page
     console.log('Navigating back to courses page');
   }
 
+    toggleCollapse(section: any) {
+    section.collapsed = !section.collapsed;
+  }
+
+
+// Section functions
   addSection() {
-    const sectionName = prompt("Enter section name:");
-    if (sectionName) {
-      this.course.sections.push({ title: sectionName, contents: [] });
+    if (this.FormCurriculum.valid) { // Check form validity
+      const sectionTitle = this.FormCurriculum.get('sectionTitle')?.value;
+      this.course.sections.push({ title: sectionTitle, contents: [] });
+      this.FormCurriculum.reset(); // Reset the form
+    }
+  }
+
+  editSection(section: any) {
+    // Populate your form fields with this.section data
+    this.section = section;
+    // Open edit modal
+    section.nativeElement.classList.add('show');
+    section.nativeElement.style.display = 'block';
+    document.body.classList.add('modal-open');
+  }
+
+    deleteSection(section: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "This action will remove the section from the current view.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const index = this.course.sections.indexOf(section);
+        if (index !== -1) {
+          this.course.sections.splice(index, 1);
+
+          Swal.fire(
+            'Deleted!',
+            'Your section has been removed (temporarily).',
+            'success'
+          );
+        }
+      }
+    });
+  }
+
+  saveSection() {
+    const sectionTitle = this.section.title;
+    if (sectionTitle) {
+      this.course.sections.push({ title: sectionTitle, contents: [] });
       console.log(this.course.sections);
     }
   }
 
-  toggleCollapse(section: any) {
-    section.collapsed = !section.collapsed;
+// Content functions
+Addcontent(section: any) {
+  // Set the current section for which content is being added
+  this.currentSection = section;
+  // Open the modal
+  this.addcontentModal.nativeElement.classList.add('show');
+  this.addcontentModal.nativeElement.style.display = 'block';
+  document.body.classList.add('modal-open');
+   this.FormContant.reset();
+}
+
+closeAddcontentModal() {
+  // Close the modal
+  this.addcontentModal.nativeElement.classList.remove('show');
+  this.addcontentModal.nativeElement.style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+editcontant(content: any) {
+
+  const index = this.section.contents.indexOf(content);
+  if (index !== undefined) {
+    index.title = this.contents.title;
+    index.media = this.contents.media;
+  }
+  content.setItem('content', JSON.stringify(content));
+  // Open edit modal
+  this.addcontentModal.nativeElement.classList.add('show');
+ this.addcontentModal.nativeElement.style.display = 'block';
+  document.body.classList.add('modal-open');
+
+
+}
+
+deleteContent(content: any) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "This action will remove the content from the current view.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+if (result.isConfirmed) {
+      const index = this.contents.indexOf(content);
+      if (index > -1) {
+        this.contents.splice(index, 1);
+            Swal.fire(
+          'Deleted!',
+          'Your content has been removed (temporarily).',
+          'success'
+        );
+      }
+    }
+  });
+}
+
+  savecontent(section: any) {
+  
+  const contentTitle = this.FormContant.get('contentTitle')?.value;
+  console.log(this.FormContant.get('contentTitle'));
+  if (contentTitle) {
+    
+    if (!this.currentSection.contents) {
+      this.currentSection.contents = [];
+    }
+    this.currentSection.contents.push({ title: contentTitle, media: this.contents.media });
+    this.closeAddcontentModal();
+  } else {
+    this.FormContant.markAllAsTouched();
+
+    
   }
 
+}
 
 
   publishCourse() {
@@ -88,76 +295,8 @@ currentStep: number = 1;
     console.log('Publishing course:', this.course);
   }
 
-  editSection(section: any) {
-    const newName = prompt("Enter new section name:", section.name);
-    if (newName) {
-      section.name = newName;
-    }
-  }
-
-  deleteSection(section: any) {
-    const confirmDelete = confirm("Are you sure you want to delete this section?");
-    if (confirmDelete) {
-      const index = this.course.sections.indexOf(section);
-      if (index !== -1) {
-        this.course.sections.splice(index, 1);
-      }
-    }
-  }
 
 
-   openAddLectureModal(section: any) {
-  // Set the current section for which lecture is being added
-  this.currentSection = section;
-  // Open the modal
-  this.addLectureModal.nativeElement.classList.add('show');
-  this.addLectureModal.nativeElement.style.display = 'block';
-  document.body.classList.add('modal-open');
-}
-
-closeAddLectureModal() {
-  // Close the modal
-  this.addLectureModal.nativeElement.classList.remove('show');
-  this.addLectureModal.nativeElement.style.display = 'none';
-  document.body.classList.remove('modal-open');
-}
-
-  editLecture(lecture: any) {
-  const newTitle = prompt("Enter new lecture title:", lecture.title);
-  if (newTitle !== null && newTitle !== undefined) {
-    // Find the index of the lecture in the current section
-    const index = this.currentSection.lectures.indexOf(lecture);
-    if (index !== -1) {
-      // Update the title of the lecture in the model
-      this.currentSection.lectures[index].title = newTitle.trim();
-    }
-  }
-}
-
-  deleteLecture(section: any, lecture: any) {
-    const confirmDelete = confirm("Are you sure you want to delete this lecture?");
-    if (confirmDelete) {
-      const index = section.lectures.indexOf(lecture);
-      if (index !== -1) {
-        section.lectures.splice(index, 1);
-      }
-    }
-  }
-
-  saveLecture(section: any) {
-  // Add validation if necessary
-  const lectureTitle = this.contents.title.trim();
-  if (lectureTitle) {
-    if (!this.currentSection.lectures) {
-      this.currentSection.lectures = [];
-    }
-    this.currentSection.lectures.push({ title: lectureTitle, media: this.contents.media });
-    this.closeAddLectureModal();
-  } else {
-    alert('Please enter a lecture title.');
-  }
-
-}
 
 
 // OnFileSelected(event:any){

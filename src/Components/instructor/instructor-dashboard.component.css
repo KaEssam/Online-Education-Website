@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--tg-common-color-gray);
+  height: 100vh;
 }
 
 .container-fluid {

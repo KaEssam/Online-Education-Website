@@ -23,4 +23,50 @@ export class CreateCourseService {
     };
     return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }
+
+  getCourseById(id: number): Observable<Course> {
+    return this.http.get<Course>(this.apiUrl + '/' + id);
+  }
+
+  updateCourse(course: Course): Observable<Course> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.http.put<Course>(this.apiUrl + '/' + course.id, course, httpOptions);
+  }
+
+  deleteCourse(id: number): Observable<Course> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.http.delete<Course>(this.apiUrl + '/' + id, httpOptions);
+  }
+
+
+  deleteSection(courseId: number, sectionId: number): Observable<Course> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.http.delete<Course>(this.apiUrl + '/' + courseId + '/Section/' + sectionId, httpOptions);
+  }
+
+
+  deleteContent(contentId: number): Observable<Course> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.http.delete<Course>(this.apiUrl + '/Content/' + contentId, httpOptions);
+  }
 }
