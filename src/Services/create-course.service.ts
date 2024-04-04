@@ -21,6 +21,9 @@ export class CreateCourseService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
+
+    console.log(course);
+
     return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }
 

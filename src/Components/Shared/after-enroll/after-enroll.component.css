@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
 }
 
@@ -684,4 +684,33 @@ a:hover {
 .courses-video-playlist .video-playlist .accordion-item button.collapsed:before {
     content: "\eab2";
     color: #212832;
-}
+} */
+
+
+
+
+.video-js {
+    width: 60%; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+  }
+
+  .video-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .video-list li {
+    cursor: pointer; /* Indicate clickable elements */
+    padding: 10px;
+  }
+  
+  .video-list li.active {
+    /* Customize the active link styles here */
+    color: blue; /* Example: Change color to blue */
+    font-weight: bold; /* Example: Make text bold */
+  }
+  
+  h2.active { /* Style for active section */
+    background-color: lightgray; /* Example: Add background color */
+  }

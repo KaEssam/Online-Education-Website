@@ -723,5 +723,35 @@
       "sections": 7,
       "instructor": "Peter Alias"
     }
+  ],
+  "sections": [
+    {
+      "name": "Section 1",
+      "videos": [
+        {
+          "name": "Video 1.1",
+          "src": "https://vod-progressive.akamaized.net/exp=1712007359~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3035%2F8%2F215175080%2F742273044.mp4~hmac=37493cb1e000230cbe065140e873f454eaab3dfdd2dcde046804a672eb08ff85/vimeo-prod-skyfire-std-us/01/3035/8/215175080/742273044.mp4" 
+        },
+        {
+          "name": "Video 1.2",
+          "src": "https://vod-progressive.akamaized.net/exp=1712007359~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3035%2F8%2F215175080%2F742273044.mp4~hmac=37493cb1e000230cbe065140e873f454eaab3dfdd2dcde046804a672eb08ff85/vimeo-prod-skyfire-std-us/01/3035/8/215175080/742273044.mp4" 
+        }
+      ]
+    },
+    {
+      "name": "Section 2",
+      "videos": [
+        {
+          "name": "Video 2.1",
+          "src": "https://vod-progressive.akamaized.net/exp=1712007359~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3035%2F8%2F215175080%2F742273044.mp4~hmac=37493cb1e000230cbe065140e873f454eaab3dfdd2dcde046804a672eb08ff85/vimeo-prod-skyfire-std-us/01/3035/8/215175080/742273044.mp4" 
+          
+        },
+        {
+          "name": "Video 2.2",
+          "src": "https://vod-progressive.akamaized.net/exp=1712007359~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3035%2F8%2F215175080%2F742273044.mp4~hmac=37493cb1e000230cbe065140e873f454eaab3dfdd2dcde046804a672eb08ff85/vimeo-prod-skyfire-std-us/01/3035/8/215175080/742273044.mp4" 
+          
+        }
+      ]
+    }
   ]
 }

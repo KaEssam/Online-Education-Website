@@ -18,8 +18,8 @@ import Swal from 'sweetalert2';
 export class CourseDetailsComponent {
   id: any;
   Course: any;
-  Courses: any = [];
-  displayedCourses: any[] = [];
+  // Courses: any = [];
+  // displayedCourses: any[] = [];
 
   constructor(private courseService: CoursesService, private router: Router, private Activated: ActivatedRoute, private cartService: CartService, private wishlistService: WishlistService) {
     this.id = this.Activated.snapshot.params["id"];
