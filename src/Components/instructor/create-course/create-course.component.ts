@@ -1,3 +1,4 @@
+
 import { Content, Section } from "./../../../Services/course";
 import { UploadImgService } from "./../../../Services/upload-img.service";
 import { CommonModule } from '@angular/common';
@@ -7,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { CreateCourseService } from "../../../Services/create-course.service";
 import { GetCategoryService } from "../../../Services/get-category.service";
 import Swal from 'sweetalert2';
-
 
 
 
@@ -23,11 +23,9 @@ export class CreateCourseComponent implements OnInit {
 currentStep: number = 1;
   course: any = {
   title: '',
-  // title: '',
-  categoryID:'',
+  categoryID:0,
   description: '',
   img: FormData,
-  url: '',
   price: 0,
   sections: [],
   status: 'draft'
@@ -89,8 +87,13 @@ currentStep: number = 1;
 
   FormContant = new FormGroup({
     contentTitle: new FormControl('', [Validators.required,Validators.minLength(5), Validators.maxLength(50),Validators.pattern('^[a-zA-Z]+$')]),
-    media: new FormControl('', [Validators.required]),
+    media: new FormControl('', [Validators.required,Validators.pattern(this.pattern())]),
   });
+
+  pattern(){
+    const pattern : RegExp = new RegExp(`(youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([\w'-]+))`);
+    return pattern;
+  }
 
   get isContentTitleValid() {
     return this.FormContant.get('contantTitle')?.valid || this.FormContant.get('contantTitle')?.untouched;
@@ -98,16 +101,21 @@ currentStep: number = 1;
 
   get isMediaValid() {
     return this.FormContant.get('media')?.valid || this.FormContant.get('media')?.untouched;
+
   }
 
 
+  
 
 
+
+onCategorySelected(event:any){
+  this.course.categoryID = event.target.value;
+  console.log('Selected category:', this.course.categoryID);
+}
 
   constructor(private CreateCourseService: CreateCourseService, private UploadImgService: UploadImgService, private getCategoriesService: GetCategoryService,) {}
 
-
- 
   ngOnInit(): void {
     this.getCategoriesService.getAllCategories().subscribe((response:any) => {
       this.categories = response;
@@ -278,7 +286,7 @@ if (result.isConfirmed) {
     if (!this.currentSection.contents) {
       this.currentSection.contents = [];
     }
-    this.currentSection.contents.push({ title: contentTitle, media: this.contents.media });
+    this.currentSection.contents.push({ title: contentTitle, url: this.contents.url });
     this.closeAddcontentModal();
   } else {
     this.FormContant.markAllAsTouched();
@@ -300,18 +308,20 @@ if (result.isConfirmed) {
 
 
 
-// OnFileSelected(event:any){
-//   const file:File = event.target.files[0];
+onFileSelected(event:any){
+  const file:File = event.target.files[0];
 
-//   if (file) {
-//       const formData = new FormData();
-//       formData.append("img", file);
+  if (file) {
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("id", '5');
 
-//       const upload$ = this.UploadImgService.uploadImg(formData, 5);
 
-//       upload$.subscribe();
-// }
-// }
+      const upload$ = this.UploadImgService.uploadImg(formData);
+
+      upload$.subscribe();
+}
+}
 }
 
 

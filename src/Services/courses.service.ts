@@ -21,7 +21,7 @@ export class CoursesService {
   // }
 
 
-  private DB_URL = "https://skillgro.runasp.net";
+  private DB_URL = "http://skillgro.runasp.net";
 
   constructor(private readonly Client: HttpClient) { }
 

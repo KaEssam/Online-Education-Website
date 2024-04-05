@@ -16,7 +16,7 @@ interface User {
 })
 export class LoginInstructorService {
 
-   private baseUrl = 'https://skillgro.runasp.net';
+   private baseUrl = 'http://skillgro.runasp.net';
 
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;

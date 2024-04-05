@@ -12,12 +12,12 @@ export interface Content {
 export interface Course {
   id: number;
   title: string;
-  categoryId: Category["id"];
+  categoryID: number;
   description: string;
   img: string;
-  url: string;
   price: number;
   sections: Section[];
+  status: string;
 }
 
 export interface Category {

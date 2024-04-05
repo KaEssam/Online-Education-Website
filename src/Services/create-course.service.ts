@@ -8,7 +8,7 @@ import { Course } from './course';
 })
 export class CreateCourseService {
 
-  private apiUrl = 'https://skillgro.runasp.net/api/CourseWithSection';
+  private apiUrl = 'http://skillgro.runasp.net/api/CourseWithSection';
 
   
 
@@ -23,6 +23,8 @@ export class CreateCourseService {
     };
 
     console.log(course);
+
+
 
     return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }

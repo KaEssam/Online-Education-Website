@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class UploadImgService {
 
-    private apiUrl = 'https://skillgro.runasp.net';
+    private apiUrl = 'http://skillgro.runasp.net';
   constructor(private http: HttpClient) { }
 
-
-  uploadImg(img: FormData, id:any): Observable<any> {
+  uploadImg(formData:FormData): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
 
-    return this.http.post(`${this.apiUrl}/api/PayPal/UploadImage/?courseId=5`, img, httpOptions);
+
+    return this.http.post(`${this.apiUrl}/api/Video/UploadImage`, formData, httpOptions);
 }
 }
