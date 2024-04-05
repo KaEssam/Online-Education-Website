@@ -24,8 +24,9 @@
         <select
           class="form-select"
           id="category"
-          [(ngModel)]="course.category"
+          [(ngModel)]="course.categoryID"
           name="category"
+          (change)="onCategorySelected($event)"
         >
           <option *ngFor="let category of categories" [value]="category.id">
             {{ category.title }}
@@ -103,12 +104,15 @@
         }
       </div>
 
-      <div *ngFor="let section of course.sections" class="card mb-3">
+      <div
+        *ngFor="let section of course.sections; let i = index"
+        class="card mb-3"
+      >
         <div
           class="card-header d-flex justify-content-between align-items-center"
         >
           <button class="btn btn-section" (click)="toggleCollapse(section)">
-            {{ section.title }}
+            Section {{ i + 1 }}: {{ section.title }}
             <i
               class="fas"
               [ngClass]="{
@@ -135,10 +139,10 @@
           <!-- Display added contents here -->
 
           <div
-            *ngFor="let content of section.contents; let i = index"
+            *ngFor="let content of section.contents; let j = index"
             class="d-flex justify-content-between align-items-center mb-2"
           >
-            <div>{{ content.title }}</div>
+            <div>{{ j + 1 }}. {{ content.title }}</div>
             <div>
               <button
                 class="btn btn-warning me-1"
@@ -259,7 +263,7 @@
               />
               @if (!isMediaValid) {
               <div>
-                <small class="text-danger">Media URL is required</small>
+                <small class="text-danger">Enter Valid Youtube Link</small>
               </div>
               }
             </div>

@@ -8,7 +8,7 @@ import { Course } from './course';
 })
 export class CreateCourseService {
 
-  private apiUrl = 'https://skillgro.runasp.net/api/CourseWithSection';
+  private apiUrl = 'http://skillgro.runasp.net/api/CourseWithSection';
 
   
 
