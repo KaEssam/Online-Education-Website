@@ -13,7 +13,7 @@ interface Section {
 }
 
 interface Video {
-  id:number;
+  id: number;
   title: string;
   url: string;
 }
@@ -35,6 +35,7 @@ export class AfterEnrollComponent implements OnInit, OnDestroy {
   selectedVideo: Video | undefined;
   activeSectionIndex: number = -1; // Track the currently active section index
   player: any;
+  selectedSrc: any;
 
   isLoading = true; // Flag to indicate data loading state
   constructor(private elementRef: ElementRef, private videoService: VideoService, private Activated: ActivatedRoute, private courseService: CoursesService) {
@@ -49,12 +50,14 @@ export class AfterEnrollComponent implements OnInit, OnDestroy {
       // Select the first video from the first section if available
       if (this.Course && this.Course.sectionsContent) {
         const firstSection = this.Course.sectionsContent[0];
-        this.selectedVideo = firstSection.contents && firstSection.contents.length > 0 ? firstSection.contents[0] : undefined;
+        this.selectedVideo = firstSection.contents && firstSection.contents.length > 0 ? firstSection.contents[0].id: undefined;
+        console.log(firstSection.contents[0]);
+        this.selectedSrc = `http://skillgro.runasp.net/api/Video/GetVideoStream/${this.selectedVideo?.id}`
       } else {
         console.warn('Course data or sectionsContent missing from API response');
       }
 
-      this.player = videojs(this.target.nativeElement, {}, () => {
+      this.player = videojs(this.target.nativeElement, {sources: [{ src: this.selectedSrc, type: 'video/mp4' }]}, () => {
         console.log('Player ready');
       });
     });
@@ -70,13 +73,15 @@ export class AfterEnrollComponent implements OnInit, OnDestroy {
   onVideoClick(video: Video) {
     this.selectedVideo = video;
     console.log('Selected video URL:', video.url);
+
     // Pause current video (if any)
     if (this.player) {
       this.player.pause();
     }
 
     // Load new video and play
-    this.player.src("https://skillgro.runasp.net/api/Video/GetVideoStream/" + video.id);
+    this.selectedSrc = `http://skillgro.runasp.net/api/Video/GetVideoStream/${video.id}`
+    // this.player.src(this.selectedSrc);
     this.player.load();
     this.player.play();
   }

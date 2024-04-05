@@ -15,7 +15,7 @@
 
 
 
-  <div *ngIf="!isLoading && Course?.sectionsContent">
+  <!-- <div *ngIf="!isLoading && Course?.sectionsContent">
     <div *ngFor="let section of Course.sectionsContent; let i = index">
       <h2 (click)="toggleSection(i)" [class.active]="activeSectionIndex === i" style="cursor: pointer;">{{ section.title
         }}</h2>
@@ -26,101 +26,24 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
 
 
-  <div class="main-wrapper">
-    <!-- Courses Enroll Start -->
-    <div class="section">
-      <!-- Courses Enroll Wrapper Start -->
-      <div class="courses-enroll-wrapper">
-        <!-- Courses Video Player Start -->
-        <div class="courses-video-player">
-          <!-- Courses Video Container Start -->
-          <div class="vidcontainer">
+  <div class="courses-enroll-wrapper">
 
-            <div class="loading" style="display: none;">
-              <div class="spinner-border spinner">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            </div>
-            <video #target class="video-js" controls autoplay playsinline preload="none">
-              <source [src]="selectedVideo?.url" type='video/mp4'>
-            </video>
-          </div>
-        </div>
+    @if (Course) {
+    <div class="row">
 
-        <!-- Courses Video Container End -->
+      <div class="col-lg-8">
+        <video #target class="video-js" controls muted autoplay playsinline preload="none" [src]="selectedSrc "
+          type='video/mp4'>
+          <source>
+        </video>
+      </div>
 
-        <!-- Courses Enroll Content Start -->
-        @if (Course) {
-        <div class="courses-enroll-content">
-
-          <!-- Courses Enroll Title Start -->
-          <div class="courses-enroll-title mb-4">
-            <h2 class="title">{{Course.title}}
-            </h2>
-          </div>
-          <!-- Courses Enroll Title End -->
-
-          <!-- Courses Enroll Tab Start -->
-          <div class="product-desc-wrap .courses-enroll-content">
-            <ul class="nav nav-tabs" id="myTab2" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                  data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane"
-                  aria-selected="true">Overview</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent2">
-              <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
-                aria-labelledby="description-tab" tabindex="0">
-                <div class="overview">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="enroll-tab-title">
-                        <h4 class="title">Course Details</h4>
-                      </div>
-                    </div>
-                    <div class="col-lg-8">
-                      <div class="enroll-tab-content">
-                        <table class="table">
-                          <tbody>
-                            <tr>
-                              <th>Instructor <span>:</span></th>
-                              <td>{{Course.instructor}}</td>
-                            </tr>
-                            <tr>
-                              <th>Duration <span>:</span></th>
-                              <td>{{Course.duration}}</td>
-                            </tr>
-                            <tr>
-                              <th>Lectures <span>:</span></th>
-                              <td>{{Course.sectionsCount}}</td>
-                            </tr>
-                            <tr>
-                              <th>Rating <span>:</span></th>
-                              <td>{{Course.rating}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-
-                        <p>{{Course.description}}</p>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Courses Enroll Tab Content End -->
-        </div>
-        <!-- Courses Enroll Content End -->
-        <!-- Courses Video Player End -->
-
-        <!-- Courses Video Playlist Start -->
+      <!-- Courses Video Playlist Start -->
+      <div class="col-lg-4 p-0 m-0">
         <div *ngIf="!isLoading && Course?.sectionsContent">
           <div *ngFor="let section of Course.sectionsContent; let i = index">
             <div class="courses-video-playlist">
@@ -129,13 +52,10 @@
                   style="cursor: pointer;">{{ section.title}}</h3>
               </div>
 
-              <!-- Video Playlist Start  -->
+
               <div class="video-playlist">
                 <div class="accordion" id="videoPlaylist">
-
-                  <!-- Accordion Items Start  -->
                   <div class="accordion-item">
-
                     <ul class="video-list" *ngIf="activeSectionIndex === i">
                       <li *ngFor="let video of section.contents; let i = index" [class.active]="video === selectedVideo"
                         (click)="onVideoClick(video)">
@@ -146,22 +66,79 @@
                       </li>
                     </ul>
                   </div>
-                  <!-- Accordion Items End  -->
                 </div>
               </div>
-              <!-- Video Playlist End  -->
 
             </div>
           </div>
 
         </div>
-        }
-        <!-- Courses Video Playlist End -->
-
       </div>
-      <!-- Courses Enroll Wrapper End -->
+      <!-- Courses Video Playlist End -->
     </div>
-    <!-- Courses Enroll End -->
+
+
+    <div class="courses-enroll-content row px-4 mt-4">
+      <div class="col-lg-8">
+
+        <div class="courses-enroll-title mb-4">
+          <h2 class="title">{{Course.title}}
+          </h2>
+        </div>
+
+        <div class="product-desc-wrap .courses-enroll-content">
+          <ul class="nav nav-tabs" id="myTab2" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane"
+                aria-selected="true">Overview</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent2">
+            <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
+              aria-labelledby="description-tab" tabindex="0">
+              <div class="overview">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="enroll-tab-title">
+                      <h4 class="title">Course Details</h4>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="enroll-tab-content">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th>Instructor <span>:</span></th>
+                            <td>{{Course.instructor}}</td>
+                          </tr>
+                          <tr>
+                            <th>Duration <span>:</span></th>
+                            <td>{{Course.duration}}</td>
+                          </tr>
+                          <tr>
+                            <th>Lectures <span>:</span></th>
+                            <td>{{Course.sectionsCount}}</td>
+                          </tr>
+                          <tr>
+                            <th>Rating <span>:</span></th>
+                            <td>{{Course.rating}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <p>{{Course.description}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
 
   </div>
 
