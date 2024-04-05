@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UploadImgService {
 
-    private apiUrl = 'https://skillgro.runasp.net';
+    private apiUrl = 'http://skillgro.runasp.net';
   constructor(private http: HttpClient) { }
 
 

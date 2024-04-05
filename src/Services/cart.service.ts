@@ -11,7 +11,7 @@ export class CartService {
 //https://skillgro.runasp.net/api/Cart/{courseId} ==> delete
 
 
- private CART_URL = "https://skillgro.runasp.net"; // Separate URL for cart operations
+ private CART_URL = "http://skillgro.runasp.net"; // Separate URL for cart operations
 
   constructor(private readonly Client:HttpClient) { }
   addToCart(id:any){
