@@ -17,7 +17,7 @@ export interface Course {
   img: string;
   price: number;
   sections: Section[];
-  
+  status: string;
 }
 
 export interface Category {

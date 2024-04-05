@@ -308,18 +308,20 @@ if (result.isConfirmed) {
 
 
 
-// OnFileSelected(event:any){
-//   const file:File = event.target.files[0];
+onFileSelected(event:any){
+  const file:File = event.target.files[0];
 
-//   if (file) {
-//       const formData = new FormData();
-//       formData.append("img", file);
+  if (file) {
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("id", '5');
 
-//       const upload$ = this.UploadImgService.uploadImg(formData, 5);
 
-//       upload$.subscribe();
-// }
-// }
+      const upload$ = this.UploadImgService.uploadImg(formData);
+
+      upload$.subscribe();
+}
+}
 }
 
 

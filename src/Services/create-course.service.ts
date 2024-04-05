@@ -24,6 +24,8 @@ export class CreateCourseService {
 
     console.log(course);
 
+
+
     return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }
 
