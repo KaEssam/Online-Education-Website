@@ -33,11 +33,6 @@ export class CoursesService {
     return this.Client.get(`${this.DB_URL}/api/CategoryWithCourse/${category}`);
   }
 
-
-  // getCoursesByCategory(category: string) {
-  //   return this.Client.get(`$http://localhost:3000/courses/${category}`);
-  // }
-
   getCourseById(id:any){
     return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`)
   }
