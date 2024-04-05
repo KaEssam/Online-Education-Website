@@ -54,24 +54,24 @@
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane"
                   type="button" role="tab" aria-controls="design-tab-pane" aria-selected="false" tabindex="-1"
-                  (click)="filterProducts('Design')">
-                  Design
+                  (click)="filterProducts('test')">
+                  Test
                 </button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business-tab-pane"
                   type="button" role="tab" aria-controls="business-tab-pane" aria-selected="false" tabindex="-1"
-                  (click)="filterProducts('Business')">
-                  Business
+                  (click)="filterProducts('Web')">
+                  Web
                 </button>
               </li>
-              <li class="nav-item" role="presentation">
+              <!-- <li class="nav-item" role="presentation">
                 <button class="nav-link" id="development-tab" data-bs-toggle="tab"
                   data-bs-target="#development-tab-pane" type="button" role="tab" aria-controls="development-tab-pane"
                   (click)="filterProducts('Development')" aria-selected="false" tabindex="-1">
                   Development
                 </button>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -85,7 +85,7 @@
               @for (c of displayedCourses; track c.id) {
               <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card h-100">
-                  <img src="assets/img/{{c.img}}" alt="Course Title" />
+                  <img src="assets/img/test.png" alt="Course img" />
                   
                     <ul class="shop-action">
                       <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -94,7 +94,7 @@
                
                   <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
-                      <span class="badge">{{c.categoryName}}</span>
+                      <span class="badge">{{c.category}}</span>
                       <div class="text-warning">
                         <i class="bi bi-star-fill"></i> {{c.rating}}
                       </div>
@@ -106,7 +106,7 @@
                     <div class="course-info">
                       <div class="me-3"><i class="bi bi-clock"></i> {{c.duration}}</div>
                       <div class="me-3">
-                        <i class="bi bi-list-ol"></i> {{c.sectionsCount}}
+                        <i class="bi bi-list-ol"></i> {{c.sections}}
                       </div>
                       <div class="text"><i class="bi bi-people-fill"></i> {{c.enrollmentCount}}</div>
                     </div>
@@ -132,10 +132,10 @@
       <div class="tab-pane fade" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
         <div class="container">
           <div class="row">
-            @for (c of displayedCategoryCourses; track c.id) {
+            @for (c of categoryCourses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="assets/img/{{c.img}}" alt="Course Title" />
+                <img src="aassets/img/test.png" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -181,10 +181,10 @@
       <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab" tabindex="0">
         <div class="container">
           <div class="row">
-            @for (c of displayedCategoryCourses; track c.id) {
+            @for (c of categoryCourses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="assets/img/{{c.img}}" alt="Course Title" />
+                <img src="assets/img/test.png" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -227,7 +227,7 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="development-tab-pane" role="tabpanel" aria-labelledby="development-tab"
+      <!-- <div class="tab-pane fade" id="development-tab-pane" role="tabpanel" aria-labelledby="development-tab"
         tabindex="0">
         <div class="container">
           <div class="row">
@@ -274,7 +274,7 @@
             }
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="all-courses-btn mt-30">
       <div class="tg-button-wrap justify-content-center">

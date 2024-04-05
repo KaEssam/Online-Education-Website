@@ -13,6 +13,7 @@ interface Section {
 }
 
 interface Video {
+  id:number;
   title: string;
   url: string;
 }
@@ -75,7 +76,7 @@ export class AfterEnrollComponent implements OnInit, OnDestroy {
     }
 
     // Load new video and play
-    this.player.src(video.url);
+    this.player.src("https://skillgro.runasp.net/api/Video/GetVideoStream/" + video.id);
     this.player.load();
     this.player.play();
   }

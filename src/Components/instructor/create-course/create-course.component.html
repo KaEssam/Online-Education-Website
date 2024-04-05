@@ -77,7 +77,7 @@
     </form>
   </div>
 
-  <div *ngIf="currentStep === 2" style="padding: 20px">
+  <div *ngIf="currentStep === 2" style="padding: 20px" class="Createsections">
     <!-- Third Step: Create sections -->
     <form [formGroup]="FormCurriculum">
       <h2 class="fw-bold text-dark">Create Curriculum</h2>
@@ -173,7 +173,7 @@
     <!-- Add content Modal -->
   </div>
 
-  <div *ngIf="currentStep === 3">
+  <div *ngIf="currentStep === 3" class="CourseSettings">
     <!-- Fourth Step: Course Settings -->
     <h2 class="fw-bold">Course Settings</h2>
     <form [formGroup]="FormSettings">

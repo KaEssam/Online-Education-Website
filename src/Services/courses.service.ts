@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +26,25 @@ export class CoursesService {
   constructor(private readonly Client: HttpClient) { }
 
   getAllCourses() {
-    return this.Client.get(`${this.DB_URL}/api/CourseWithSection`);
+    return this.Client.get(`${this.DB_URL}/api/CourseHome`);
   }
 
   getCoursesByCategory(category: string) {
-    return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${category}`);
+    return this.Client.get(`${this.DB_URL}/api/CategoryWithCourse/${category}`);
   }
+
+
+  // getCoursesByCategory(category: string) {
+  //   return this.Client.get(`$http://localhost:3000/courses/${category}`);
+  // }
 
   getCourseById(id:any){
     return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`)
+  }
+
+  getPaginatedData(pageIndex: number, pageSize: number): Observable<any> {
+    const startIndex = pageIndex * pageSize;
+    return this.Client.get<any>(`${this.DB_URL}/api/CourseWithSection?_start=${startIndex}&_limit=${pageSize}`);
   }
 
   

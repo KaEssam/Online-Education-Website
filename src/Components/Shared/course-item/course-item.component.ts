@@ -1,29 +1,32 @@
-import { PaginationComponent } from './../../Core/pagination/pagination.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CoursesService } from '../../../Services/courses.service';
 import { CartService } from '../../../Services/cart.service';
 import { WishlistService } from '../../../Services/wishlist.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-course-item',
   standalone: true,
-  imports: [HttpClientModule, RouterModule,PaginationComponent],
-  providers: [CommonModule, CoursesService, CartService, WishlistService],
+  imports: [HttpClientModule, RouterModule, CommonModule, MatPaginatorModule],
+  providers: [CoursesService, CartService, WishlistService],
   templateUrl: './course-item.component.html',
   styleUrl: './course-item.component.css'
 })
+
+
 export class CourseItemComponent {
   allCourses: any = [];
-  paginatedData: any[] = [];
-  currentPage: number = 1;
-  itemsPerPage: number = 12;
-  totalItems!: number;
-  totalPages: number = 0; // Define totalPages property
+  totalItems = 0;
+  pageSize = 4;
+  currentPage = 0;
+  items: any
+
+  @Output() pageEmitter = new EventEmitter<PageEvent>();
 
   constructor(private coursesService: CoursesService, private router: Router, private route: ActivatedRoute, private cartService: CartService, private wishlistService: WishlistService) { }
 
@@ -31,64 +34,33 @@ export class CourseItemComponent {
     this.coursesService.getAllCourses().subscribe({
       next: (data) => {
         this.allCourses = data;
+        this.totalItems = this.allCourses.length;
+        // event: PageEvent = new PageEvent
+        // event.length = this.totalItems;
+        // event.pageIndex = 0;
+        // event.pageSize = this.pageSize;
+        // this.pageEmitter.emit(event);
       },
       error: (err) => {
-        this.router.navigate(['/Error', { errorMessage: err.message as string }]);
+        console.log(err);
       }
-    })
-    // this.route.queryParams.subscribe(params => {
-    //   this.currentPage = +params['page'] || 1; // Default to page 1 if 'page' parameter is not provided
-    //   this.pageSize = +params['pageSize'] || 12; // Default page size to 12 if 'pageSize' parameter is not provided
-    //   this.loadCourses();
-    // });
+    });
   }
 
-  // loadCourses() {
-  //   this.coursesService.getPaginatedCourses(this.currentPage, this.pageSize).subscribe({
-  //     next: (courses: any) => {
-  //       this.pagCourses = courses;
-  //       this.totalCourses = courses.length;
-  //       this.totalPages = Math.ceil(this.totalCourses / this.pageSize);
-  //     },
-  //     error: (error) => {
-  //       console.error('Error fetching courses:', error);
-  //     }
-  //   });
-  // }
 
-  // nextPage() {
-  //   if (this.currentPage < this.totalPages) {
-  //     this.router.navigate([], {
-  //       relativeTo: this.route,
-  //       queryParams: { page: this.currentPage + 1, pageSize: this.pageSize }
-  //     });
-  //   }
-  // }
 
-  // prevPage() {
-  //   if (this.currentPage > 1) {
-  //     this.router.navigate([], {
-  //       relativeTo: this.route,
-  //       queryParams: { page: this.currentPage - 1, pageSize: this.pageSize }
-  //     });
-  //   }
-  // }
+  getData(pageIndex: number, pageSize: number) {
+    return this.allCourses.slice(pageIndex * pageSize, (pageIndex * pageSize) + pageSize);
+  }
 
-  // gotoPage(page: number) {
-  //   if (page > 0 && page <= this.totalPages) {
-  //     this.router.navigate([], {
-  //       relativeTo: this.route,
-  //       queryParams: { page: page, pageSize: this.pageSize }
-  //     });
-  //   }
-  // }
 
-  // getPaginationRange(): number[] {
-  //   const numPagesToShow = 3; // Adjust the number of pages to show
-  //   const start = Math.max(1, this.currentPage - Math.floor(numPagesToShow / 2));
-  //   const end = Math.min(this.totalPages, start + numPagesToShow - 1);
-  //   return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-  // }
+  pageChanged(event: PageEvent) {
+    // setTimeout(()=>{}, 10000)
+    this.currentPage = event.pageIndex
+    this.items = this.getData(event.pageIndex, this.pageSize);
+    console.log(event)
+  }
+
 
 
   addToCart(id: any) {
@@ -106,7 +78,6 @@ export class CourseItemComponent {
     );
   }
 
-
   addToWishlist(id: any) {
     this.wishlistService.addToWish(id).subscribe(
       () => {
@@ -121,8 +92,6 @@ export class CourseItemComponent {
       }
     );
   }
-
-
 
   confirmAddToCart() {
     Swal.fire({

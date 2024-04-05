@@ -220,19 +220,19 @@
       "rating": 4.8,
       "duration": 12,
       "enrollmentCount": 210,
-      "category": "Design",
+      "category": "test",
       "img": "course_thumb02.jpg",
       "sectionsCount": 7,
       "instructor": "Peter Alias"
     },
     {
       "id": "15",
-      "title": "Learning Digital Marketing on Facebook",
+      "title": "Learning Digital Web on Facebook",
       "price": 19,
       "rating": 4.8,
       "duration": 5,
       "enrollmentCount": 350,
-      "category": "Marketing",
+      "category": "Web",
       "img": "course_thumb03.jpg",
       "sectionsCount": 3,
       "instructor": "Peter Alias"
@@ -263,12 +263,12 @@
     },
     {
       "id": "3",
-      "title": "The Complete Graphic Design for Beginners",
+      "title": "The Complete Graphic test for Beginners",
       "price": 15,
       "rating": 4.8,
       "duration": 12,
       "enrollmentCount": 210,
-      "category": "Design",
+      "category": "test",
       "img": "course_thumb02.jpg",
       "sectionsCount": 7,
       "instructor": "Peter Alias"
@@ -311,12 +311,12 @@
     },
     {
       "id": "3",
-      "title": "The Complete Graphic Design for Beginners",
+      "title": "The Complete Graphic test for Beginners",
       "price": 15,
       "rating": 4.8,
       "duration": 12,
       "enrollmentCount": 210,
-      "category": "Design",
+      "category": "test",
       "img": "course_thumb02.jpg",
       "sectionsCount": 7,
       "instructor": "Peter Alias"
@@ -359,12 +359,12 @@
     },
     {
       "id": "3",
-      "title": "The Complete Graphic Design for Beginners",
+      "title": "The Complete Graphic test for Beginners",
       "price": 15,
       "rating": 4.8,
       "duration": 12,
       "enrollmentCount": 210,
-      "category": "Design",
+      "category": "test",
       "img": "course_thumb02.jpg",
       "sectionsCount": 7,
       "instructor": "Peter Alias"
@@ -376,7 +376,7 @@
       "rating": 4.8,
       "duration": 5,
       "enrollmentCount": 350,
-      "category": "Marketing",
+      "category": "Web",
       "img": "course_thumb03.jpg",
       "sectionsCount": 3,
       "instructor": "Peter Alias"
@@ -419,12 +419,12 @@
     },
     {
       "id": "1",
-      "title": "Learning Digital Marketing on Facebook",
+      "title": "Learning Digital Web on Facebook",
       "price": 19,
       "rating": 4.8,
       "duration": 5,
       "enrollmentCount": 350,
-      "category": "Marketing",
+      "category": "Web",
       "img": "course_thumb03.jpg",
       "sectionsCount": 3,
       "instructor": "Peter Alias"
@@ -467,12 +467,12 @@
     },
     {
       "id": "1",
-      "title": "Learning Digital Marketing on Facebook",
+      "title": "Learning Digital Web on Facebook",
       "price": 19,
       "rating": 4.8,
       "duration": 5,
       "enrollmentCount": 350,
-      "category": "Marketing",
+      "category": "Web",
       "img": "course_thumb03.jpg",
       "sectionsCount": 3,
       "instructor": "Peter Alias"
@@ -515,12 +515,12 @@
     },
     {
       "id": "1",
-      "title": "Learning Digital Marketing on Facebook",
+      "title": "Learning Digital Web on Facebook",
       "price": 19,
       "rating": 4.8,
       "duration": 5,
       "enrollmentCount": 350,
-      "category": "Marketing",
+      "category": "Web",
       "img": "course_thumb03.jpg",
       "sectionsCount": 3,
       "instructor": "Peter Alias"
