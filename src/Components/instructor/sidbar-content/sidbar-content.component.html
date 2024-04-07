@@ -43,35 +43,47 @@
             </tr>
           </thead>
           <tbody>
+            @for (C of Courses; track C.id) {
             <tr>
               <td>
                 <div class="course">
                   <img
-                    src="/assets/Test img/course_thumb01.jpg"
+                    src="data:image/png;base64,{{ C.img.fileContents }}"
                     alt="Course Image"
                     class="course-image"
                   />
                   <div class="card-info">
-                    <a href=""><h5 class="card-title">c.title</h5></a>
+                    <a href=""
+                      ><h5 class="card-title">{{ C.title }}</h5></a
+                    >
 
                     <div class="course-info">
-                      <div class="me-3"><i class="bi bi-clock"></i> 10</div>
-                      <div class="me-3"><i class="bi bi-list-ol"></i>10</div>
+                      <div class="me-3">
+                        <i class="bi bi-clock"></i> {{ C.duration }}
+                      </div>
+                      <div class="me-3">
+                        <i class="bi bi-list-ol"></i>{{ C.Countsecion }}
+                      </div>
                     </div>
                   </div>
                 </div>
               </td>
-              <td>2000</td>
-              <td>Live</td>
+              <td></td>
+              <td>{{ C.status }}</td>
               <td>
                 <button class="btn bg-warning">
                   <i class="bi bi-pencil-square"></i>
                 </button>
-                <button type="button" class="btn bg-danger">
+                <button
+                  type="button"
+                  class="btn bg-danger"
+                  (click)="deleteCourse(C.id)"
+                >
                   <i class="bi bi-trash3"></i>
                 </button>
               </td>
             </tr>
+            }
           </tbody>
         </table>
       </div>

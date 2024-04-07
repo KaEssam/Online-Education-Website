@@ -41,27 +41,20 @@ interface User {
 export class AuthService {
   private baseUrl = 'http://skillgro.runasp.net';
 
-  private currentUserSubject: BehaviorSubject<User | null>;
-  public currentUser: Observable<User | null>;
+
 
   constructor(
     private http: HttpClient /*, public jwtHelper: JwtHelperService*/
   ) {
-    this.currentUserSubject = new BehaviorSubject<User | null>(
-      JSON.parse(localStorage.getItem('currentUser') || '{}')
-    );
-    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
-  }
 
   signIn(username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, {
       email: username,
       password: password,
     });
+
   }
 
   SignUp(userData: any): Observable<any> {
@@ -75,12 +68,19 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  isLoggedIn() {
+  // isLoggedIn() {
+  //   const currentUser = localStorage.getItem('token');
+  //   const isLoggedIn = currentUser ? true : false;
+  //   // return token ? !this.jwtHelper.isTokenExpired(token) : false;
+  //   return isLoggedIn;
+  // }
+
+  isStudent() {
     const currentUser = localStorage.getItem('token');
     const isLoggedIn = currentUser ? true : false;
-    // return token ? !this.jwtHelper.isTokenExpired(token) : false;
-    return isLoggedIn;
+    const type = localStorage.getItem('type');
+    return type === 'student'&&isLoggedIn;
   }
 
-  isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isStudent$ = new BehaviorSubject<boolean>(false);
 }

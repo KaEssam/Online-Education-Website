@@ -39,6 +39,11 @@
             placeholder="Enter your password"
             required
           />
+          @if(wrongCredentials==true) {
+          <small class="form-text text-danger mx-auto"
+            >Invalid email or password</small
+          >
+          }
           <div class="form-check">
             <div class="form-check-Remember">
               <input
@@ -59,12 +64,7 @@
             >
           </div>
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="login()"
-          routerLink="/instructor"
-        >
+        <button type="submit" class="btn btn-primary" (click)="login()">
           Login
         </button>
       </form>

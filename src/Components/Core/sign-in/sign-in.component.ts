@@ -33,6 +33,8 @@ export class SignInComponent implements OnInit {
     this.initForm();
   }
 
+  wrongCredentials: boolean = false;
+
   initForm() {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -40,6 +42,8 @@ export class SignInComponent implements OnInit {
       rememberMe: [false],
     });
   }
+
+
 
   signIn() {
     if (this.signInForm.valid) {
@@ -49,12 +53,16 @@ export class SignInComponent implements OnInit {
       this.authService.signIn(email, password).subscribe(
         (res: any) => {
           localStorage.setItem("token", res.accessToken);
-          this.authService.isLoggedIn$.next(true);
+          localStorage.setItem("type", "student");
+          this.authService.isStudent$.next(true);
           this.router.navigate(['/home']);
+          this.wrongCredentials = false;
           this.signInForm.reset();
+
         },
         (error) => {
           console.error('Error during sign-in:', error);
+          this.wrongCredentials = true;
           // Handle error
         }
       );

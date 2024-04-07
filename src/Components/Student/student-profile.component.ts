@@ -11,4 +11,6 @@ import { StudentContentComponent } from './student-content/student-content/stude
 })
 export class StudentProfileComponent {
 
+  
+
 }

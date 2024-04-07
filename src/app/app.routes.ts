@@ -14,6 +14,7 @@ import { CourseItemComponent } from "../Components/Shared/course-item/course-ite
 import { EventItemComponent } from "../Components/Shared/event-item/event-item.component";
 import { HomeComponent } from "../Components/Shared/home/home.component";
 import { ProductItemComponent } from "../Components/Shared/product-item/product-item.component";
+import { StudentProfileComponent } from "../Components/Student/student-profile.component";
 import { CreateCourseComponent } from "../Components/instructor/create-course/create-course.component";
 import { InstructorDashboardComponent } from "../Components/instructor/instructor-dashboard.component";
 import { SignUpComponent } from "./../Components/Core/sign-up/sign-up.component";
@@ -45,6 +46,7 @@ export const routes: Routes = [
   {path: "dashboard", component:LoginInstructorComponent},
   {path: "instructor", component:InstructorDashboardComponent},
   {path: "createCourse", component:CreateCourseComponent},
+  {path: "student", component:StudentProfileComponent},
   {path: "**", component:ErrorPageComponent},
   // {path: "student", component:SignUpComponent},
   

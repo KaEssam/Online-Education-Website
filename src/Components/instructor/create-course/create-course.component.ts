@@ -1,5 +1,4 @@
 
-import { Content, Section } from "./../../../Services/course";
 import { UploadImgService } from "./../../../Services/upload-img.service";
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
@@ -25,7 +24,7 @@ currentStep: number = 1;
   title: '',
   categoryID:0,
   description: '',
-  img: FormData,
+  img: File,
   price: 0,
   sections: [],
   status: 'draft'
@@ -36,7 +35,7 @@ currentStep: number = 1;
   };
 
   img: any ={
-    img: FormData,
+    img: File,
     title: ''
   };
 
@@ -105,7 +104,12 @@ currentStep: number = 1;
   }
 
 
-  
+  isContentEdit: boolean = false;
+
+  isSectionEdit: boolean = false;
+
+  lastUpdateSection: any;
+  lastUpdateContent: any;
 
 
 
@@ -179,14 +183,23 @@ onCategorySelected(event:any){
 
   editSection(section: any) {
     // Populate your form fields with this.section data
+    this.isSectionEdit = true;
     this.section = section;
     // Open edit modal
-    section.nativeElement.classList.add('show');
-    section.nativeElement.style.display = 'block';
-    document.body.classList.add('modal-open');
   }
 
-    deleteSection(section: any) {
+  editSectionData(section: any) {
+    console.log(section);        
+      const sectionTitle = this.FormCurriculum.get('sectionTitle')?.value;
+    const index = this.course.sections.indexOf(section);
+    if (index !== -1) {
+      this.course.sections[index].title = sectionTitle;
+    }
+    this.isSectionEdit = false;
+        this.section = "";
+  }
+
+    deleteSection(section: any,) {
     Swal.fire({
       title: 'Are you sure?',
       text: "This action will remove the section from the current view.",
@@ -237,23 +250,47 @@ closeAddcontentModal() {
   document.body.classList.remove('modal-open');
 }
 
-editcontant(content: any) {
+editcontant(content: any, i: number) {
 
-  const index = this.section.contents.indexOf(content);
-  if (index !== undefined) {
-    index.title = this.contents.title;
-    index.media = this.contents.media;
-  }
-  content.setItem('content', JSON.stringify(content));
+  const index = this.course.sections[i].contents.indexOf(content);
+  // if (index !== undefined) {
+  //   index.title = this.contents.title;
+  //   index.media = this.contents.media;
+  // }
+  // content.setItem('content', JSON.stringify(content));
+
+
+  this.isContentEdit = true;
+  const UpdateContent = this.course.sections[i].contents[index];
+  this.lastUpdateSection = i;
+  this.lastUpdateContent= index;
+  contentTitle: this.FormContant.get('contentTitle')?.setValue(UpdateContent.title);
+  mediaUpload: this.FormContant.get('media')?.setValue(UpdateContent.url);
+
   // Open edit modal
   this.addcontentModal.nativeElement.classList.add('show');
  this.addcontentModal.nativeElement.style.display = 'block';
   document.body.classList.add('modal-open');
-
-
 }
 
-deleteContent(content: any) {
+editContentData(content: any) {
+  console.log(content);
+  console.log(this.course);
+  console.log(this.lastUpdateSection);
+  console.log(this.lastUpdateContent);
+  const UpdateContent = this.course.sections[this.lastUpdateSection].contents[this.lastUpdateContent];
+  console.log(UpdateContent);
+  UpdateContent.title = content.title;
+  UpdateContent.url = content.url;
+  this.isContentEdit = false;
+  this.closeAddcontentModal();
+}
+
+
+deleteContent(content: any,i: number) {
+  console.log(this.contents);
+  console.log(this.course.sections);
+
   Swal.fire({
     title: 'Are you sure?',
     text: "This action will remove the content from the current view.",
@@ -264,9 +301,11 @@ deleteContent(content: any) {
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
 if (result.isConfirmed) {
-      const index = this.contents.indexOf(content);
+      console.log(content)
+      const index = this.course.sections[i].contents.indexOf(content);
+      console.log(index);
       if (index > -1) {
-        this.contents.splice(index, 1);
+        this.course.sections[i].contents.splice(index, 1);
             Swal.fire(
           'Deleted!',
           'Your content has been removed (temporarily).',
@@ -312,14 +351,16 @@ onFileSelected(event:any){
   const file:File = event.target.files[0];
 
   if (file) {
-      const formData = new FormData();
-      formData.append("image", file);
-      formData.append("id", '5');
+      // const formData = new FormData();
+      // formData.append("image", file);
+      // formData.append("id", '5');
 
 
-      const upload$ = this.UploadImgService.uploadImg(formData);
+      // const upload$ = this.UploadImgService.uploadImg(formData);
 
-      upload$.subscribe();
+      // upload$.subscribe();
+
+      this.course.img = file;
 }
 }
 }

@@ -28,6 +28,8 @@ export class LoginInstructorComponent implements OnInit {
     this.initForm();
   }
 
+wrongCredentials: boolean = false;
+
   initForm() {
     this.LoginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -40,13 +42,16 @@ export class LoginInstructorComponent implements OnInit {
     if (this.LoginForm.valid) {
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
-
       this.LoginInstructorService.Login(email, password).subscribe(
         (res: any) => {
           localStorage.setItem("token", res.accessToken);
+          localStorage.setItem("type", "instructor");
+          this.router.navigate(['/instructor']);
+          this.wrongCredentials = false;
         },
         (error) => {
           console.error('Error during sign-in:', error);
+          this.wrongCredentials = true;
           // Handle error
         }
       );
