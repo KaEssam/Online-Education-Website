@@ -93,10 +93,20 @@
             placeholder="Enter Section Name"
             formControlName="sectionTitle"
           />
+          @if(isSectionEdit == false) {
           <button class="btn btn-primary h-25" (click)="addSection()">
             <i class="fas fa-plus"></i>
             Section
           </button>
+          } @if(isSectionEdit == true) {
+          <button
+            class="btn btn-success h-25"
+            (click)="editSectionData(section)"
+          >
+            <i class="fas fa-edit"></i>
+            Section
+          </button>
+          }
         </div>
         @if (!isSectionValid) {
         <div>
@@ -147,11 +157,14 @@
             <div>
               <button
                 class="btn btn-warning me-1"
-                (click)="editcontant(content)"
+                (click)="editcontant(content, i)"
               >
                 <i class="fas fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="deleteContent(content)">
+              <button
+                class="btn btn-danger"
+                (click)="deleteContent(content, i)"
+              >
                 <i class="fas fa-trash"></i>
               </button>
             </div>
@@ -233,7 +246,11 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            @if(isContentEdit == false) {
             <h5 class="modal-title" id="addcontentModalLabel">Add content</h5>
+            } @if(isContentEdit == true) {
+            <h5 class="modal-title" id="addcontentModalLabel">Edit content</h5>
+            }
           </div>
           <div class="modal-body">
             <div class="mb-3">
@@ -278,7 +295,7 @@
             >
               Close
             </button>
-
+            @if (isContentEdit == false) {
             <button
               type="button"
               class="btn btn-success"
@@ -286,6 +303,15 @@
             >
               Save
             </button>
+            } @if (isContentEdit == true) {
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="editContentData(contents)"
+            >
+              Update
+            </button>
+            }
           </div>
         </div>
       </div>

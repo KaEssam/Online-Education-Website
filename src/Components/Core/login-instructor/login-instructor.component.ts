@@ -44,6 +44,7 @@ export class LoginInstructorComponent implements OnInit {
       this.LoginInstructorService.Login(email, password).subscribe(
         (res: any) => {
           localStorage.setItem("token", res.accessToken);
+          localStorage.setItem("type", "instructor");
         },
         (error) => {
           console.error('Error during sign-in:', error);

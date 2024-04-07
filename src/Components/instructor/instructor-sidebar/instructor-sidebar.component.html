@@ -7,14 +7,15 @@
         alt="Instructor Image"
       />
       <div class="instructor-details">
-        <h5 class="card-title">Instructor Name</h5>
+        @for (C of Courses; track C.Instructors) {
+        <h5 class="card-title">{{ C.Instructors }}</h5>
+        }
       </div>
     </div>
     <button class="create-btn" routerLink="/createCourse">Create Course</button>
     <!-- Social Media Icons -->
   </div>
 </div>
-
 <!-- Tab Switching Sidebar -->
 <ul class="nav nav-tabs flex-column sidebar" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">

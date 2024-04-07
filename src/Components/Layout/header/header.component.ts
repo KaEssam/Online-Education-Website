@@ -28,14 +28,16 @@ export class HeaderComponent implements OnInit{
   
 
   AuthService = inject(AuthService);
-  isLoggedIn: boolean = false;
+  isStudent: boolean = false;
 
   cartItems: number = 0;
   wishItems: number = 0;
 
   ngOnInit(): void {
-    this.AuthService.isLoggedIn$.subscribe(res => {
-      this.isLoggedIn = this.AuthService.isLoggedIn();
+    this.AuthService.isStudent$.subscribe(res => {
+      this.isStudent = this.AuthService.isStudent();
+      
+      
     });
 
     this.cartService.getCartItems().subscribe({
@@ -53,7 +55,8 @@ export class HeaderComponent implements OnInit{
 
   logout() {
     localStorage.removeItem('token');
-    this.AuthService.isLoggedIn$.next(false);
+    localStorage.removeItem('type');
+    this.AuthService.isStudent$.next(false);
     
   }
 

@@ -24,9 +24,20 @@ export class CreateCourseService {
 
     console.log(course);
 
-
+    let form: FormData = new FormData();
+    form.append('title', course.title);
+    form.append('categoryID', course.categoryID.toString());
+    form.append('description', course.description);
+    form.append('img', course.img);
+    form.append('price', course.price.toString());
+    form.append('sections', JSON.stringify(course.sections));
+    form.append('status', course.status);
 
     return this.http.post<Course>(this.apiUrl, course, httpOptions);
+  }
+
+  getAllCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(this.apiUrl);
   }
 
   getCourseById(id: number): Observable<Course> {

@@ -49,7 +49,8 @@ export class SignInComponent implements OnInit {
       this.authService.signIn(email, password).subscribe(
         (res: any) => {
           localStorage.setItem("token", res.accessToken);
-          this.authService.isLoggedIn$.next(true);
+          localStorage.setItem("type", "student");
+          this.authService.isStudent$.next(true);
           this.router.navigate(['/home']);
           this.signInForm.reset();
         },
