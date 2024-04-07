@@ -77,7 +77,7 @@ currentStep: number = 1;
   }
 
   FormSettings = new FormGroup({
-    price: new FormControl('', [Validators.required,Validators.min(0), Validators.pattern('^[0-9]+$')]),
+    price: new FormControl('', [Validators.required,Validators.min(1), Validators.pattern('^[0-9]+$')]),
   });
 
   get isPriceValid() {

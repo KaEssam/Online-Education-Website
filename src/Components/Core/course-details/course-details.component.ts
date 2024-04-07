@@ -6,11 +6,13 @@ import { WishlistService } from '../../../Services/wishlist.service';
 import AOS from 'aos'; //AOS - 1
 import { CoursesService } from '../../../Services/courses.service';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-course-details',
   standalone: true,
-  imports: [RouterModule, HttpClientModule],
+  imports: [RouterModule, HttpClientModule,CommonModule,ReactiveFormsModule],
   providers: [CoursesService, CartService, WishlistService],
   templateUrl: './course-details.component.html',
   styleUrl: './course-details.component.css'
@@ -32,6 +34,7 @@ export class CourseDetailsComponent {
     this.courseService.getCourseById(this.id).subscribe({
       next: (data) => {
         this.Course = data;
+        console.log(this.Course)
       },
       error: (err) => {
         this.router.navigate(['/Error', { errorMessage: err.message as string }]);

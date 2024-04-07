@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -53,12 +52,12 @@ hr {
   text-align: left;
 }
 
-.FullName{
+.FullName {
   display: flex;
   justify-content: space-between;
 }
 
-.FullName input{
+.FullName input {
 
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -75,25 +74,26 @@ label {
   text-align: left;
   font-weight: var(--tg-fw-medium)
 }
-  .input-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    margin-left: 15px;
-    font-weight: var(--tg-fw-regular);
-  }
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: 15px;
+  font-weight: var(--tg-fw-regular);
+}
 
 input[type="email"],
 input[type="password"],
 input[type="text"] {
-    width: calc(100%);
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    font-weight: var(--tg-fw-light);
+  width: calc(100%);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  font-weight: var(--tg-fw-light);
 }
 
 button {
@@ -110,21 +110,22 @@ button {
 }
 
 button:hover {
-  background-color: var(--tg-theme-primary);    box-shadow: 0 0 0 0 var(--tg-common-color-blue);
+  background-color: var(--tg-theme-primary);
+  box-shadow: 0 0 0 0 var(--tg-common-color-blue);
 
 }
 
-  .signin-link {
-    font-size: 14px;
-    margin-top: 20px;
-    font-weight: var(--tg-fw-light);
-  }
+.signin-link {
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: var(--tg-fw-light);
+}
 
-  .signin-link a {
-    margin-left: 5px;
-  }
+.signin-link a {
+  margin-left: 5px;
+}
 
-  span {
-    font-weight: var(--tg-fw-light);
-    margin-left: 15px;
-  }
+span {
+  font-weight: var(--tg-fw-light);
+  margin-left: 15px;
+}

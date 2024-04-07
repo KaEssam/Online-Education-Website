@@ -28,7 +28,7 @@
               <tr *ngFor="let p of Products; trackBy: trackByFn">
                 <td>
                   <img
-                    src="assets/img/{{ p.courseImage }}"
+                    src="data:image/png;base64,{{p.courseImage.fileContents}}"
                     class="img-fluid"
                     alt="Item Image"
                   />

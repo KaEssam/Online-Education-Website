@@ -40,7 +40,8 @@ interface User {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private baseUrl = 'http://skillgro.runasp.net';
-
+  
+  // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 
 
   constructor(
@@ -54,6 +55,20 @@ export class AuthService {
       email: username,
       password: password,
     });
+
+
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //      Authorization: 'Basic MTExNzEyNTg6NjAtZGF5ZnJlZXRyaWFs',
+    
+    //   }),
+    // };
+   
+    // return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, {
+    //   email: username,
+    //   password: password,
+    // },httpOptions);
 
   }
 

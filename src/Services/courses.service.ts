@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -23,10 +23,27 @@ export class CoursesService {
 
   private DB_URL = "http://skillgro.runasp.net";
 
+  // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
+
   constructor(private readonly Client: HttpClient) { }
 
   getAllCourses() {
-    return this.Client.get(`${this.DB_URL}/api/CourseHome`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //      Authorization: 'Basic MTExNzEyNTg6NjAtZGF5ZnJlZXRyaWFs',
+    //     "Application-Authorization": 'Bearer ' + localStorage.getItem('token'),
+    //   }),
+    // };
+
+    return this.Client.get(`${this.DB_URL}/api/CourseHome`,httpOptions);
   }
 
   getCoursesByCategory(category: string) {
@@ -34,7 +51,13 @@ export class CoursesService {
   }
 
   getCourseById(id:any){
-    return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`,httpOptions)
   }
 
   getPaginatedData(pageIndex: number, pageSize: number): Observable<any> {

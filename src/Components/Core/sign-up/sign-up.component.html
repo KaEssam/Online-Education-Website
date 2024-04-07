@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <h3>Create Your Account</h3>
-      <p>
-        Hey there! Ready to join the party? We just need a few details from you
-        to get started. Let's do this!
-      </p>
 
-      <!-- <div class="social-container">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h3>Create Your Account</h3>
+    <p>
+      Hey there! Ready to join the party? We just need a few details from you
+      to get started. Let's do this!
+    </p>
+
+    <!-- <div class="social-container">
         <a href="#" class="social-btn btn-google"
           ><svg
             width="24"
@@ -56,98 +55,89 @@
         <hr />
       </div> -->
 
-      <form [formGroup]="signupForm">
-        <div class="fullName">
-          <div class="form-group">
-            <div class="row FullName">
-              <div class="form-group col-6">
-                <label for="firstName">First Name</label>
-                <input
-                  #first_name
-                  type="text"
-                  class="form-control"
-                  id="firstName"
-                  formControlName="firstName"
-                  placeholder="Enter First Name"
-                />
-                @if (!isValidFirstName) {
-                <span class="text-danger">must be more than 3 char</span>
-                }
+    <form [formGroup]="signupForm">
+      <div class="fullName">
+        <div class="form-group">
+          <div class="row FullName">
+            <div class="form-group col-6">
+              <label for="firstName">First Name</label>
+              <input #first_name type="text" class="form-control" id="firstName" formControlName="firstName"
+                placeholder="Enter First Name" />
+              @if (!isValidFirstName) {
+              <div class="mb-2">
+                <span class="text-danger">First name is required</span>
+                <br>
+                <span class="text-danger">
+                  Must be more than 3 char
+                </span>
               </div>
-              <div class="form-group col-6">
-                <label for="lastName">Last Name</label>
-                <input
-                  #last_name
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                  formControlName="lastName"
-                  placeholder="Enter Last Name"
-                />
-                @if (!isValidLastName) {
-                <span class="text-danger">must be more than 3 char</span>
-                }
+              }
+            </div>
+            <div class="form-group col-6">
+              <label for="lastName">Last Name</label>
+              <input #last_name type="text" class="form-control" id="lastName" formControlName="lastName"
+                placeholder="Enter Last Name" />
+              @if (!isValidLastName) {
+              <div class="mb-2">
+                <span class="text-danger">Last name is required</span>
+                <br>
+                <span class="text-danger">
+                  Must be more than 3 char
+                </span>
               </div>
+              }
             </div>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            #email
-            type="email"
-            class="form-control"
-            id="email"
-            formControlName="email"
-            placeholder="Enter email"
-          />
-          @if (!isValidEmail) {
-          <span class="text-danger">Email is required</span>
-          }
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            #password
-            type="password"
-            class="form-control"
-            id="password"
-            formControlName="password"
-            placeholder="Password"
-          />
-          @if (!isValidPassword) {
-          <span class="text-danger"
-            >Password is required and must Contain upper and lower char</span
-          >
-          }
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="confirmPassword"
-            formControlName="confirmPassword"
-            placeholder="Confirm Password"
-          />
-          @if (!isValidConfirmPassword) {
-          <span class="text-danger">Password Not Match</span>
-          }
-        </div>
-        <button
-          type="button"
-          value="Sign Up"
-          class="btn btn-primary"
-          (click)="validateAndSubmit()"
-        >
-          Sign Up
-        </button>
-      </form>
-
-      <div class="signin-link">
-        Already Have an account? <a routerLink="/login">Sign In</a>
       </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input #email type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email" />
+        @if (!isValidEmail) {
+        <div class="mb-2">
+          <span class="text-danger">Email is required and must be in a valid format</span>
+
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input #password type="password" class="form-control" id="password" formControlName="password"
+          placeholder="Password" />
+        @if (!isValidPassword) {
+        <div class="mb-2">
+          <span class="text-danger ">Password is required</span>
+          <br>
+          <span class="text-danger ">Must be at least 8 characters</span>
+          <br>
+          <span class="text-danger ">Must Contain at least upper ,lower char</span>
+          <br>
+
+          <span class="text-danger ">Must Contain at least number,special char</span>
+
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+          placeholder="Confirm Password" />
+        @if (!isValidConfirmPassword) {
+        <div class="mb-2">
+          <span class="text-danger ">Password Not Match</span>
+        </div>
+        }
+      </div>
+      <button type="button" value="Sign Up" class="btn btn-primary" (click)="validateAndSubmit()">
+        Sign Up
+      </button>
+    </form>
+
+    <div class="signin-link">
+      Already Have an account? <a routerLink="/login">Sign In</a>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

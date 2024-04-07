@@ -30,7 +30,7 @@
 <div class="container shop-details-top">
     <div class="row">
         @if (Course) {
-        <div class="col-lg-8" >
+        <div class="col-lg-8">
             <div class="shop-details-images-wrap" style="background-color: var(--tg-common-color-gray);">
                 <div class="myTabContent">
                     <div class="show active d-block " id="home-tab-pane">
@@ -85,9 +85,8 @@
                                                 <ul class="list-wrap">
                                                     @for (lesson of section.contents; track lesson.id) {
                                                     <li class="course-item open-item">
-                                                    
-                                                        <a class="course-item-link popup-video"
-                                                            target="_blank">
+
+                                                        <a class="course-item-link popup-video" target="_blank">
                                                             <span class="item-name">{{lesson.title}}</span>
                                                             <div class="course-item-meta">
                                                                 <!-- <span class="item-meta duration">03:03</span> -->
@@ -264,12 +263,22 @@
                         <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                     </ul>
                 </div> -->
-
+                @if (!Course.enrolled) {
                 <div class="shop-details-qty justify-content-center mt-5">
-                    <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course.id)">Add To Cart</a>
+                    <a style="cursor: pointer;" class="cart-btn btn col-8" (click)="addToCart(Course.id)">Add To
+                        Cart</a>
                     <a style="cursor: pointer;" class="wishlist-btn" (click)="addToWishlist(Course.id)"><i
                             class="fa fa-heart-o"></i></a>
                 </div>
+
+                } @else {
+
+
+                <div class="shop-details-qty justify-content-center mt-5">
+                    <a style="cursor: pointer;" class="cart-btn btn col-10" routerLink="/enroll/{{Course.id}}">Go To
+                        Course</a>
+                </div>
+                }
             </div>
         </div>
         }

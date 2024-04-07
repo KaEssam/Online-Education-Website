@@ -128,7 +128,7 @@
             @for (c of courses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="" alt="Course Title" />
+                <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -177,10 +177,11 @@
             @for (c of courses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="" alt="Course Title" />
+                <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course Title" />
 
                 <ul class="shop-action">
-                  <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
+                  <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a>
+                  </li>
                   <li style="cursor: pointer;"><a (click)="addToWishlist(c.id)"><i class="fa fa-heart"></i></a></li>
                 </ul>
 
