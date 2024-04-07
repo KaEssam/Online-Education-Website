@@ -1,4 +1,4 @@
-// import { Course } from './../../../../Services/course';
+
 import { Component } from '@angular/core';
 import { CourseItemComponent } from '../../course-item/course-item.component';
 import { Router, RouterModule } from '@angular/router';
@@ -8,21 +8,24 @@ import { CartService } from '../../../../Services/cart.service';
 import { WishlistService } from '../../../../Services/wishlist.service';
 import Swal from 'sweetalert2';
 import { Time } from '@angular/common';
+import { GetCategoryService } from '../../../../Services/get-category.service';
 
 
 interface Category {
-  title:string;
-  courses:Course[];
+  title: string;
+  courses: Course[];
 }
 
-interface Course{
+interface Course {
   id: number,
   title: string,
   price: number,
   rating: number,
   duration: Time,
   category: string,
-  img: string,
+  img: {
+    fileContents:string;
+  },
   sections: number,
   instructor: string,
   enrollmentCount: number,
@@ -33,19 +36,21 @@ interface Course{
   selector: 'app-course-section',
   standalone: true,
   imports: [CourseItemComponent, RouterModule, HttpClientModule],
-  providers: [CoursesService,CartService,WishlistService],
+  providers: [CoursesService, CartService, WishlistService, GetCategoryService],
   templateUrl: './course-section.component.html',
   styleUrl: './course-section.component.css'
 })
 export class CourseSectionComponent {
+  allCourses: any;
+  displayedCourses: Course[] = [];
 
-  
 
-  allCourses: any = [];
+ 
   categoryCourses: any;
-  displayedCourses: any[] = [];
-  displayedCategoryCourses: any[] = [];
-  constructor(private coursesService: CoursesService,private cartService: CartService,private wishlistService: WishlistService, private router: Router) { }
+  courses: any;
+
+
+  constructor(private coursesService: CoursesService, private cartService: CartService, private wishlistService: WishlistService, private getCategoryService: GetCategoryService, private router: Router) { }
 
   ngOnInit(): void {
     this.coursesService.getAllCourses().subscribe({
@@ -56,36 +61,25 @@ export class CourseSectionComponent {
       error: (err) => {
         this.router.navigate(['/Error', { errorMessage: err.message as string }]);
       }
-    })
+    });
+
   }
 
   filterProducts(category: string): void {
-    if (category === 'all') {
-      // Call service method to get all products
-      this.coursesService.getAllCourses().subscribe({
-        next: (data) => {
-          this.allCourses = data;
-          this.displayedCourses = this.allCourses.slice(0, 4);
-
-        },
-        error: (err) => {
-          this.router.navigate(['/Error', { errorMessage: err.message as string }]);
-        }
-      })
-    } else {
+  
       // Call service method to get products by category
       this.coursesService.getCoursesByCategory(category).subscribe({
         next: (data) => {
+          // this.categoryCourses = data
           this.categoryCourses = data;
-          console.log(this.categoryCourses);
-          this.displayedCategoryCourses = this.categoryCourses.slice(0, 4);
+          this.courses = this.categoryCourses.slice(0,4)
 
         },
         error: (err) => {
           this.router.navigate(['/Error', { errorMessage: err.message as string }]);
         }
       })
-    }
+    
   }
 
 

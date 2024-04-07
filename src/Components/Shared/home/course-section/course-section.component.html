@@ -1,20 +1,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <!-- Feather Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <title>Document</title>
 </head>
 
@@ -46,11 +37,11 @@
             <ul class="nav nav-tabs" id="courseTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-tab-pane"
-                  type="button" role="tab" aria-controls="all-tab-pane" aria-selected="true"
-                  (click)="filterProducts('All')">
+                  type="button" role="tab" aria-controls="all-tab-pane" aria-selected="true">
                   All Courses
                 </button>
               </li>
+
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane"
                   type="button" role="tab" aria-controls="design-tab-pane" aria-selected="false" tabindex="-1"
@@ -65,6 +56,7 @@
                   Web
                 </button>
               </li>
+
               <!-- <li class="nav-item" role="presentation">
                 <button class="nav-link" id="development-tab" data-bs-toggle="tab"
                   data-bs-target="#development-tab-pane" type="button" role="tab" aria-controls="development-tab-pane"
@@ -85,13 +77,14 @@
               @for (c of displayedCourses; track c.id) {
               <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card h-100">
-                  <img src="assets/img/test.png" alt="Course img" />
-                  
-                    <ul class="shop-action">
-                      <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
-                      <li style="cursor: pointer;"><a (click)="addToWishlist(c.id)"><i class="fa fa-heart"></i></a></li>
-                    </ul>
-               
+                  <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course img" />
+
+                  <ul class="shop-action">
+                    <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a>
+                    </li>
+                    <li style="cursor: pointer;"><a (click)="addToWishlist(c.id)"><i class="fa fa-heart"></i></a></li>
+                  </ul>
+
                   <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                       <span class="badge">{{c.category}}</span>
@@ -114,7 +107,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="btn-enroll">
                         <button type="button" class="btn btn-primary border-0" routerLink="/courses/{{c.id}}">
-                          Enroll Now
+                          Course Details
                         </button>
                       </div>
                       <div class="price">
@@ -132,10 +125,10 @@
       <div class="tab-pane fade" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
         <div class="container">
           <div class="row">
-            @for (c of categoryCourses; track c.id) {
+            @for (c of courses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="aassets/img/test.png" alt="Course Title" />
+                <img src="" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -164,7 +157,7 @@
                   <div class="d-flex align-items-center justify-content-between">
                     <div class="btn-enroll">
                       <button type="button" class="btn btn-primary border-0" routerLink="/courses/{{c.id}}">
-                        Enroll Now
+                        Course Details
                       </button>
                     </div>
                     <div class="price">
@@ -181,10 +174,10 @@
       <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab" tabindex="0">
         <div class="container">
           <div class="row">
-            @for (c of categoryCourses; track c.id) {
+            @for (c of courses; track c.id) {
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="card h-100">
-                <img src="assets/img/test.png" alt="Course Title" />
+                <img src="" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>

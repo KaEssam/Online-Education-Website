@@ -51,7 +51,9 @@ import { StudentProfileComponent } from '../Components/Student/student-profile.c
     HttpClientModule,
     InstructorDashboardComponent,
     CreateCourseComponent,
-    CourseDetailsComponent, LoginInstructorComponent, StudentProfileComponent],
+    CourseDetailsComponent, 
+    LoginInstructorComponent,
+     StudentProfileComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

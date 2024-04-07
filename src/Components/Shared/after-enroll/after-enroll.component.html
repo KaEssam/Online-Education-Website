@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <!-- <video #target class="video-js" controls autoplay playsinline preload="none" src="https://vod-progressive.akamaized.net/exp=1712000659~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3035%2F8%2F215175080%2F742273044.mp4~hmac=1fc514cb88e97cb078e63ca612d23707a83ffb3f84e1dd4893344923cbc2250d/vimeo-prod-skyfire-std-us/01/3035/8/215175080/742273044.mp4" type='video/mp4' ></video> -->
-  <div *ngIf="isLoading">
-    <p>Loading course content...</p>
-  </div>
 
 
 
@@ -42,7 +29,6 @@
         </video>
       </div>
 
-      <!-- Courses Video Playlist Start -->
       <div class="col-lg-4 p-0 m-0">
         <div *ngIf="!isLoading && Course?.sectionsContent">
           <div *ngFor="let section of Course.sectionsContent; let i = index">
@@ -74,7 +60,6 @@
 
         </div>
       </div>
-      <!-- Courses Video Playlist End -->
     </div>
 
 
@@ -141,8 +126,3 @@
     }
 
   </div>
-
-
-</body>
-
-</html>

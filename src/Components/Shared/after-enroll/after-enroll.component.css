@@ -9,7 +9,6 @@ body{
 
 .courses-enroll-wrapper{
     margin: 6rem auto;
-    /* float: left; */
 }
 
 @media only screen and (max-width: 575px) {
