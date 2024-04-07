@@ -17,7 +17,6 @@ export class CreateCourseService {
   createCourse(course: Course): Observable<Course> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
@@ -33,7 +32,7 @@ export class CreateCourseService {
     form.append('sections', JSON.stringify(course.sections));
     form.append('status', course.status);
 
-    return this.http.post<Course>(this.apiUrl, course, httpOptions);
+    return this.http.post<Course>(this.apiUrl, form, httpOptions);
   }
 
   getAllCourses(): Observable<Course[]> {
