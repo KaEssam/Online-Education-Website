@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UploadImgService {
 
-    private apiUrl = 'http://skillgro.runasp.net';
+    private apiUrl = 'https://localhost:7115';
   constructor(private http: HttpClient) { }
 
   uploadImg(formData:FormData): Observable<any> {

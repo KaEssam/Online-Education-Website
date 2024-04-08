@@ -8,7 +8,7 @@ import { Course } from './course';
 })
 export class CreateCourseService {
 
-  private apiUrl = 'http://skillgro.runasp.net/api/CourseWithSection';
+  private apiUrl = 'https://localhost:7115/api/CourseWithSection';
 
   
 
@@ -32,7 +32,7 @@ export class CreateCourseService {
     form.append('sections', JSON.stringify(course.sections));
     form.append('status', course.status);
 
-    return this.http.post<Course>(this.apiUrl, form, httpOptions);
+    return this.http.post<Course>(this.apiUrl, course, httpOptions);
   }
 
   getAllCourses(): Observable<Course[]> {

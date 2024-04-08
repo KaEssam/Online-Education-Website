@@ -9,7 +9,7 @@ export class WishlistService {
   //https://skillgro.runasp.net/api/WishList ==> get
   //https://skillgro.runasp.net/api/WishList/{courseId} ==> delete
   
-  private readonly WISH_URL = 'http://skillgro.runasp.net'; // Separate URL for cart operations
+  private readonly WISH_URL = 'https://localhost:7115'; // Separate URL for cart operations
   constructor(private readonly Client: HttpClient) {}
 
   addToWish(id: any) {

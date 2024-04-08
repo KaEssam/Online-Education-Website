@@ -17,7 +17,7 @@ interface Video {
 })
 export class VideoService {
 
-  private DB_URL = "http://skillgro.runasp.net";  // Replace with your API URL
+  private DB_URL = "https://localhost:7115";  // Replace with your API URL
 
   constructor(private http: HttpClient) { }
 

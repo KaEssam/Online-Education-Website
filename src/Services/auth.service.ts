@@ -39,7 +39,7 @@ interface User {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://skillgro.runasp.net';
+  private baseUrl = 'https://localhost:7115';
   
   // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 

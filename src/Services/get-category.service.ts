@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GetCategoryService {
 
-  private DB_URL = "http://skillgro.runasp.net";
+  private DB_URL = "https://localhost:7115";
 
   constructor(private http: HttpClient ) {  }
 

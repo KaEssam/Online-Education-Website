@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class StudentCourseService {
 
-  private DB_URL = "http://skillgro.runasp.net";
+  private DB_URL = "https://localhost:7115";
 
   constructor(private readonly Client: HttpClient) { }
 
@@ -21,13 +21,13 @@ export class StudentCourseService {
   }
 
 
-  getCourseById(id:any){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }),
-    };
-    return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`, httpOptions)
-  }
+  // getCourseById(id:any){
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+  //   return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`, httpOptions)
+  // }
 }

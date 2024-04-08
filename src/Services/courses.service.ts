@@ -21,7 +21,7 @@ export class CoursesService {
   // }
 
 
-  private DB_URL = "http://skillgro.runasp.net";
+  private DB_URL = "https://localhost:7115";
 
   // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 

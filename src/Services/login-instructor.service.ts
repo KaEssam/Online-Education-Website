@@ -16,10 +16,11 @@ interface User {
 })
 export class LoginInstructorService {
 
-   private baseUrl = 'http://skillgro.runasp.net';
+   private baseUrl = 'https://localhost:7115';
 
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
+
 
   constructor(
     private http: HttpClient /*, public jwtHelper: JwtHelperService*/
@@ -41,4 +42,14 @@ export class LoginInstructorService {
     });
   }
 
+      isInstructor() {
+    const currentUser = localStorage.getItem('token');
+    const isLoggedIn = currentUser ? true : false;
+    const type = localStorage.getItem('type');
+    return type === 'Instructor'&&isLoggedIn;
+  }
+
+  isInstructor$ = new BehaviorSubject<boolean>(false);
 }
+
+
