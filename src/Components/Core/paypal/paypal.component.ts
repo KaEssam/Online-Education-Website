@@ -3,6 +3,7 @@ import { CartComponent } from './../cart/cart.component';
 import { Component } from '@angular/core';
 import { PayPalService } from '../../../Services/paypal.service';
 import { CartService } from '../../../Services/cart.service';
+import Swal from 'sweetalert2';
 
 interface PayPalWindow extends Window {
   paypal?: any;
@@ -56,9 +57,17 @@ export class PaypalComponent {
             .capturePayment(data.orderID, this.Courses)
             .subscribe({
               next: () => {
-                window.alert(
-                  'Payment successful! Thank you for your purchase.'
-                );
+                Swal.fire({
+                  icon: "success",
+                  title: "Payment successful! Thank you for your purchase.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                  position: "top-end",
+                  // toast: true,
+                  customClass: {
+                    title: 'myCustomTitle'
+                  }
+                });
               },
             });
         },

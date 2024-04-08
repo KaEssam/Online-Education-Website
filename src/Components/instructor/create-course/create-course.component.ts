@@ -52,8 +52,8 @@ currentStep: number = 1;
 
 
   FormInfo = new FormGroup({
-    title: new FormControl('',[Validators.required,Validators.minLength(5), Validators.maxLength(50),Validators.pattern('^[a-zA-Z]+$')]),
-    description: new FormControl('', [Validators.required,Validators.minLength(5), Validators.maxLength(500)]),
+    title: new FormControl('',[Validators.required,Validators.minLength(10), Validators.maxLength(50),Validators.pattern('^[a-zA-Z]+$')]),
+    description: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(500)]),
     img: new FormControl('',),
   });
 

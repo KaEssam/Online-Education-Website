@@ -15,7 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 export class StudentContentComponent {
 
   id: any;
-  Courses: any;
+  Courses: any = [];
 
   constructor(private studentCourseService:StudentCourseService, private router: Router, private Activated: ActivatedRoute,) {
     this.id = this.Activated.snapshot.params["id"];
@@ -29,8 +29,9 @@ export class StudentContentComponent {
     this.studentCourseService.getAllCourses().subscribe({
       
       next: (data) => {
-        console.log(data);
         this.Courses = data;
+                console.log(data);
+
         
       },
       error: (err) => {
@@ -39,20 +40,20 @@ export class StudentContentComponent {
     })
   }
 
-  viewCourse(id: any) {
-        this.studentCourseService.getAllCourses().subscribe({
+//   viewCourse(id: any) {
+//         this.studentCourseService.getAllCourses().subscribe({
           
-      next: (data) => {
-        console.log(data);
-        this.Courses = data;
+//       next: (data) => {
+//         console.log(data);
+//         this.Courses = data;
         
-      },
-      error: (err) => {
-        this.router.navigate(['/Error', { errorMessage: err.message as string }]);
-      }
-    })
+//       },
+//       error: (err) => {
+//         this.router.navigate(['/Error', { errorMessage: err.message as string }]);
+//       }
+//     })
 
-}
+// }
   
   }
 

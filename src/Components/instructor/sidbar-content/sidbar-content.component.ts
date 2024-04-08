@@ -1,3 +1,4 @@
+import { UserInfoService } from "./../../../Services/user-info.service";
 import { CreateCourseService } from "./../../../Services/create-course.service";
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -8,15 +9,16 @@ import Swal from "sweetalert2";
   selector: 'app-sidbar-content',
   standalone: true,
   imports: [RouterModule],
-  providers: [CreateCourseService],
+  providers: [CreateCourseService,],
   templateUrl: './sidbar-content.component.html',
   styleUrl: './sidbar-content.component.css'
 })
 export class SidbarContentComponent {
 
-  constructor(private createCourseService:CreateCourseService) { }
+  constructor(private createCourseService:CreateCourseService, ) { }
 
   Courses: any = [];
+  user: any;
 
 
 
@@ -24,6 +26,8 @@ export class SidbarContentComponent {
     this.getAllCreatedCourses();
 
   }
+
+
 
   getAllCreatedCourses() {
     this.createCourseService.getAllCourses().subscribe({

@@ -193,7 +193,8 @@
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
         <input
-          type="number" min="1"
+          type="number"
+          min="1"
           class="form-control"
           id="price"
           [(ngModel)]="course.price"
@@ -203,7 +204,9 @@
       </div>
       @if (!isPriceValid) {
       <div>
-        <small class="text-danger">Price is required & must be greater than 0</small>
+        <small class="text-danger"
+          >Price is required & must be greater than 0</small
+        >
       </div>
       }
       <div class="mb-3">
