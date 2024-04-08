@@ -7,9 +7,7 @@
         alt="Instructor Image"
       />
       <div class="instructor-details">
-        @for (C of Courses; track C.Instructors) {
-        <h5 class="card-title">{{ C.Instructors }}</h5>
-        }
+        <h5 class="card-title">{{ user.user }}</h5>
       </div>
     </div>
     <button class="create-btn" routerLink="/createCourse">Create Course</button>
