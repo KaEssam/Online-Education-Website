@@ -341,7 +341,7 @@
             </li>
           </ul>
 
-          <ng-container *ngIf="!isStudent">
+          <ng-container *ngIf="!isStudent && !isInstructor">
             <div class="navbar-auth">
               <button
                 id="btn-login"
@@ -362,8 +362,9 @@
             </div>
           </ng-container>
 
-          <ng-container *ngIf="isStudent">
+          <ng-container>
             <div class="navbar-icons">
+              @if(isStudent){
               <a class="nav-link" routerLink="/cart">
                 <i class="bi bi-cart">
                   <span class="badge">{{ cartItems }}</span>
@@ -374,11 +375,14 @@
                   <span class="badge">{{ wishItems }}</span>
                 </i>
               </a>
+              }
               <!-- <a class="nav-link" routerLink="/">
                 <i class="bi bi-bell">
                   <span class="badge">5</span>
                 </i>
               </a> -->
+
+              @if(isStudent){
               <div class="dropdown">
                 <a
                   class="nav-link dropdown"
@@ -412,6 +416,41 @@
                   </li>
                 </ul>
               </div>
+              } @if(isInstructor){
+              <div class="dropdown">
+                <a
+                  class="nav-link dropdown"
+                  routerLink=""
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person"></i>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item" routerLink="instructor">Profile</a>
+                  </li>
+                  <!-- <li><a class="dropdown-item" routerLink="/">Settings</a></li> -->
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="/home"
+                      id="loginBtn"
+                      (click)="logout()"
+                      >Sign Out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              }
             </div>
           </ng-container>
         </div>

@@ -1,3 +1,4 @@
+import { LoginInstructorService } from "./../../../Services/login-instructor.service";
 import { AuthService } from "./../../../Services/auth.service";
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,7 +13,7 @@ import { WishlistService } from "../../../Services/wishlist.service";
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  providers: [ProductsService, AuthService, CartService, WishlistService],
+  providers: [ProductsService, AuthService, CartService, WishlistService, LoginInstructorService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -29,6 +30,11 @@ export class HeaderComponent implements OnInit{
 
   AuthService = inject(AuthService);
   isStudent: boolean = false;
+
+  LoginInstructorService = inject(LoginInstructorService);
+  isInstructor: boolean = false;
+
+
 
   cartItems: number = 0;
   wishItems: number = 0;
@@ -57,7 +63,13 @@ export class HeaderComponent implements OnInit{
     localStorage.removeItem('token');
     localStorage.removeItem('type');
     this.AuthService.isStudent$.next(false);
+    this.LoginInstructorService.isInstructor$.next(false);
     
+  }
+
+  isloggedIn() {
+    this.isInstructor = true;
+    this.isStudent = true;
   }
 
 
