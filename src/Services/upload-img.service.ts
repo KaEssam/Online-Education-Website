@@ -3,21 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UploadImgService {
+  private apiUrl = 'https://skillgro.runasp.net';
+  constructor(private http: HttpClient) {}
 
-    private apiUrl = 'https://localhost:7115';
-  constructor(private http: HttpClient) { }
-
-  uploadImg(formData:FormData): Observable<any> {
+  uploadImg(formData: FormData): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
 
-
-    return this.http.post(`${this.apiUrl}/api/Video/UploadImage`, formData, httpOptions);
-}
+    return this.http.post(
+      `${this.apiUrl}/api/Video/UploadImage`,
+      formData,
+      httpOptions
+    );
+  }
 }

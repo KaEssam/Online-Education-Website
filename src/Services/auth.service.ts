@@ -39,16 +39,13 @@ interface User {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'https://localhost:7115';
-  
-  // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
+  private baseUrl = 'https://skillgro.runasp.net';
 
+  // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 
   constructor(
     private http: HttpClient /*, public jwtHelper: JwtHelperService*/
-  ) {
-  }
-
+  ) {}
 
   signIn(username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, {
@@ -56,20 +53,18 @@ export class AuthService {
       password: password,
     });
 
-
     // const httpOptions = {
     //   headers: new HttpHeaders({
     //     'Content-Type': 'application/json',
     //      Authorization: 'Basic MTExNzEyNTg6NjAtZGF5ZnJlZXRyaWFs',
-    
+
     //   }),
     // };
-   
+
     // return this.http.post<any>(`${this.baseUrl}/api/student/account/login`, {
     //   email: username,
     //   password: password,
     // },httpOptions);
-
   }
 
   SignUp(userData: any): Observable<any> {
@@ -94,7 +89,7 @@ export class AuthService {
     const currentUser = localStorage.getItem('token');
     const isLoggedIn = currentUser ? true : false;
     const type = localStorage.getItem('type');
-    return type === 'student'&&isLoggedIn;
+    return type === 'student' && isLoggedIn;
   }
 
   isStudent$ = new BehaviorSubject<boolean>(false);

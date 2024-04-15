@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-
 interface User {
   id: number;
   firstName: string;
@@ -12,15 +11,13 @@ interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginInstructorService {
-
-   private baseUrl = 'https://localhost:7115';
+  private baseUrl = 'https://skillgro.runasp.net';
 
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
-
 
   constructor(
     private http: HttpClient /*, public jwtHelper: JwtHelperService*/
@@ -42,14 +39,12 @@ export class LoginInstructorService {
     });
   }
 
-      isInstructor() {
+  isInstructor() {
     const currentUser = localStorage.getItem('token');
     const isLoggedIn = currentUser ? true : false;
     const type = localStorage.getItem('type');
-    return type === 'Instructor'&&isLoggedIn;
+    return type === 'Instructor' && isLoggedIn;
   }
 
   isInstructor$ = new BehaviorSubject<boolean>(false);
 }
-
-

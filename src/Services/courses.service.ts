@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CoursesService {
-
   // private readonly DB_URL = "https://skillgro.runasp.net";
 
   // constructor(private readonly Client: HttpClient) { }
@@ -20,12 +19,11 @@ export class CoursesService {
   //   return this.Client.get(DB_URL_Category);
   // }
 
-
-  private DB_URL = "https://localhost:7115";
+  private DB_URL = 'https://skillgro.runasp.net';
 
   // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 
-  constructor(private readonly Client: HttpClient) { }
+  constructor(private readonly Client: HttpClient) {}
 
   getAllCourses() {
     const httpOptions = {
@@ -43,27 +41,30 @@ export class CoursesService {
     //   }),
     // };
 
-    return this.Client.get(`${this.DB_URL}/api/CourseHome`,httpOptions);
+    return this.Client.get(`${this.DB_URL}/api/CourseHome`, httpOptions);
   }
 
   getCoursesByCategory(category: string) {
     return this.Client.get(`${this.DB_URL}/api/CategoryWithCourse/${category}`);
   }
 
-  getCourseById(id:any){
+  getCourseById(id: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    return this.Client.get(`${this.DB_URL}/api/CourseWithSection/${id}`,httpOptions)
+    return this.Client.get(
+      `${this.DB_URL}/api/CourseWithSection/${id}`,
+      httpOptions
+    );
   }
 
   getPaginatedData(pageIndex: number, pageSize: number): Observable<any> {
     const startIndex = pageIndex * pageSize;
-    return this.Client.get<any>(`${this.DB_URL}/api/CourseWithSection?_start=${startIndex}&_limit=${pageSize}`);
+    return this.Client.get<any>(
+      `${this.DB_URL}/api/CourseWithSection?_start=${startIndex}&_limit=${pageSize}`
+    );
   }
-
-  
 }

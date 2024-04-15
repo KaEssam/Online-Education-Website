@@ -8,8 +8,8 @@ export class WishlistService {
   //https://skillgro.runasp.net/api/WishList/{courseId} ==> post
   //https://skillgro.runasp.net/api/WishList ==> get
   //https://skillgro.runasp.net/api/WishList/{courseId} ==> delete
-  
-  private readonly WISH_URL = 'https://localhost:7115'; // Separate URL for cart operations
+
+  private readonly WISH_URL = 'https://skillgro.runasp.net'; // Separate URL for cart operations
   constructor(private readonly Client: HttpClient) {}
 
   addToWish(id: any) {
@@ -19,7 +19,11 @@ export class WishlistService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    return this.Client.post(`${this.WISH_URL}/api/WishList/${id}`, undefined, httpOptions); // Post product to the cart URL
+    return this.Client.post(
+      `${this.WISH_URL}/api/WishList/${id}`,
+      undefined,
+      httpOptions
+    ); // Post product to the cart URL
   }
 
   getWishItems() {
@@ -40,6 +44,9 @@ export class WishlistService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    return this.Client.delete(`${this.WISH_URL}/api/WishList/${id}`,httpOptions);
+    return this.Client.delete(
+      `${this.WISH_URL}/api/WishList/${id}`,
+      httpOptions
+    );
   }
 }

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PayPalService {
-  private readonly APP_URL = 'https://localhost:7115'; // Separate URL for cart operations
+  private readonly APP_URL = 'https://skillgro.runasp.net'; // Separate URL for cart operations
   constructor(private readonly Client: HttpClient) {}
 
   capturePayment(orderId: any, coursesList: any) {

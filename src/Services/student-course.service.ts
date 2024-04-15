@@ -2,13 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentCourseService {
+  private DB_URL = 'https://skillgro.runasp.net';
 
-  private DB_URL = "https://localhost:7115";
-
-  constructor(private readonly Client: HttpClient) { }
+  constructor(private readonly Client: HttpClient) {}
 
   getAllCourses() {
     const httpOptions = {
@@ -19,7 +18,6 @@ export class StudentCourseService {
     };
     return this.Client.get(`${this.DB_URL}/api/CourseWithSection`, httpOptions);
   }
-
 
   // getCourseById(id:any){
   //   const httpOptions = {

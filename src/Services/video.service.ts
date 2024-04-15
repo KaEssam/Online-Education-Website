@@ -13,15 +13,16 @@ interface Video {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VideoService {
+  private DB_URL = 'https://skillgro.runasp.net'; // Replace with your API URL
 
-  private DB_URL = "https://localhost:7115";  // Replace with your API URL
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getCourseSections(id:any): Observable<Section[]> {
-    return this.http.get<Section[]>(`${this.DB_URL}/api/CourseWithSection/${id}`);
+  getCourseSections(id: any): Observable<Section[]> {
+    return this.http.get<Section[]>(
+      `${this.DB_URL}/api/CourseWithSection/${id}`
+    );
   }
 }

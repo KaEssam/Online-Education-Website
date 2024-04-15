@@ -2,15 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserInfoService {
-
-   private DB_URL = "https://localhost:7115";
-  constructor(private readonly Client: HttpClient) { }
+  private DB_URL = 'https://skillgro.runasp.net';
+  constructor(private readonly Client: HttpClient) {}
 
   getUserInfo() {
-        const httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -19,5 +18,3 @@ export class UserInfoService {
     return this.Client.get(`${this.DB_URL}/api/Userinfo`, httpOptions);
   }
 }
-
-
