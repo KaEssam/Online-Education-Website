@@ -10,31 +10,60 @@ export class CartService {
   //https://skillgro.runasp.net/api/Cart ==> get
   //https://skillgro.runasp.net/api/Cart/{courseId} ==> delete
 
-  private CART_URL = 'https://skillgro.runasp.net'; // Separate URL for cart operations
+  // private CART_URL = 'https://skillgro.runasp.net';
+
+  // constructor(private readonly Client: HttpClient) {}
+  // addToCart(id: any) {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+  //   return this.Client.post(
+  //     `${this.CART_URL}/api/Cart/${id}`,
+  //     undefined,
+  //     httpOptions
+  //   ); // Post product to the cart URL
+  // }
+
+  // getCartItems() {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+  //   return this.Client.get(`${this.CART_URL}/api/Cart`, httpOptions); // Fetch items from the cart URL
+  // }
+
+  // deleteFromCart(id: any) {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+  //   return this.Client.delete(`${this.CART_URL}/api/Cart/${id}`, httpOptions); // Delete product from the cart URL
+  // }
+
+
+  private CART_URL = 'http://localhost:3000/cart';
 
   constructor(private readonly Client: HttpClient) {}
-  addToCart(id: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }),
+  addToCart(course: { id: any; title: string; img: string; instructor: string; price: number }) {
+    const payload = {
+      id: course.id,
+      title: course.title,
+      img: course.img,
+      instructor: course.instructor,
+      price: course.price
     };
-    return this.Client.post(
-      `${this.CART_URL}/api/Cart/${id}`,
-      undefined,
-      httpOptions
-    ); // Post product to the cart URL
+    return this.Client.post(this.CART_URL, payload);
   }
 
   getCartItems() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }),
-    };
-    return this.Client.get(`${this.CART_URL}/api/Cart`, httpOptions); // Fetch items from the cart URL
+    return this.Client.get(this.CART_URL); // Fetch items from the cart URL
   }
 
   deleteFromCart(id: any) {
