@@ -58,13 +58,24 @@ export class CourseItemComponent {
     // setTimeout(()=>{}, 10000)
     this.currentPage = event.pageIndex
     this.items = this.getData(event.pageIndex, this.pageSize);
-    console.log(event)
+    console.log(event);
+    this.triggerBlinkAnimation();
+  }
+
+  triggerBlinkAnimation() {
+    const container = document.querySelector('.courses-container');
+    if (container) {
+      container.classList.remove('blink-animation');
+      setTimeout(() => {
+        container.classList.add('blink-animation');
+      }, 0);
+    }
   }
 
 
 
-  addToCart(id: any) {
-    this.cartService.addToCart(id).subscribe(
+  addToCart(course: any) {
+    this.cartService.addToCart(course).subscribe(
       () => {
         // Optional: You can handle success actions here
         console.log('Product added to cart successfully.');
