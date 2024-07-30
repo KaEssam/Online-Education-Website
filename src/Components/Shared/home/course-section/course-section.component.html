@@ -45,8 +45,8 @@
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane"
                   type="button" role="tab" aria-controls="design-tab-pane" aria-selected="false" tabindex="-1"
-                  (click)="filterProducts('test')">
-                  Test
+                  (click)="filterProducts('Business')">
+                  Business
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -56,6 +56,9 @@
                   Web
                 </button>
               </li>
+
+             
+              
 
               <!-- <li class="nav-item" role="presentation">
                 <button class="nav-link" id="development-tab" data-bs-toggle="tab"
@@ -75,9 +78,9 @@
           <div class="container">
             <div class="row">
               @for (c of displayedCourses; track c.id) {
-              <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-md-3">
                 <div class="card h-100">
-                  <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course img" />
+                  <img src="assets/img/{{c.img}}" alt="Course img" />
 
                   <ul class="shop-action">
                     <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a>
@@ -99,7 +102,7 @@
                     <div class="course-info">
                       <div class="me-3"><i class="bi bi-clock"></i> {{c.duration}}</div>
                       <div class="me-3">
-                        <i class="bi bi-list-ol"></i> {{c.sections}}
+                        <i class="bi bi-list-ol"></i> {{c.sectionsCount}}
                       </div>
                       <div class="text"><i class="bi bi-people-fill"></i> {{c.enrollmentCount}}</div>
                     </div>
@@ -126,9 +129,9 @@
         <div class="container">
           <div class="row">
             @for (c of courses; track c.id) {
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-md-3">
               <div class="card h-100">
-                <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course Title" />
+                <img src="assets/img/{{c.img}}" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a></li>
@@ -175,9 +178,9 @@
         <div class="container">
           <div class="row">
             @for (c of courses; track c.id) {
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-md-3">
               <div class="card h-100">
-                <img src="data:image/png;base64,{{c.img.fileContents}}" alt="Course Title" />
+                <img src="assets/img/{{c.img}}" alt="Course Title" />
 
                 <ul class="shop-action">
                   <li style="cursor: pointer;"><a (click)="addToCart(c.id)"><i class="fa fa-shopping-cart"></i></a>
