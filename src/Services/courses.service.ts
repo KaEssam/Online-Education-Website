@@ -19,19 +19,15 @@ export class CoursesService {
   //   return this.Client.get(DB_URL_Category);
   // }
 
-  private DB_URL = 'https://skillgro.runasp.net';
-
   // private DB_URL = "http://deyaataha999-001-site1.gtempurl.com";
 
-  constructor(private readonly Client: HttpClient) {}
-
-  getAllCourses() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }),
-    };
+  // getAllCourses() {
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //     Authorization: 'Bearer ' + localStorage.getItem('token'),
+    //   }),
+    // };
 
     // const httpOptions = {
     //   headers: new HttpHeaders({
@@ -41,30 +37,50 @@ export class CoursesService {
     //   }),
     // };
 
-    return this.Client.get(`${this.DB_URL}/api/CourseHome`, httpOptions);
+    // return this.Client.get(`${this.DB_URL}/api/CourseHome`, httpOptions);
+  // }
+
+
+  // getCourseById(id: any) {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+  //   return this.Client.get(
+  //     `${this.DB_URL}/api/CourseWithSection/${id}`,
+  //     httpOptions
+  //   );
+  // }
+
+  // getCoursesByCategory(category: string) {
+  //   return this.Client.get(`${this.DB_URL}/api/CategoryWithCourse/${category}`);
+  // }
+
+
+  private DB_URL = 'http://localhost:3000/courses';
+
+  constructor(private readonly Client: HttpClient) {}
+
+  getAllCourses() {
+    return this.Client.get(this.DB_URL);
   }
 
   getCoursesByCategory(category: string) {
-    return this.Client.get(`${this.DB_URL}/api/CategoryWithCourse/${category}`);
+    return this.Client.get(`${this.DB_URL}?category=${category}`);
   }
+
 
   getCourseById(id: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }),
-    };
-    return this.Client.get(
-      `${this.DB_URL}/api/CourseWithSection/${id}`,
-      httpOptions
-    );
+    return this.Client.get(`${this.DB_URL}/${id}`);
   }
+  
 
-  getPaginatedData(pageIndex: number, pageSize: number): Observable<any> {
-    const startIndex = pageIndex * pageSize;
-    return this.Client.get<any>(
-      `${this.DB_URL}/api/CourseWithSection?_start=${startIndex}&_limit=${pageSize}`
-    );
-  }
+  // getPaginatedData(pageIndex: number, pageSize: number): Observable<any> {
+  //   const startIndex = pageIndex * pageSize;
+  //   return this.Client.get<any>(
+  //     `${this.DB_URL}/api/CourseWithSection?_start=${startIndex}&_limit=${pageSize}`
+  //   );
+  // }
 }
