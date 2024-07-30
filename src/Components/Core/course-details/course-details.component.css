@@ -219,7 +219,7 @@
     background: var(--tg-theme-primary);
     box-shadow: 0px 3px 15px 0px rgba(13, 9, 99, 0.26);
     padding: 20px 20px 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .courses__cost-wrap span {
@@ -271,8 +271,8 @@
     color: var(--tg-common-color-gray-3);
 }
 
-.shop-details-content>.card-header {
-    font-size: 30px;
+.shop-details-content>.card-title {
+    /* font-size: 30px; */
     margin-bottom: 2rem;
     font-family: var(--tg-heading-font-family);
     color: var(--tg-heading-color);

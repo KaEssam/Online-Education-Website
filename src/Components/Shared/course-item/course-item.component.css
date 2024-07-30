@@ -2,19 +2,41 @@
   margin: 13rem auto 10rem;
 }
 
-
 .card {
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
-  padding: 15 0 15 0;
+  padding: 15px 0;
   position: relative;
   width: 90%;
-  /* cursor: pointer; */
-
+  display: flex;
+  flex-direction: column;
 }
 
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.card-title {
+  height: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text.text-muted {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.course-info {
+  display: flex;
+  justify-content: space-between;
+}
 
 .shop-action {
   display: flex;
@@ -24,10 +46,9 @@
   transform: translate(-50%, -50%);
   top: 20%;
   gap: 10px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   list-style: none;
-
 }
 
 .card:hover .shop-action li {
@@ -42,7 +63,6 @@
   transform: translateY(20px);
   transition: visibility 0.3s ease-out 0.1s, opacity 0.3s ease-out 0.15s, transform 0.3s ease-out 0.1s;
 }
-
 
 .shop-action a {
   width: 45px;
@@ -68,7 +88,6 @@ a {
   background: var(--tg-theme-primary);
   color: var(--tg-common-color-white);
 }
-
 
 .shop-action li:nth-child(2) {
   transition-delay: 0.15s;
@@ -98,14 +117,11 @@ a {
   cursor: pointer;
   color: var(--tg-common-color-white);
   background-color: var(--tg-theme-primary);
-
 }
-
 
 .card:hover {
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
-
 
 .author-name {
   color: var(--tg-common-color-black-3);
@@ -114,7 +130,6 @@ a {
 
 .author-name:hover {
   color: var(--tg-theme-primary);
-
 }
 
 .card-title:hover {
@@ -127,7 +142,9 @@ hr {
   transition: width 0.3s ease-in-out;
 }
 
-
+.btn-enroll {
+  margin-top: auto;
+}
 
 .btn-enroll button {
   background-color: var(--tg-theme-secondary);
@@ -139,7 +156,6 @@ hr {
   cursor: pointer;
   transition: all 0.3s ease-out 0s;
   box-shadow: 4px 4px 0px 0px #3D3D3D;
-
 }
 
 .btn-enroll button:hover {
@@ -168,4 +184,16 @@ hr {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+}
+
+/* Define the blink animation */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Apply the blink animation */
+.blink-animation {
+  animation: blink 0.5s ease-in-out;
 }
