@@ -26,7 +26,7 @@ interface Course {
   img: {
     fileContents:string;
   },
-  sections: number,
+  sectionsCount: number,
   instructor: string,
   enrollmentCount: number,
   state: string
